@@ -14,13 +14,27 @@
       margin-right: auto;
 
     }
+    p{
+
+      font-size: 30px;
+    }
     </style>
 </head>
 <body>
+<p>Githubにアップロードの仕方</p>
+
+まずGitbubサイトでrepositoryを作成するが、作成する名前は自分の　ユーザー名　+　.github.ioで作成をする。<br>
+作成したら、VSCodeを起動、ターミナルコードに git clone URL名を入力し、フォルダを作成する。<br>
+そのフォルダの中にhtmlを作成、作成したら適当に入力する。 作成したらgit statusと入力し、中身がorigin masterの中に入ってる事を確認する。<br>
+違うブランチに入っていたら、[git checkout master]とコマンドに入力する。　そして[git status]と再入力し、中身を確認<br>
+中身を確認したらアップロードをする、アップロードの仕方は[git push -u origin master]と入力しアップロードをする<br>
+アップロードしたら、ブラウザを開き、URLに ユーザー名 + .github.io と入力し、表示されたら成功。<br>
+
+
   <center><p>--- GitHubに関するコマンド一覧 ---</p></center>
   <table border="1">
     <tr>
-      <th>コマンド一覧</th><th>git staus</th><th>git branch　名前</th><th>git branch</th><th>git checkout 名前</th><th>git push -u origin master</th></tr>
+      <th>コマンド一覧</th><th>git status</th><th>git branch　名前</th><th>git branch</th><th>git checkout 名前</th><th>git push -u origin master</th></tr>
       <tr>
       <td></td><td>中身の確認</td><td>枝を作成</td><td>枝の確認</td><td>枝の切り替え</td><td>GitHubにアップロード</td></tr>
     </table>
