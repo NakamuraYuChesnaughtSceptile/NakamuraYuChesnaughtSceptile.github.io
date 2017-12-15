@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>現在まぐろです</title>
+</head>
+<body>
+  <form action="">
+    <label for="isbn">寿司ネタ：</label>
+    <select name="isbn" id="isbn">
+      <option value="">---好きな寿司を選んでください---</option>
+      <option value="maguro.html">マグロ</option>
+      <option value="sarmon.html">サーモン</option>
+      <option value="egg.html">タマゴ</option>
+      <option value="harasu.html">焼きはらす</option>
+    </select>
+  </form>
+  <script>
+  document.addEventListener('DOMContentLoaded',function() {
+    document.getElementById('isbn').addEventListener('change',function(){
+      location.href = "https://nakamurayuchesnaughtsceptile.github.io/" + this.value;
+    },false);
+    
+  },false)
+  </script>
+
+  <p>あなたはサーモンが大好きなんですね(* ͡° ͜ʖ ͡°*)</p>
+  <img src="https://NakamuraYuChesnaughtSceptile.github.io/samon.jpg" style="zoom:0.8"/>
+</body>
+</html>
