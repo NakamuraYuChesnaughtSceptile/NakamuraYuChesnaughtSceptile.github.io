@@ -1,154 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Githubのページ！</title>
   <style>
-  body{
-    background-image: url("https://NakamuraYuChesnaughtSceptile.github.io/images/gitback.jpg");
-    color: white;
-    margin:0;
-padding:0;
-width:100%;
-     min-width: 1024px;
-     border-color: white;
-  }
+    body {
+      background-image: url("https://NakamuraYuChesnaughtSceptile.github.io/images/gitback.jpg");
+      color: white;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-width: 1024px;
+      border-color: white;
+    }
 
-  .honbun{
-    background: rgb(29, 29, 29);
-    margin: auto;
-    width: 900px;
-    border-color: white;
-    border-left: solid 1px;
-    border-right: solid 1px;
-    box-shadow: 0px 5px 250px -5px rgba(0, 0, 0, 1);
-  }
-  #headers{
-    border-top: solid 1px;
-    border-bottom: solid 1px;
-  }
-  h1{
-    display: inline-block;
-    margin-left: 20px;
-    border: solid 1px;
-    border-left-color: rgba(8, 197, 181,1);
-    border-left: solid 10px;
-    width: 700px;
-    background: linear-gradient(-90deg,rgb(1, 112, 112), #000000);
-  }
-  h3{
-    display: inline-block;
-    margin-left: 20px;
-    border: solid 1px;
-    border-left: solid 10px;
-    width: 660px;
-    background: rgba(0,0,0,1);
-    padding-left: 40px;
-  }
-  p{
-    margin: 0px 0px 0px 40px;
-    width: 790px;
-  }
-  #selects{
-    margin: auto;
-  }
-  table{
-    margin: 0px 0px 0px 40px;
-    border: solid 1px;
-  }
-  footer{
-    border-top: solid 1px;
-    text-align: right;
-    background: linear-gradient(rgb(0, 0, 0), #7c7c7c);
-   
-  }
+    .honbun {
+      background: rgb(29, 29, 29);
+      margin: auto;
+      width: 900px;
+      border-color: white;
+      border-left: solid 1px;
+      border-right: solid 1px;
+      box-shadow: 0px 5px 250px -5px rgba(0, 0, 0, 1);
+    }
+
+    #headers {
+      border-top: solid 1px;
+      border-bottom: solid 1px;
+    }
+
+    h1 {
+      display: inline-block;
+      margin-left: 20px;
+      border: solid 1px;
+      border-left-color: rgba(8, 197, 181, 1);
+      border-left: solid 10px;
+      width: 700px;
+      background: linear-gradient(-90deg, rgb(1, 112, 112), #000000);
+    }
+
+    h3 {
+      display: inline-block;
+      margin-left: 20px;
+      border: solid 1px;
+      border-left: solid 10px;
+      width: 660px;
+      background: rgba(0, 0, 0, 1);
+      padding-left: 40px;
+    }
+
+    p {
+      margin: 0px 0px 0px 40px;
+      width: 790px;
+    }
+
+    #selects {
+      margin: auto;
+    }
+
+    table {
+      margin: 0px 0px 0px 40px;
+      border: solid 1px;
+    }
+
+    footer {
+      border-top: solid 1px;
+      text-align: right;
+      background: linear-gradient(rgb(0, 0, 0), #7c7c7c);
+
+    }
   </style>
 </head>
-<body>
-<div class="honbun">
-  <div id="selects"><p>選んでね！現在はGithubページだよ！
-    <form action="">
-      <label for="isbn">寿司ネタ + Github：</label>
-      <select name="isbn" id="isbn">
-        <option value="">---好きなのを選んでください---</option>
-        <option value="maguro.html">マグロ</option>
-        <option value="sarmon.html">サーモン</option>
-        <option value="egg.html">タマゴ</option>
-        <option value="harasu.html">焼きはらす</option>
-        <option value="Git.html">Githubのページ！</option>
-      </select>
-    </form>
-    </p>
-  </div>
-  <img src="https://NakamuraYuChesnaughtSceptile.github.io/headergithub.png" id="headers"/>
-<h1>・リポジトリを作ろう！</h1>
-<p>まずはリポジトリを作成してみましょう！</p>
-<p>Githubにアカウント登録後、ログインします。</p>
-<p>次に下の画像通りにある、New Repository(赤い枠)を押します。↓</p><br>
-<p><img src="https://NakamuraYuChesnaughtSceptile.github.io/images/git1.jpg" style="zoom:.4"/></p><br>
-<p>クリックすると、作成の画面が表示されます。色々ありますが１つずつ説明していきましょう。</p><br>
-<p><img src="https://NakamuraYuChesnaughtSceptile.github.io/images/git2.jpg" style="zoom:.7"/></p><br>
-<p>まず最初はRepository nameとありますがここは <font color="red"><u>[ 自分のユーザー名 ] + github.io</u></font> を入力してください！</p>
-<p>名前を入力したら次はDescriptionですが意味は「説明文」で適当に入力してくたさい。</p>
-<p>次はPublic(公開)かPrivate(非公開)とありますが、ここは無料会員の方はPublicしか選択できません。</p>
-<p><font color="red">Privateにしたい方は有料会員になってね(* ͡° ͜ʖ ͡°*)</font></p>
-<p>最後にリポジトリの中にREADMEファイルを作成したい方は(Initaialize this Repository with a README)にチェックを入れてください。</p>
-<p>後はCreate repositoryを押せば、作成完了です！</p>
 
-<h1>・ファイルを作成！編集！</h1>
-<p>ここではVSC(Visual Studio Code)ツールを使っての説明をしていきます。</p>
-<p>はじめに適当にhtmlファイルを作成します。(中身bodyは)hello world等書いておけばいいでしょう。</p>
-<p>そしたらターミナルコードを開きコードを入力します。今回は[index]という名前で作成します。</p>
-<h3>mkdir index</h3>
-<p>mkdir とはディレクトリを新しく作るコマンドです。これで作成が出来ます。</p>
-<h3>cd index</h3>
-<p>cd とは次へ開くフォルダを示し、indexというフォルダを開きます。</p>
-<h3>git init</h3>
-<p>git init でindexという名のフォルダにGitリポジトリが作成されます。</p>
-<p>これでこのフォルダはgithubと連携する事が出来ました！</p>
-<h1>・作った奴をフォルダに追加＆アップロード！</h1><br>
-<p>おぉ！作れた！というなら、じゃぁこれをフォルダに追加しましょ！</p>
-<h3>git add index.html</h3>
-<p>はい、これでもう追加おｋなんです！簡単でしょ？</p>
-<p>ささ、次はレポジトリにコミットさせてみましょう！</p>
-<h3>git commit -m "add new file"</h3>
-<p>これで、リポジトリでのファイルの追加が出来ました！</p>
-<p>じゃあ確認してみましょ！</p>
-<h3>git status</h3>
-<p>statusで今何のブランチ入っているかを確認出来ますん。</p>
-<p>ブランチ名が <u>master</u> になっている事を確認したら最後にアップロードします。</p>
-<h3>git push</h3>
-<p>これでアップロードは完了です！。サイトにいって確認してみましょう。</p><br>
-<p><img src="https://NakamuraYuChesnaughtSceptile.github.io/images/git3.jpg" style="zoom:.6"/></p><br>
-<p>ありました！ちゃんとアップロードされています！</p>
-<p>最後にブラウザを開き、URLに ユーザー名 + .github.io と入力し、index.html内に入力したhello worldが表示されたら成功です。</p>
-<h1>・今回使ったコメンド一覧まとめ + α</h1>
-<table border="1">
-  <tr><th>mkdir 名前</th><td>新しくディレクトリ作成</td></tr>
-  <tr><th>cd 名前</th><td>名前のファイルを開く</td></tr>
-  <tr><th>git add 名前.html</th><td>名前.htmlを作成</td></tr>
-  <tr><th>git init</th><td>Gitリポジトリ作成(隠しフォルダになります。)</td></tr>
-  <tr><th>git add</th><td>作成したデータを追加</td></tr>
-  <tr><th>git commit -m "add new file"</th><td>リポジトリでのファイルの追加</td></tr>
-  <tr><th>git status</th><td>ブランチ確認</td></tr>
-  <tr><th>git push</th><td>アップロード</td></tr>
-</table>
-<br>
-<br>
-<footer>
-  編集・作成：中村　裕   <br>
-  このページだけに５時間かけて作りました。。。
-</footer>
-</div>
-<script>
-  document.addEventListener('DOMContentLoaded',function() {
-    document.getElementById('isbn').addEventListener('change',function(){
-      location.href = "https://nakamurayuchesnaughtsceptile.github.io/" + this.value;
-    },false);
-    
-  },false)
-</script>
+<body>
+  <div class="honbun">
+    <center>
+      <div id="selects">選んでね！現在は5時間かけて作ったGithubページだよ！
+        <form action="">
+          <label for="isbn">寿司ネタ + Github：</label>
+          <select name="isbn" id="isbn">
+            <option value="">---好きなのを選んでください---</option>
+            <option value="maguro.html">マグロ</option>
+            <option value="sarmon.html">サーモン</option>
+            <option value="egg.html">タマゴ</option>
+            <option value="harasu.html">焼きはらす</option>
+            <option value="Git.html">Githubのページ！</option>
+          </select>
+        </form>
+      </div>
+    </center>
+    <img src="https://NakamuraYuChesnaughtSceptile.github.io/headergithub.png" id="headers" />
+    <h1>・リポジトリを作ろう！</h1>
+    <p>まずはリポジトリを作成してみましょう！</p>
+    <p>Githubにアカウント登録後、ログインします。</p>
+    <p>次に下の画像通りにある、New Repository(赤い枠)を押します。↓</p>
+    <br>
+    <p>
+      <img src="https://NakamuraYuChesnaughtSceptile.github.io/images/git1.jpg" style="zoom:.4" />
+    </p>
+    <br>
+    <p>クリックすると、作成の画面が表示されます。色々ありますが１つずつ説明していきましょう。</p>
+    <br>
+    <p>
+      <img src="https://NakamuraYuChesnaughtSceptile.github.io/images/git2.jpg" style="zoom:.7" />
+    </p>
+    <br>
+    <p>まず最初はRepository nameとありますがここは
+      <font color="red">
+        <u>[ 自分のユーザー名 ] + github.io</u>
+      </font> を入力してください！</p>
+    <p>名前を入力したら次はDescriptionですが意味は「説明文」で適当に入力してくたさい。</p>
+    <p>次はPublic(公開)かPrivate(非公開)とありますが、ここは無料会員の方はPublicしか選択できません。</p>
+    <p>
+      <font color="red">Privateにしたい方は有料会員になってね(* ͡° ͜ʖ ͡°*)</font>
+    </p>
+    <p>最後にリポジトリの中にREADMEファイルを作成したい方は(Initaialize this Repository with a README)にチェックを入れてください。</p>
+    <p>後はCreate repositoryを押せば、作成完了です！</p>
+
+    <h1>・ファイルを作成！編集！</h1>
+    <p>ここではVSC(Visual Studio Code)ツールを使っての説明をしていきます。</p>
+    <p>はじめに適当にhtmlファイルを作成します。(中身bodyは)hello world等書いておけばいいでしょう。</p>
+    <p>そしたらターミナルコードを開きコードを入力します。今回は[index]という名前で作成します。</p>
+    <h3>mkdir index</h3>
+    <p>mkdir とはディレクトリを新しく作るコマンドです。これで作成が出来ます。</p>
+    <h3>cd index</h3>
+    <p>cd とは次へ開くフォルダを示し、indexというフォルダを開きます。</p>
+    <h3>git init</h3>
+    <p>git init でindexという名のフォルダにGitリポジトリが作成されます。</p>
+    <p>これでこのフォルダはgithubと連携する事が出来ました！</p>
+    <h1>・作った奴をフォルダに追加＆アップロード！</h1>
+    <br>
+    <p>おぉ！作れた！というなら、じゃぁこれをフォルダに追加しましょ！</p>
+    <h3>git add index.html</h3>
+    <p>はい、これでもう追加おｋなんです！簡単でしょ？</p>
+    <p>ささ、次はレポジトリにコミットさせてみましょう！</p>
+    <h3>git commit -m "add new file"</h3>
+    <p>これで、リポジトリでのファイルの追加が出来ました！</p>
+    <p>じゃあ確認してみましょ！</p>
+    <h3>git status</h3>
+    <p>statusで今何のブランチ入っているかを確認出来ますん。</p>
+    <p>ブランチ名が
+      <u>master</u> になっている事を確認したら最後にアップロードします。</p>
+    <h3>git push</h3>
+    <p>これでアップロードは完了です！。サイトにいって確認してみましょう。</p>
+    <br>
+    <p>
+      <img src="https://NakamuraYuChesnaughtSceptile.github.io/images/git3.jpg" style="zoom:.6" />
+    </p>
+    <br>
+    <p>ありました！ちゃんとアップロードされています！</p>
+    <p>最後にブラウザを開き、URLに ユーザー名 + .github.io と入力し、index.html内に入力したhello worldが表示されたら成功です。</p>
+    <h1>・今回使ったコメンド一覧まとめ + α</h1>
+    <table border="1">
+      <tr>
+        <th>mkdir 名前</th>
+        <td>新しくディレクトリ作成</td>
+      </tr>
+      <tr>
+        <th>cd 名前</th>
+        <td>名前のファイルを開く</td>
+      </tr>
+      <tr>
+        <th>git add 名前.html</th>
+        <td>名前.htmlを作成</td>
+      </tr>
+      <tr>
+        <th>git init</th>
+        <td>Gitリポジトリ作成(隠しフォルダになります。)</td>
+      </tr>
+      <tr>
+        <th>git add</th>
+        <td>作成したデータを追加</td>
+      </tr>
+      <tr>
+        <th>git commit -m "add new file"</th>
+        <td>リポジトリでのファイルの追加</td>
+      </tr>
+      <tr>
+        <th>git status</th>
+        <td>ブランチ確認</td>
+      </tr>
+      <tr>
+        <th>git push</th>
+        <td>アップロード</td>
+      </tr>
+    </table>
+    <br>
+    <br>
+    <footer>
+      編集・作成：中村　裕
+      <br> このページだけに５時間かけて作りました。。。
+    </footer>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('isbn').addEventListener('change', function () {
+        location.href = "https://nakamurayuchesnaughtsceptile.github.io/" + this.value;
+      }, false);
+
+    }, false)
+  </script>
 </body>
+
 </html>
