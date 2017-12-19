@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>画像が変わる！？</title>
+<script>
+ document.addEventListener('DOMContentLoaded',function() {
+    document.getElementById('isbn').addEventListener('change',function(){
+      location.href = "https://nakamurayuchesnaughtsceptile.github.io/" + this.value;
+    },false);
+    
+  },false)
+
+window.addEventListener("load", function(){
+
+    
+    var imageIndex = 0;
+
+   
+    document.getElementsByTagName("button")[0].addEventListener("click", function(){
+       
+        if (imageIndex < 3) {
+            imageIndex++;
+        } else {
+            imageIndex = 0;
+        }
+        
+        switch(imageIndex) {
+            case 0:
+                imageSrc = "./images/hu1.jpg";
+                break;
+            case 1:
+                imageSrc = "./images/hu2.jpg";
+                break;
+            case 2:
+                imageSrc = "./images/hu3.jpg";
+                break;
+            case 3:
+                imageSrc = "./images/hu4.jpg";
+                break;
+        }
+        document.getElementById("image").src = imageSrc;
+
+    }, false);
+});
+</script>
+</head>
+<body>
+  <center>
+    <form action="">
+        <label for="isbn">寿司ネタ + Github + 画像！</label>
+        <select name="isbn" id="isbn">
+          <option value="">---好きなのを選んでください---</option>
+          <option value="maguro.html">マグロ</option>
+          <option value="sarmon.html">サーモン</option>
+          <option value="egg.html">タマゴ</option>
+          <option value="harasu.html">焼きはらす</option>
+          <option value="Git.html">Githubのページ！</option>
+          <option value="images.html">画像が変わる！？</option>
+        </select>
+      </form>
+      
+<button>画像を変更</button>
+<p><img id ="image" src="./images/hu1.jpg" alt="ふくろう" /></p>
+<br>
+<p><a href="http://gahag.net/011889-owl-eagle-ostrich-shoebill/">元画像はこちら！</a></p>
+</center>
+</body>
+</html>
