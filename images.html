@@ -2,48 +2,9 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>画像が変わる！？</title>
-<script>
- document.addEventListener('DOMContentLoaded',function() {
-    document.getElementById('isbn').addEventListener('change',function(){
-      location.href = "https://nakamurayuchesnaughtsceptile.github.io/" + this.value;
-    },false);
-    
-  },false)
-
-window.addEventListener("load", function(){
-
-    
-    var imageIndex = 0;
-
-   
-    document.getElementsByTagName("button")[0].addEventListener("click", function(){
-       
-        if (imageIndex < 3) {
-            imageIndex++;
-        } else {
-            imageIndex = 0;
-        }
-        
-        switch(imageIndex) {
-            case 0:
-                imageSrc = "./images/hu1.jpg";
-                break;
-            case 1:
-                imageSrc = "./images/hu2.jpg";
-                break;
-            case 2:
-                imageSrc = "./images/hu3.jpg";
-                break;
-            case 3:
-                imageSrc = "./images/hu4.jpg";
-                break;
-        }
-        document.getElementById("image").src = imageSrc;
-
-    }, false);
-});
-</script>
 </head>
 <body>
   <center>
@@ -65,5 +26,46 @@ window.addEventListener("load", function(){
 <br>
 <p><a href="http://gahag.net/011889-owl-eagle-ostrich-shoebill/">元画像はこちら！</a></p>
 </center>
+<script>
+    document.addEventListener('DOMContentLoaded',function() {
+       document.getElementById('isbn').addEventListener('change',function(){
+         location.href = "https://nakamurayuchesnaughtsceptile.github.io/" + this.value;
+       },false);
+       
+     },false)
+   
+   window.addEventListener("load", function(){
+   
+       
+       var imageIndex = 0;
+   
+      
+       document.getElementsByTagName("button")[0].addEventListener("click", function(){
+          
+           if (imageIndex < 3) {
+               imageIndex++;
+           } else {
+               imageIndex = 0;
+           }
+           
+           switch(imageIndex) {
+               case 0:
+                   imageSrc = "./images/hu1.jpg";
+                   break;
+               case 1:
+                   imageSrc = "./images/hu2.jpg";
+                   break;
+               case 2:
+                   imageSrc = "./images/hu3.jpg";
+                   break;
+               case 3:
+                   imageSrc = "./images/hu4.jpg";
+                   break;
+           }
+           document.getElementById("image").src = imageSrc;
+   
+       }, false);
+   });
+   </script>
 </body>
 </html>
