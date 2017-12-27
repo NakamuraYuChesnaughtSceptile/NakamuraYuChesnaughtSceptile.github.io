@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>How to Console</title>
+  <style>
+    header {
+      background: rgba(0, 0, 0, .8);
+
+      height: 100px;
+      color: white;
+      text-align: center;
+      vertical-align: middle;
+      font-size: 50px;
+      padding-top: 20px;
+    }
+
+    body {
+      padding: 0;
+      margin: 0;
+      min-width: 1024px;
+      background: rgba(0, 0, 0, .2);
+    }
+
+    #menu {
+      background: rgba(0, 0, 0, .4);
+
+      color: white;
+      text-align: center;
+      height: 30px;
+      padding-top: 10px;
+    }
+
+    #main {
+      margin-top: 0;
+      margin-bottom: 0;
+      width: 900px;
+      margin-left: 60px;
+      padding-left: 30px;
+      background: rgba(255, 255, 255, 1);
+
+    }
+
+    #main #iidx {
+      zoom: .7;
+    }
+
+    #main p {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    h1 {
+      margin-left: 10px;
+      margin-top: 0px;
+      padding-left: 20px;
+      width: 800px;
+      background: linear-gradient(to left, #ffffff, rgba(8, 106, 109, 0.438));
+      border-left: solid 20px;
+      border-left-color: rgba(3, 163, 255, 0.952);
+    }
+
+    h2 {
+      margin-left: 10px;
+      margin-top: 30px;
+      padding-left: 20px;
+      width: 500px;
+      background: linear-gradient(to left, #ffffff, rgba(109, 8, 8, 0.438));
+      border-left: solid 20px;
+      border-left-color: rgba(255, 3, 3, 0.952);
+    }
+
+    h3 {
+      border-left: solid 10px;
+      border-left-color: rgba(8, 106, 109, 0.438);
+      background: rgba(0, 0, 0, .8);
+      color: white;
+      width: 500px;
+      padding-left: 5px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+
+    }
+    table{
+      width: 700px;
+      height: 40px;
+      margin-left: 50px;
+      text-align: center;
+    }
+    footer{
+      background: rgba(0, 0, 0, .4);
+      margin-top: 0;
+      color: white;
+      text-align: right;
+      height: 70px;
+    }
+    footer p{
+      margin-top: 0;
+      padding-top: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <header>Consoleオブジェクトの種類！</header>
+  <div id="menu">
+    <form action="">
+      <label for="isbn">選べよ：</label>
+      <select name="isbn" id="isbn">
+        <option value="">---好きなのを選んでください---</option>
+        <option value="maguro.html">マグロ</option>
+        <option value="sarmon.html">サーモン</option>
+        <option value="egg.html">タマゴ</option>
+        <option value="harasu.html">焼きはらす</option>
+        <option value="Git.html">Githubのページ！</option>
+        <option value="images.html">画像が変わる！？</option>
+        <option value="howconsole.html">Console種類</option>
+      </select>
+    </form>
+  </div>
+  <div id="main">
+    <br>
+    <h1>まず本題入る前にConsole画面の出し方....</h1>
+    <p>やっべぇ！Console画面の開き方忘れた！という方に....</p>
+    <p>ここでゆっくり解説していきましょ！</p>
+    <p>コンソールとは各ブラウザに実装されており、動作確認、デバック等に活用する時に使われております。</p>
+    <p>ここではブラウザGoogleChromeを例に使っていきたいと思います。</p>
+    <p>ではまずGoogleChromeを開いてみましょう。</p>
+    <p>開いたら適当はWebページを開いて、そこで CTRL + SHIFT + I (もしくはF12キーのみ)を押してみてください。</p>
+    <p>すると。。。</p>
+    <img id="iidx" src="https://NakamuraYuChesnaughtSceptile.github.io/images/consoleimages/mazou1.jpg">
+    <p>右側にこんな感じの画面が出てきましたね？</p>
+    <p>これは開発者ツールと言い、いわゆるページのソース確認が出来ます。</p>
+    <p>ここで赤い枠にあるConsoleとありますが、これがコンソールになります！</p>
+    <p>Consoleボタンを押すとコンソール画面に行きます。</p>
+    <p>ではでは本題のコンソールオブジェクトへ。。。</p>
+
+    <h1>よく使われるConsoleオブジェクト</h1>
+    <p>Consoleは極めてますが、log以外あるの？と思っていますね？</p>
+    <p>実はlog以外にも沢山あるようです。</p>
+    <p>沢山種類がありますが、今回は簡単に使う(よく使うと言われている)オブジェクトを4つ紹介します。</p>
+    <h2>警告アイコン</h2>
+    <h3>
+      <pre>
+    &lt;script><br>
+    console.warn("文章");<br>
+    &lt;/script>
+</pre>
+
+    </h3>
+    <img src="https://NakamuraYuChesnaughtSceptile.github.io/images/consoleimages/Sceptiles1.png">
+    <p>これは、Console画面に警告のアイコンが付きます。</p>
+
+
+    <h2>エラーアイコン</h2>
+    <h3>
+      <pre>
+    &lt;script><br>
+    console.error("文章");<br>
+    &lt;/script>
+</pre>
+
+    </h3>
+    <img src="https://NakamuraYuChesnaughtSceptile.github.io/images/consoleimages/Sceptiles2.png">
+    <p>これは、Console画面にエラーのアイコンが付きます。</p>
+
+    <h2>複数のオブジェクト表示</h2>
+    <h3>
+      <pre>
+    &lt;script><br>
+    console.info("文章1" , "文章2");<br>
+    &lt;/script>
+</pre>
+
+    </h3>
+    <img src="https://NakamuraYuChesnaughtSceptile.github.io/images/consoleimages/Sceptiles3.png">
+
+    <p>Console.logは単一のオブジェクトを表示しますが、infoは複数含めて表示する事が出来ます。</p>
+
+    <h2>コンソールでカウント</h2>
+    <h3>
+      <pre>
+    &lt;script><br>
+    var kansu = new Array("まぐろ","さーもん");<br> 
+    //ここで１次関数作成<br>
+    for(i = 1 ; i &lt; kansu.length; i++){   //ループfor分<br>
+      console.count("文字名",kansu);<br>
+    } <br>
+    &lt;/script>
+</pre>
+
+    </h3>
+    <img src="https://NakamuraYuChesnaughtSceptile.github.io/images/consoleimages/Sceptiles4.png">
+    <p>これは、一次配列にされている関数の個数を数えます。</p>
+    <p><font color="red">※一次配列に格納されている文字を表示しません。個数のみです。</font></p>
+
+    <h1>その他のConsoleオブジェクト集</h1>
+    <p>メインによく使うlog,warn,error,info,countを紹介しましたが、その他のオブジェクトを紹介します。</p>
+    <table border="1">
+      
+      <tr>
+        <td><p>Console.clear()</p></td><td><p>コンソールをクリアします。</p></td>
+      </tr>
+      <tr>
+          <td><p>Console.table()</p></td><td><p>表形式のデータを、テーブルで表示します。</p></td>
+        </tr>
+        <tr>
+            <td><p>Console.debug()</p></td><td><p>デバックを表示しますが、Chromeでは非推奨と言われています。</p></td>
+          </tr>
+          <tr>
+              <td><p>Console.dir()</p></td><td><p>オブジェクトのメソッドを階層表示で確認できます。</p></td>
+            </tr>
+    </table>
+    <br>
+  </div>
+  <footer>
+    <p>このページは私、中村裕が制作しました。</p>
+    <p>略して©中村裕</p>
+  </footer>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.getElementById('isbn').addEventListener('change', function () {
+        location.href = "https://nakamurayuchesnaughtsceptile.github.io/" + this.value;
+      }, false);
+
+    }, false)
+    console.log("え？なんでここ見てるん？ｗｗｗｗｗ");
+    console.log("さてはオメー、コピペしようとしたな？");
+   
+  </script>
+</body>
+
+</html>
