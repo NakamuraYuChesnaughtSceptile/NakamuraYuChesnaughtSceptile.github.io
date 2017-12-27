@@ -104,11 +104,42 @@
       margin-top: 0;
       padding-top: 0;
     }
+    section {
+      float: right;
+    }
+
+    section ul {
+      position: fixed;
+      right: 0;
+    }
+
+    section li {
+      border-left: solid 10px;
+      border-left-color: rgba(255, 3, 3, 0.952);
+      list-style-type: none;
+      padding-left: 10px;
+      padding-right: 80px;
+      background: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(109, 8, 8, 0.438));
+      
+      margin-bottom: 20px;
+
+      font-size: 20px;
+    }
+
+    section li a {
+      padding: auto;
+      color: black;
+      text-decoration-line: none;
+    }
+    section li a:hover{
+      color: black;
+      text-decoration-line:underline;
+    }
   </style>
 </head>
 
 <body>
-  <header>windows.open()? close()?? focus()???</header>
+  <header id="no4">windows.open()? close()?? focus()???</header>
   <div id="menu">
     <form action="">
       <label for="isbn">選べよ：</label>
@@ -125,9 +156,26 @@
       </select>
     </form>
   </div>
+  <section>
+      <ul>
+        <li>
+          <a href="#no4">TOP</a>
+        </li>
+        <li>
+          <a href="#no1">window.open()　とは？</a>
+        </li>
+        <li>
+          <a href="#no2">window.close()　とは？</a>
+        </li>
+        <li>
+          <a href="#no3">window.focus()　とは？</a>
+        </li>
+  
+      </ul>
+    </section>
   <div id="main">
     <br>
-    <h1>windows.open() とは</h1>
+    <h1 id="no1">window.open() とは</h1>
     <p>直訳で言いますと、窓オォ～プン♪</p>
     <p>いわゆる、別ウィンドウが開きます。</p>
     <p>今回はクリックすると別ウィンドウが開くという設定を作ります。</p>
@@ -169,7 +217,7 @@
     <p>これらは最近のブラウザでは設定しても無視されるようになりました。</p>
   </font>
     <p>記述の仕方はHTMLの記述と同じです。(例：&lt;img src="" width="200px",height="200px">)</p>
-    <h1>window.close() とは</h1>
+    <h1 id="no2">window.close() とは</h1>
     <p>そのままで、ウィンドウを閉じます。</p>
     <p>下のボタンでやってみてください。</p>
     <form>
@@ -198,7 +246,7 @@
       </pre>
       <p>HTMLはwindow.openの時と同じです。</p>
       <p>javascriptはwindow.close() たったのこれだけでおｋです。</p>
-      <h1>window.focus() とは</h1>
+      <h1 id="no3">window.focus() とは</h1>
       <p>フォーカスとは指定のウィンドウに手前に表示させる事をいいます。</p>
       <p>実際にサブウィンドウを開いて奥側にして、フォーカスボタンを押してみましょう！</p>
       <form>
