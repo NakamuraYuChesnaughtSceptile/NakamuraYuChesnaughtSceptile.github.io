@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>タイマー</title>
+  <style>
+    header {
+      background: rgba(0, 0, 0, .8);
+
+      height: 100px;
+      color: white;
+      text-align: center;
+      vertical-align: middle;
+      font-size: 50px;
+      padding-top: 20px;
+    }
+
+    body {
+      padding: 0;
+      margin: 0;
+      min-width: 1024px;
+      background: rgba(0, 0, 0, .2);
+    }
+
+    #menu {
+      background: rgba(0, 0, 0, .4);
+
+      color: white;
+      text-align: center;
+      height: 30px;
+      padding-top: 10px;
+    }
+
+    #main {
+      margin-top: 0;
+      margin-bottom: 0;
+      width: 900px;
+      margin-left: 60px;
+      padding-left: 30px;
+      background: rgba(255, 255, 255, 1);
+
+    }
+
+    #main #iidx {
+      zoom: .7;
+    }
+
+    #main p {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    h1 {
+      margin-left: 10px;
+      margin-top: 0px;
+      padding-left: 20px;
+      width: 800px;
+      background: linear-gradient(to left, #ffffff, rgba(8, 106, 109, 0.438));
+      border-left: solid 20px;
+      border-left-color: rgba(3, 163, 255, 0.952);
+    }
+
+    h2 {
+      margin-left: 10px;
+      margin-top: 30px;
+      padding-left: 20px;
+      width: 500px;
+      background: linear-gradient(to left, #ffffff, rgba(109, 8, 8, 0.438));
+      border-left: solid 20px;
+      border-left-color: rgba(255, 3, 3, 0.952);
+    }
+
+    h3 {
+      border-left: solid 10px;
+      border-left-color: rgba(8, 106, 109, 0.438);
+      background: rgba(0, 0, 0, .8);
+      color: white;
+      width: 700px;
+      padding-left: 5px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+
+    }
+
+    table {
+      width: 700px;
+      height: 40px;
+      margin-left: 50px;
+      text-align: center;
+    }
+
+    footer {
+      background: rgba(0, 0, 0, .4);
+      margin-top: 0;
+      color: white;
+      text-align: right;
+      height: 70px;
+    }
+
+    footer p {
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    section {
+      float: right;
+    }
+
+    section ul {
+      position: fixed;
+      right: 0;
+    }
+
+    section li {
+      border-left: solid 10px;
+      border-left-color: rgba(255, 3, 3, 0.952);
+      list-style-type: none;
+      padding-left: 10px;
+      padding-right: 80px;
+      background: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(109, 8, 8, 0.438));
+
+      margin-bottom: 20px;
+
+      font-size: 20px;
+    }
+
+    section li a {
+      padding: auto;
+      color: black;
+      text-decoration-line: none;
+    }
+
+    section li a:hover {
+      color: black;
+      text-decoration-line: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <header id="no4">タイマァー</header>
+  <div id="menu">
+    <form action="">
+      <label for="isbn">選べよ：</label>
+      <select name="isbn" id="isbn">
+        <option value="">---好きなのを選んでください---</option>
+        <option value="maguro.html">マグロ</option>
+        <option value="sarmon.html">サーモン</option>
+        <option value="egg.html">タマゴ</option>
+        <option value="harasu.html">焼きはらす</option>
+        <option value="Git.html">Githubのページ！</option>
+        <option value="images.html">画像が変わる！？</option>
+        <option value="brover.html">ブラウザ判定</option>
+        <option value="focusnado.html">window.open()等</option>
+        <option value="howconsole.html">Console種類</option>
+        <option value="timer.html">タイマー</option>
+      </select>
+    </form>
+  </div>
+  <center>
+    <br>
+    <form name="timer">
+      <input type="text" size="2">分
+      <input type="text" size="2">秒
+      <input type="button" value="Start" onclick="countStart()">
+    </form>
+  </center>
+  <script>
+
+    var timerdesu = "";
+    //タイマー
+
+    function countStart() {
+      document.timer.elements[2].disabled = true;
+      timerdesu = setInterval("countDown()", 1000);
+    }
+
+    //カウントダウン関数
+    function countDown() {
+      var min = document.timer.elements[0].value;
+      var sec = document.timer.elements[1].value;
+
+      if ((min == "") && (sec == ""))  //両方未入力の場合
+      {
+        window.alert("入力されていません");
+        reSet();
+      }
+      else {
+        if (min == "") min = 0;
+        min = parseInt(min);
+
+        if (sec == "") sec = 0;
+        sec = parseInt(sec);
+
+        tmWrite(min * 60 + sec - 1);
+      }
+    }
+
+    function tmWrite(int) {
+      int = parseInt(int);
+
+      if (int <= 0) {
+        reSet();
+        window.alert("時間になっちゃいました。");
+      }
+      else {
+
+        document.timer.elements[0].value = Math.floor(int / 60);
+        document.timer.elements[1].value = int % 60;
+        //誤差をおこさないため
+      }
+    }
+
+    //最初に戻す
+    function reSet() {
+      document.timer.elements[0].value = "0";
+      document.timer.elements[1].value = "0";
+      document.timer.elements[2].disabled = false;
+      clearInterval(timerdesu);
+    }
+
+
+  </script>
+</body>
+
+</html>

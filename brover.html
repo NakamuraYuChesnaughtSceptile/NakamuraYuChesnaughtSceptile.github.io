@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>BrowserVersion</title>
+  <style>
+    header {
+      background: rgba(0, 0, 0, .8);
+
+      height: 100px;
+      color: white;
+      text-align: center;
+      vertical-align: middle;
+      font-size: 50px;
+      padding-top: 20px;
+    }
+    #menu {
+      background: rgba(0, 0, 0, .4);
+
+      color: white;
+      text-align: center;
+      height: 30px;
+      padding-top: 10px;
+    }
+
+    body {
+      padding: 0;
+      margin: 0;
+      min-width: 1024px;
+      background: rgba(0, 0, 0, .2);
+    }
+
+  
+  </style>
+</head>
+
+<body>
+    <header id="no4">ブラウザ診断</header>
+    <div id="menu">
+      <form action="">
+        <label for="isbn">選べよ：</label>
+        <select name="isbn" id="isbn">
+          <option value="">---好きなのを選んでください---</option>
+          <option value="maguro.html">マグロ</option>
+          <option value="sarmon.html">サーモン</option>
+          <option value="egg.html">タマゴ</option>
+          <option value="harasu.html">焼きはらす</option>
+          <option value="Git.html">Githubのページ！</option>
+          <option value="images.html">画像が変わる！？</option>
+          <option value="brover.html">ブラウザ判定</option>
+          <option value="focusnado.html">window.open()等</option>
+          <option value="howconsole.html">Console種類</option>
+          <option value="timer.html">タイマー</option>
+        </select>
+      </form>
+    </div>
+    <center>
+    <h1>あなたのブラウザの結果は....</h1>
+    <p id="kekka"></p>
+  </center>
+  <script>
+
+    myAgent = ""; //空き用意
+    function myGetVer(myKey) {
+      myStart = myAgent.indexOf(myKey) + myKey.length;
+      myEnd = myAgent.indexOf(";", myStart);
+      return "で、バージョンは" + myAgent.substring(myStart, myEnd);
+    }
+
+    function mySearch(myKey) {
+      return (myAgent.indexOf(myKey) >= 0) ? true : false;
+    }
+
+    function myFunc(myUserAgent) {
+      myAgent = myUserAgent + ";";
+      myAgent = myAgent.replace(/ /g, ";");
+
+      //Opera確認
+      if (mySearch("Opera/")) {
+        myVer = "Opera " + myGetVer("Opera/");
+      }
+
+      // Firefox確認
+      else if (mySearch("Firefox")) {
+
+        myVer = "Firefox " + myGetVer("Firefox/");
+      }
+
+      //Edge確認
+      else if (mySearch("Egde")) {
+        myVer = "Edge " + myGetVer("Edge/");
+      }
+
+      //Chrome確認
+      else if (mySearch("Chrome")) {
+        myVer = "Google Chrome " + myGetVer("Chrome/");
+      }
+
+      //Safari確認
+      else if (mySearch("Mobile") && mySearch("Safari") && mySearch("Version")) {
+        myVer = "Mobile Safari " + myGetVer("Version/");
+      }
+
+      //PCMAC safari確認
+      else if (mySearch("Safari") && mySearch("Version")) {
+        myVer = "Safari " + myGetVer("Version/");
+      }
+
+      //IE確認
+      else if (mySearch("MSIE;")) {
+        myVer = "Internet Explorer " + myGetVer("MSIE;");
+      }
+
+
+      else {
+        myVer = navigator.appName;
+      }
+      return myVer;
+    }
+
+    myParam = navigator.userAgent;
+    document.getElementById("kekka").innerHTML="あなたのブラウザは、" + myFunc(myParam) + " です。";
+  </script>
+
+</body>
+
+</html>
