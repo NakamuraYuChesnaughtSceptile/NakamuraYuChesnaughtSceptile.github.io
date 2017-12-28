@@ -34,109 +34,7 @@
       padding-top: 10px;
     }
 
-    #main {
-      margin-top: 0;
-      margin-bottom: 0;
-      width: 900px;
-      margin-left: 60px;
-      padding-left: 30px;
-      background: rgba(255, 255, 255, 1);
-
-    }
-
-    #main #iidx {
-      zoom: .7;
-    }
-
-    #main p {
-      padding-top: 10px;
-      padding-bottom: 10px;
-    }
-
-    h1 {
-      margin-left: 10px;
-      margin-top: 0px;
-      padding-left: 20px;
-      width: 800px;
-      background: linear-gradient(to left, #ffffff, rgba(8, 106, 109, 0.438));
-      border-left: solid 20px;
-      border-left-color: rgba(3, 163, 255, 0.952);
-    }
-
-    h2 {
-      margin-left: 10px;
-      margin-top: 30px;
-      padding-left: 20px;
-      width: 500px;
-      background: linear-gradient(to left, #ffffff, rgba(109, 8, 8, 0.438));
-      border-left: solid 20px;
-      border-left-color: rgba(255, 3, 3, 0.952);
-    }
-
-    h3 {
-      border-left: solid 10px;
-      border-left-color: rgba(8, 106, 109, 0.438);
-      background: rgba(0, 0, 0, .8);
-      color: white;
-      width: 700px;
-      padding-left: 5px;
-      padding-top: 5px;
-      padding-bottom: 5px;
-
-    }
-
-    table {
-      width: 700px;
-      height: 40px;
-      margin-left: 50px;
-      text-align: center;
-    }
-
-    footer {
-      background: rgba(0, 0, 0, .4);
-      margin-top: 0;
-      color: white;
-      text-align: right;
-      height: 70px;
-    }
-
-    footer p {
-      margin-top: 0;
-      padding-top: 0;
-    }
-
-    section {
-      float: right;
-    }
-
-    section ul {
-      position: fixed;
-      right: 0;
-    }
-
-    section li {
-      border-left: solid 10px;
-      border-left-color: rgba(255, 3, 3, 0.952);
-      list-style-type: none;
-      padding-left: 10px;
-      padding-right: 80px;
-      background: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(109, 8, 8, 0.438));
-
-      margin-bottom: 20px;
-
-      font-size: 20px;
-    }
-
-    section li a {
-      padding: auto;
-      color: black;
-      text-decoration-line: none;
-    }
-
-    section li a:hover {
-      color: black;
-      text-decoration-line: underline;
-    }
+    
   </style>
 </head>
 
@@ -222,7 +120,12 @@
       clearInterval(timerdesu);
     }
 
-
+    document.addEventListener('DOMContentLoaded',function() {
+    document.getElementById('isbn').addEventListener('change',function(){
+      location.href = "https://nakamurayuchesnaughtsceptile.github.io/" + this.value;
+    },false);
+    
+  },false)
   </script>
 </body>
 

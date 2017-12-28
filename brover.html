@@ -123,6 +123,13 @@
 
     myParam = navigator.userAgent;
     document.getElementById("kekka").innerHTML="あなたのブラウザは、" + myFunc(myParam) + " です。";
+
+    document.addEventListener('DOMContentLoaded',function() {
+    document.getElementById('isbn').addEventListener('change',function(){
+      location.href = "https://nakamurayuchesnaughtsceptile.github.io/" + this.value;
+    },false);
+    
+  },false)
   </script>
 
 </body>
