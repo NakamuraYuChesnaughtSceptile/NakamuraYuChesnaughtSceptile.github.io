@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>個数の奴</title>
+</head>
+
+<body>
+  <form action="">
+    <label for="kosuu">個数</label>
+    <select name="kosuu" id="kosuu">
+     
+    </select>
+  </form>
+  <script>
+    var box = document.getElementById("kosuu");
+    for(i = 100; i >= 0 ; i = i - 5) {
+      var option = document.createElement("option");  //初期設定
+        option.value = i; //現在値
+        option.innerText = i + "個"; //上書き～
+        box.appendChild(option); //追加～
+    }
+    
+  </script>
+
+</body>
+
+</html>
