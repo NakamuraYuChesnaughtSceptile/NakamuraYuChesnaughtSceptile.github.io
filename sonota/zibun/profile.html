@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Lusitana" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/earlyaccess/sawarabigothic.css" rel="stylesheet" />
+  <title>絵置き場</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-width: 1020px;
+      background: #111111;
+      color: #ffffff;
+    }
+
+    header {
+      background: url(https://reshinogiasan.web.fc2.com/6880019.jpg) no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      width: 100%;
+      height: 550px;
+    }
+
+    #main {
+      border-top: solid 10px #cccccc;
+      /*position: relative;
+      z-index: 1;*/
+      background: #333333;
+    }
+
+    #menu ul {
+      list-style-type: none;
+      display: table;
+      table-layout: fixed;
+      text-align: center;
+      width: 100%;
+      padding-left: 0;
+    }
+
+    #menu ul li {
+      font-size: 20px;
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+      border-right: 1px solid #ccc;
+    }
+
+    #menu ul li:last-child {
+      border-right: 0px;
+    }
+
+    #menu ul li a {
+      color: #ffffff;
+      text-decoration-line: none;
+      font-family: 'Lusitana', serif;
+    }
+
+    #menu ul li a:hover {
+      letter-spacing: 8px;
+      transition: all .3s;
+    }
+
+    h1 {
+      font-size: 80px;
+      text-align: center;
+      margin: 10px 0 100px 0;
+      font-family: 'Lusitana', serif;
+      letter-spacing: 40px;
+      text-shadow: 5px 5px 1px #999999;
+    }
+
+    h2 {
+      font-size: 40px;
+      text-align: center;
+      letter-spacing: 40px;
+      font-family: "Sawarabi Gothic";
+      text-shadow: 5px 5px 1px #000;
+    }
+
+    #honbun {
+      /*border:solid 1px #ccc;*/
+      margin: auto;
+      padding: auto;
+      width: 1100px;
+      font-family: "Sawarabi Gothic";
+    }
+
+    #honbun table {
+      text-align: center;
+    }
+
+    .fadein {
+      opacity: 0;
+      text-align: center;
+      transform: translate(0, 50px);
+      transition: all 500ms;
+    }
+
+    .fadein img {
+      border-radius: 50%;
+    }
+
+    .effects .fadein img {
+      border-radius: 0%;
+    }
+
+    .fadein.scrollin {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+
+    .effects {
+      display: table;
+      table-layout: fixed;
+      text-align: center;
+      width: 100%;
+      padding-left: 0;
+    }
+
+    .effects .fadein {
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .effects .fadein:nth-of-type(2) {
+      -moz-transition-delay: 200ms;
+      -webkit-transition-delay: 200ms;
+      -o-transition-delay: 200ms;
+      -ms-transition-delay: 200ms;
+    }
+
+    .effects .fadein:nth-of-type(3) {
+      -moz-transition-delay: 400ms;
+      -webkit-transition-delay: 400ms;
+      -o-transition-delay: 400ms;
+      -ms-transition-delay: 400ms;
+    }
+
+    .effects .fadein:nth-of-type(4) {
+      -moz-transition-delay: 600ms;
+      -webkit-transition-delay: 600ms;
+      -o-transition-delay: 600ms;
+      -ms-transition-delay: 600ms;
+    }
+
+    footer {
+      display: flex;
+      border-top: solid 1px #cccccc;
+      background: #222222;
+      font-size: 7px;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <!--<img src="images/6880019.jpg"/> -->
+  </header>
+  <div id="main">
+    <!-- 本文 -->
+    <div id="menu">
+      <ul>
+        <li>
+          <a href="index.html">Top</a>
+        </li>
+        <li>
+          <a href="profile.html">Profile</a>
+        </li>
+        <li>
+          <a href="illustration.html">Illustration</a>
+        </li>
+        <li>
+          <a href="games.html">Games</a>
+        </li>
+        <li>
+          <a href="http://lizardmanmaster.blog.fc2.com/">Blog</a>
+        </li>
+      </ul>
+    </div>
+    <h1>◆Profile◆</h1>
+    <div id="honbun">
+
+      <div class="fadein">
+        <img src="https://reshinogiasan.web.fc2.com/proficon.jpg" width="200px" height="200px" />
+        <h2>れしのぎーあ</h2>
+      </div>
+      <div class="fadein">
+        <p>れしのぎーあさんと言います。現在HTML,CSS,Javascriptお勉強中。</p>
+      </div>
+      <div class="fadein">
+        <p>ポケモンがだいしゅきほーるど。ゼクロム、ジュカイン、フーパ、ブリガロンが主食。</p>
+      </div>
+      <div class="fadein">
+        <p>アイワナは過去に沢山作ってた。数えると20作品は超えていた。</p>
+      </div>
+      <br>
+      <br>
+      <br>
+      <div class="effects">
+
+        <section class="fadein">
+          <a href="https://twitter.com/ExtlorSolar_ZNN" target="_blank"><img src="https://reshinogiasan.web.fc2.com/twittericon.png" width="100px" height="100px" /></a>
+          <p>Twitter</p>
+        </section>
+        <section class="fadein">
+            <a href="https://www.pixiv.net/member.php?id=3339589" target="_blank"><img src="https://reshinogiasan.web.fc2.com/pixivicon.png" width="100px" height="100px" /></a>
+          <p>Pixiv</p>
+        </section>
+        <section class="fadein">
+            <a href="http://reshigia-san.tumblr.com" target="_blank"><img src="https://reshinogiasan.web.fc2.com/tumblricon.png" width="100px" height="100px" /></a>
+          <p>Tumblr</p>
+        </section>
+        <section class="fadein">
+            <a href="https://asdons.deviantart.com" target="_blank"><img src="https://reshinogiasan.web.fc2.com/deviantarticon.png" width="100px" height="100px" /></a>
+          <p>Deviantart</p>
+        </section>
+
+      </div>
+      <br>
+      <br>
+    </div>
+  </div>
+
+  <footer>
+    こぴーらいと：れしのぎーあ
+  </footer>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+  <script src="https://reshinogiasan.web.fc2.com/fadein.js"></script>
+</body>
+
+</html>
