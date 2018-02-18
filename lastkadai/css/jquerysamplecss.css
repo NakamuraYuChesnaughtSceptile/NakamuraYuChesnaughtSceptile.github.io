@@ -77,11 +77,11 @@ h3 {
   width: 100px;
   margin-right: 0px;
   padding: 0;
-  height: 700px;
+  height: 350px;
   position: fixed;
   float: right;
   right: 0;
-  background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+  /*background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));*/
 }
 
 #sub ul {
