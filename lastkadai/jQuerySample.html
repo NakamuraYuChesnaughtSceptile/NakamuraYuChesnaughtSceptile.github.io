@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQueryサンプル集</title>
+<link rel="stylesheet" href="css/jquerysamplecss.css">
+</head>
+
+<body>
+  <header id="star1">
+    jQuerySample集！
+  </header>
+  <div id="main">
+    <br>
+    <h2 id="star2">jQueryを記述する前に....</h2>
+    <p>jQueryを使用するにはプラグインが必要になります。</p>
+    <p>まずはこちらのプラグインを記述します。</p>
+    <pre class="niceprint">
+      
+    &lt;script src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"&gt;
+    &lt;/script&gt;
+      </pre>
+    <p class="cation">※現在2018年2月のバージョンは3.3.1ですが、
+      <br>
+      <u>プラグインを使用するには最新verのjQueryプラグインを使用する事を
+        <b>強く</b>推奨します。</u>
+      <br> これには理由があり、PC側では実はプラグインバージョン関係なく動きますが
+      <br> ほとんどのサーバー側では古いjQueryは、対応せず、動かない可能性が高いのです。
+    </p>
+    <h2 id="star3">1つめ！画像が読み込まれなかった用のエラー画像</h2>
+    <p>画像リンク切れ、コード記述がスペル誤字で画像が読み込まれなかった時</p>
+    <p>デフォルトエラーとしては、画像が切れてるアイコンが表示されると思います。</p>
+    <p>そこで、エラーを自分の作ったエラー画像に設定出来ちゃうのです。</p>
+    <p>例えば、HTMLに</p>
+    <pre class="niceprint">
+
+    &lt;img src="images/Photo.jpg"&gt;
+    </pre>
+    <p>と”存在してない画像”記述してみましょう。すると。。。</p>
+    <pre class="niceprint">
+
+    <img src="images/Photo.jpg">
+    </pre>
+    <p>という感じで自分の作ったエラー画像が表示するようになります。
+      <br> (ソース表示で確認してもちゃんとエラー画像に書き換えられているはずです。)
+    </p>
+    <p>ではでは、jQueryコードを見てみましょう</p>
+    <h3>jQueryコード　　(5行)</h3>
+    <pre class="niceprint">
+
+    $('img').on('error', function () {
+      $('img').attr({
+        "src": "images/errorimage.png"
+      });
+    });
+    
+    </pre>
+    <p>なんとたったの５行ですよ！？(* ͡° ͜ʖ ͡°*)</p>
+    <p>ではでは、解読しましょう！</p>
+    <pre class="niceprint">
+
+    $('img').on('error', function () {
+    </pre>
+    <p>1行目ですが、ここでは、imgタグにエラーが発生した時のイベント</p>
+    <p>という意味を表しております。</p>
+    <p class="cation">古いバージョンでは$('img').loadでも出来ましたが、
+      <br> バージョンによりloadは廃止された模様です。(らしい)
+    </p>
+    <pre class="niceprint">
+
+    $('img').attr({
+    "src": "images/errorimage.png"
+    </pre>
+    <p>そのイベント内にsrc部内の中身を自分の作った画像のURLに書き換えます。</p>
+    <p>これで完成でございます。</p>
+
+    <h2 id="star4">2つめ！ 1ボタンでCSSの中身をいじる</h2>
+    <p>ボタンを押せば、CSSの中身の一部を変える事ができちゃいます。</p>
+
+    <button id="nicebotan1">Push!</button>
+    <button id="nicebotan2">Push!</button>
+    <button id="nicebotan3">Push!</button>
+    <br>
+    <br>
+    <div id="nicebox"></div>
+    <br>
+    <p>やり方はまずHTMLとCSSに準備が必要です。</p>
+    <h3>HTML</h3>
+    <pre class="niceprint">
+    
+    &lt;button id="nicebotan1"&gt;Push!&lt;/button&gt;
+    &lt;button id="nicebotan2"&gt;Push!&lt;/button&gt;
+    &lt;button id="nicebotan3"&gt;Push!&lt;/button&gt;
+    &lt;div id="nicebox"&gt;&lt;/div&gt;
+    </pre>
+    <h3>CSS</h3>
+    <pre class="niceprint">
+    
+    #nicebox{
+      width: 170px;
+      height: 60px;
+      background-color: #000000;
+    }
+    </pre>
+    <p>これで準備は整いました。</p>
+    <p>ではでは、本題のjQueryです</p>
+    <h3>jQuery　　(9行)</h3>
+    <pre class="niceprint">
+
+    $('#nicebotan1').click(function () {
+      $('#nicebox').css("background-color", "red");
+    });
+    $('#nicebotan2').click(function () {
+      $('#nicebox').css("background-color", "lime");
+    });
+    $('#nicebotan3').click(function () {
+       $('#nicebox').css("background-color", "blue");
+    });
+    </pre>
+    <p>１個は３行でおｋなんです～！</p>
+    <p>ではでは、解説！</p>
+    <pre class="niceprint">
+
+    $('#nicebotan1').click(function () {
+    </pre>
+    <p>これは、#nicebotan1という名前のbuttonタグにボタン押した時のイベントという意味です。</p>
+    <pre class="niceprint">
+
+    $('#nicebox').css("background-color", "blue");
+    </pre>
+    <p>次の行はniceboxというid名のCSSにあるbackground-color設定を青に変えるという意味です。</p>
+
+
+    <h2 id="star5">3つめ！内部リンクをクリックすると。。。</h2>
+    <p>ちょっと高難易度のコードです！</p>
+    <p>何が起こるかは下のリンクをクリックしてください。</p>
+    <a href="#warp1">クリック!</a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p id="warp1">こんな感じでスムーズにスクロールします。</p>
+    <p>普通の内部リンクはクリックすると、一瞬で飛びますが、</p>
+    <p>あえてエフェクトを出せばカッコよくなります。</p>
+    <p>ではでは、コードを見てみましょう。</p>
+    <h3>HTML</h3>
+    <pre class="niceprint">
+
+    &lt; href="#hoge"&gt;Text&lt;/a&gt;
+    </pre>
+    <p>内部リンクであれば、何個の内部リンクでも使えます。</p>
+    <h3>jQueryコード　　(12行)</h3>
+    <pre class="niceprint">
+
+    $(function () {
+    var offsetY = -30;
+    var time = 1000;
+    $('a[href^="#"]').click(function () {
+    var target = $(this.hash);
+    if (!target.length) return;
+    var targetY = target.offset().top + offsetY;
+    $('html,body').animate({ scrollTop: targetY }, time, 'swing');
+    window.history.pushState(null, null, this.hash);
+    return false;
+    });
+    });
+      </pre>
+    <p>たったの12行でokなんです！</p>
+    <p>ではでは解読していきましょう。</p>
+    <pre class="niceprint">
+
+    var offsetY = -30;
+    var time = 1000;
+  </pre>
+    <p>1行目はワープした後の指定の場所より縦軸の位置を設定します</p>
+    <p>2行目はワープ時間を表します。1000で１秒となります。</p>
+    <pre class="niceprint">
+
+    $('a[href^="#"]').click(function () {
+    var target = $(this.hash);
+    if (!target.length) return;
+    var targetY = target.offset().top + offsetY;
+    </pre>
+    <p>3行目は内部リンクをクリックした時のイベントという設定を作っています。</p>
+    <p>4~6行目でワープする場所の詳細位置設定を行っております。</p>
+    <pre class="niceprint">
+
+    $('html,body').animate({ scrollTop: targetY }, time, 'swing');
+    window.history.pushState(null, null, this.hash);
+    return false;
+    });
+    });
+    </pre>
+    <p>htmlのbody内にワープする場所関数を設定し、時間設定した関数、</p>
+    <p>そしてどういうイベントを起こすか設定します。今回はswingの設定をしました。</p>
+    <p>以上、３つのjQueryでした。。。</p>
+    <br>
+
+
+  </div>
+  <div id="sub">
+    <ul>
+      <li>
+        <a href="#star1">TOP</a>
+      </li>
+      <li>
+        <a href="#star2">準備</a>
+      </li>
+      <li>
+        <a href="#star3">1つ目</a>
+      </li>
+      <li>
+        <a href="#star4">2つ目</a>
+      </li>
+      <li>
+        <a href="#star5">3つ目</a>
+      </li>
+    </ul>
+  </div>
+  <footer>
+    <p>&copy;中村　裕(実はレスポンシブWebデザイン800pxにしてもデザインは崩れません！)</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
+  </script>
+  <script>
+
+    //ここから3つめのjavascript 
+    //これは手前に記述しないと実行されません。
+
+    $(function () {
+      var offsetY = -30;
+      var time = 1000;
+      $('a[href^="#"]').click(function () {
+        var target = $(this.hash);
+        if (!target.length) return;
+        var targetY = target.offset().top + offsetY;
+        $('html,body').animate({ scrollTop: targetY }, time, 'swing');
+        window.history.pushState(null, null, this.hash);
+        return false;
+      });
+    });
+
+    //ここまで3つめ
+
+    //ここから1つめ
+
+    $('img').on('error', function () {
+      $('img').attr({
+        "src": "images/errorimage.png"
+      });
+    });
+
+    //ここまで1つめ
+
+    //ここから2つめ
+
+    $('#nicebotan1').click(function () {
+      $('#nicebox').css("background-color", "red");
+    });
+    $('#nicebotan2').click(function () {
+      $('#nicebox').css("background-color", "lime");
+    });
+    $('#nicebotan3').click(function () {
+      $('#nicebox').css("background-color", "blue");
+    });
+
+  </script>
+</body>
+
+</html>

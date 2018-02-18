@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ラーメン屋さんです～</title>
+  <link rel="stylesheet" href="css/ramens.css">
+  <link href="https://fonts.googleapis.com/earlyaccess/sawarabigothic.css" rel="stylesheet" />
+</head>
+
+<body>
+  <p id="nice"></p>
+  <div id="lunches">
+    <h1>～　本日のランチメニュー選択　～</h1>
+
+    <form name="Sample3_form" action="lunch.html">
+
+      <h2>ご注文はなんでしょう♪</h2>
+      <table>
+        <tr>
+          <td>蒙古ラーメン</td>
+          <td>一楽ラーメン</td>
+          <td>節骨ラーメン</td>
+        </tr>
+        <tr>
+          <td>720円</td>
+          <td>900円</td>
+          <td>5000兆円</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="radio" name="radio" value="蒙古ラーメン" />
+          </td>
+          <td>
+            <input type="radio" name="radio" value="一楽ラーメン" />
+          </td>
+          <td>
+            <input type="radio" name="radio" value="節骨ラーメン" />
+          </td>
+        </tr>
+      </table>
+      <h2>オプションもいかがですか♪</h2>
+      <table>
+        <tr>
+          <td>大盛</td>
+          <td>チャーシュー飯</td>
+          <td>半チャーハン</td>
+          <td>餃子</td>
+        </tr>
+        <tr>
+          <td>150円</td>
+          <td>250円</td>
+          <td>200円</td>
+          <td>300円</td>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox" name="check" />
+          </td>
+          <td>
+            <input type="checkbox" name="check" />
+          </td>
+          <td>
+            <input type="checkbox" name="check" />
+          </td>
+          <td>
+            <input type="checkbox" name="check" />
+          </td>
+        </tr>
+      </table>
+
+    </form>
+    <input type="button" value="注文する" onclick="Sample3()">
+    <br>
+    <br>
+  </div>
+  <p id="nice"></p>
+  <footer>
+    <p>&copy;中村　裕 (実はレスポンシブWebデザイン700pxにしてもデザインは崩れません！)</p>
+    </footer>
+  <script type="text/javascript">
+    var ramen = [720, 900, 5000000000000000]; 
+    //おまけ。javaでやった一次配列を使用 ラーメンの値段
+
+    function Sample3() {
+      if (document.cookie == "") { //ここで存在確認
+        for (var i = 0; i < Sample3_form.radio.length; i++) {
+          if (Sample3_form.radio[i].checked == true) {
+            var sidemenu = 0;
+            var money = 0;
+            money = parseInt(ramen[i]);
+            //parseIntとは
+            //var自体は文字列なので、parseIntを使ってコンピューターに数値だという認識をさせるコード
+
+            var hoge = Sample3_form.radio[i].value;
+
+            var hoges1 = Sample3_form.check[0].checked;
+            var hoges2 = Sample3_form.check[1].checked;
+            var hoges3 = Sample3_form.check[2].checked;
+            var hoges4 = Sample3_form.check[3].checked;
+
+            var text2 = "";   //通知用
+            var text3 = "";   //cookie用
+            if (hoges1 == true) {
+              text2 = text2 + "\n" + '大盛';
+              text3 = text3 + " 、大盛";
+              sidemenu = parseInt(sidemenu) + 150;
+            }
+            if (hoges2 == true) {
+              text2 = text2 + "\n" + 'チャーシュー飯';
+              text3 = text3 + "、チャーシュー飯";
+              sidemenu = parseInt(sidemenu) + 250;
+            }
+            if (hoges3 == true) {
+              text2 = text2 + "\n" + '半チャーハン';
+              text3 = text3 + "、半チャーハン";
+              sidemenu = parseInt(sidemenu) + 200;
+            }
+            if (hoges4 == true) {
+              text2 = text2 + "\n" + '餃子';
+              text3 = text3 + "、餃子";
+              sidemenu = parseInt(sidemenu) + 300;
+            }
+
+            money += parseInt(sidemenu); //合計金額
+            document.cookie = hoge + text3 + ";max-age=180;path=/";
+            alert("注文は" + "\n" + hoge + text2 + "\n" + "ですね？" + "\n" + "お値段は" + money + "円になります♪");
+
+
+            //setTimeout(1度だけ行う処理コード)
+            //因みにsetIntervalは何度も行う処理コード
+            timerdesu = setTimeout("countDown()", 120000);
+          }
+        }
+      } else {
+        alert("お客様は注文済みです。" + "\n" + document.cookie + "\n" + "しばらくお待ちください。");
+      }
+    }
+
+
+    function countDown() {
+      alert("へい!お待ち！");
+    }
+  </script>
+
+</body>
+
+</html>
