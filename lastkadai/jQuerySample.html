@@ -70,6 +70,14 @@
     <p class="cation">古いバージョンでは$('img').loadでも出来ましたが、
       <br> バージョンによりloadは廃止された模様です。(らしい)
     </p>
+    <p class="cation">追記：2018/02/21<br>
+    <u>loadについて調べてみた所、jQuery v3以降廃止になったようです。</u><br>
+    どうしてもload関数が必要な方は</p>
+    <pre class="niceprint">
+
+      $(window).on('load', function(){
+    </pre>
+    <p class="cation">と記述するとloadとして使えます。</p>
     <pre class="niceprint">
 
     $('img').attr({
