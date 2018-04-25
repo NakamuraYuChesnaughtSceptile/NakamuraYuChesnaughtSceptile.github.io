@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>自己紹介水飲み場</title>
+  <link href="https://fonts.googleapis.com/css?family=Lusitana" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/earlyaccess/sawarabigothic.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/basemain.css">
+  <link rel="stylesheet" href="css/profilemain.css">
+  <link rel="stylesheet" href="css/profileresponsive.css" media="screen and (max-width: 750px)">
+</head>
+
+<body>
+  <header>
+  </header>
+  <div id="main">
+    <!-- 本文 -->
+    <h1>◆Portfolio◆</h1>
+    <div class="honbun">
+
+      <ul class="list">
+
+        <li class="list-mv07">
+          <img id="mainicon" src="images/proficon.jpg" />
+
+          <h2>
+            <ruby>中
+              <rt>なか</rt>村
+              <rt>むら</rt>裕
+              <rt>ゆう</rt>
+            </ruby>
+          </h2>
+
+        </li>
+      </ul>
+      <ul class="list" id="textdesu">
+        <li class="list-mv07">
+          <p>中村裕と言います、現在23歳。青森県出身。学校は新幹線で通学中</p>
+          <p>18歳、仙台で接骨勉強をしていたが、中退</p>
+          <p>22歳、IT系専門学校入学</p>
+          <p>現在HTML,CSS,Javascript,PHPお勉強中。</p>
+
+          <p>クラス副委員長やってます。</p>
+        </li>
+      </ul>
+
+
+      <br>
+      <br>
+      <br>
+
+
+      <h2>Just now working hard</h2>
+<div class="likes">
+      <ul class="list">
+        <li class="list-mv07">
+            <img src="images/icon1.png" width="100px" height="100px" />
+          </a>
+          <figure>VScode 改造</figure>
+          <figcaption>
+            <p>Web制作する時はVscodeを使います。
+              <br>ツールの中身を解析しプラグインを使用せず
+              <br> コード記述の背景に好きな画像を設定。
+            </p>
+          </figcaption>
+        </li>
+        <li class="list-mv07">
+          <img src="images/icon2.png" width="100px" height="100px" />
+          <figure>企業連携</figure>
+          <figcaption>
+            <p>企業先のテーマは美術館
+              <br>デザイン科と共同し、レイアウトを考え
+              <br>コード記述をしていきます。
+            </p>
+          </figcaption>
+        </li>
+        <li class="list-mv07">
+          <img src="images/icon3.png" width="100px" height="100px" />
+          <figure>Web系の資格取得</figure>
+          <figcaption>
+            <p>現在はHTMLプロフェッショナル試験Lv1
+              <br> の対策勉強をしています。
+              <br> 合格したいな～</p>
+          </figcaption>
+        </li>
+        <li class="list-mv07">
+          <img src="images/icon4.png" width="100px" height="100px" />
+          <figure>その他の自主制作</figure>
+
+          <figcaption>
+            <p>その他はゲーム制作してたり絵描いてたり
+              <br> けどペンネームで制作
+              <br> なのでちょっと公開出来ません....</p>
+          </figcaption>
+        </li>
+      </ul>
+
+      <h2>Web home works</h2>
+      <p>課題制作で作ったWeb、Javascriptに関する記述</p>
+      <p>Githubにうｐしております</p>
+      <p>クリックすると、別ウィンドウで開きます。</p>
+      <div class="homeworks">
+      <ul class="list">
+
+        <li class="list-mv07">
+          <a href="https://nakamurayuchesnaughtsceptile.github.io/Git.html" target="_blank"><img src="images/homework1.PNG"><br>
+            ブログ風ページ</a>
+        </li>
+        <li class="list-mv07">
+          <a href="https://nakamurayuchesnaughtsceptile.github.io/focusnado.html" target="_blank"><img src="images/homework2.PNG"><br>
+            JavaScriptで別ウィンドウ</a>
+        </li>
+        <li class="list-mv07">
+          <a href="https://nakamurayuchesnaughtsceptile.github.io/howconsole.html" target="_blank"><img src="images/homework3.PNG"><br>
+            JavaScriptでコンソール説明</a>
+        </li>
+        <li class="list-mv07">
+          <a href="https://nakamurayuchesnaughtsceptile.github.io/lastkadai/jQuerySample.html" target="_blank"><img src="images/homework4.PNG"><br>
+            JQueryサンプル集</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+  </div>
+  </div>
+  <!--ここまで本文-->
+
+
+
+ 
+  <footer>
+    Copyright © 2018 中村　裕 All Rights Reserved.
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/fadeins/jquery.inview.js"></script>
+  <script>
+    //fadein詳細設定
+    $('.list-mv07').on('inview', function (event, isInView, visiblePartX, visiblePartY) {
+      console.log(isInView);
+      if (isInView) {
+        $(this).stop().addClass('mv07');
+      }
+      else {
+        $(this).stop().removeClass('mv07');
+      }
+    });
+    //おくゆき
+    $(function () {
+      $(window).scroll(function () {
+        var y = $(this).scrollTop();
+        $('header').css('background-position', '0 ' + parseInt(-y / 4) + 'px');
+      });
+    });
+  </script>
+</body>
+
+</html>
