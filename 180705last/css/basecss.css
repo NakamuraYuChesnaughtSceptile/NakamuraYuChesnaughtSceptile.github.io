@@ -1,0 +1,973 @@
+@charset "utf-8";
+@import url(normalize.css);
+
+body{
+  font-size: 14px;
+  line-height: 1.6em;
+  color: #333;
+}
+
+p{
+  color: #333;
+}
+
+header{
+  width: 100%;
+  height: 47px;
+  border-top: 4px solid #0054a7;
+  padding-top: 23px;
+  margin: 0px auto 0px auto;
+  background: #fff;
+  position: fixed; 
+  z-index: 91;
+}
+
+header .inner{
+  max-width: 980px;
+  margin: auto;
+  padding-left: 10px;
+}
+
+header .logoimage{
+  float: left; 
+}
+
+header nav ul{
+  padding-left: 0;
+  margin-top: 0;
+  float: right; 
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+}
+
+header nav ul li{
+  width: 95px;
+  text-align: center;
+}
+
+
+header nav ul li a{
+  color:#0054a7; 
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.25em;
+  text-align: center;
+}
+
+header nav ul li a:hover{
+  text-decoration: underline;
+}
+
+header nav ul li:last-child{
+  border: 1px solid #00000050;
+  padding-right: 10px;
+  padding-left: 10px;
+  font-size: 10px;
+  color: #000;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: -6px;
+}
+
+.resnav{
+  display: none;
+}
+/* ハンバーガーメニュー用 ---------------- */
+@media screen and (max-width:800px){
+  nav.globalMenuSp {
+    position: fixed;
+    z-index: 96;
+    top: 0;
+    left: 0;
+    background: #fff;
+    color: #000;
+    text-align: center;
+    transform: translateY(-100%);
+    transition: all 0.6s;
+    width: 100%;
+  }
+  
+  nav.globalMenuSp ul {
+    background: #ccc;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+  }
+  
+  nav.globalMenuSp ul li {
+    font-size: 1.1em;
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    border-bottom: 1px dotted #333;
+  }
+  
+
+  nav.globalMenuSp ul li:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+  
+  nav.globalMenuSp ul li a {
+    display: block;
+    color: #000;
+    padding: 1em 0;
+    text-decoration: none;
+  }
+
+  nav.globalMenuSp ul li a:hover{
+    text-decoration: underline;
+  }
+  
+
+  nav.globalMenuSp.active {
+    transform: translateY(0%);
+  }
+  
+  .navToggle {
+    display: block;
+    position: fixed;   
+    right: 13px;
+    top: 12px;
+    width: 42px;
+    height: 51px;
+    cursor: pointer;
+    z-index: 97;
+    background: #666;
+    text-align: center;
+  }
+  
+  .navToggle span {
+    display: block;
+    position: absolute;   
+    width: 30px;
+    border-bottom: solid 3px #eee;
+    -webkit-transition: .35s ease-in-out;
+    -moz-transition: .35s ease-in-out;
+    transition: .35s ease-in-out;
+    left: 6px;
+  }
+  
+  .navToggle span:nth-child(1) {
+    top: 9px;
+  }
+  
+  .navToggle span:nth-child(2) {
+    top: 18px;
+  }
+  
+  .navToggle span:nth-child(3) {
+    top: 27px;
+  }
+  
+  .navToggle span:nth-child(4) {
+    border: none;
+    color: #eee;
+    font-size: 9px;
+    font-weight: bold;
+    top: 34px;
+  }
+
+  .navToggle.active span:nth-child(1) {
+    top: 18px;
+    left: 6px;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+ 
+
+.navToggle.active span:nth-child(2),
+.navToggle.active span:nth-child(3) {
+    top: 18px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+}
+/* ここまでハンバーガーメニュー ------------- */
+
+#player{
+  position: relative; 
+  z-index: 90;
+  top: 74px;
+  background: rgba(0,0,0,.7);
+  width: 100%;
+  height: 408px;
+}
+
+#player2{
+  position: absolute; 
+  z-index: 90;
+  top: 74px;
+  background: rgba(0,0,0,.7);
+  width: 100%;
+  height: 408px;
+}
+
+
+.headerimg{
+  position: absolute;
+  z-index: 90;
+  top: 70px;
+  width: 100%;
+  height: 407px;
+  text-align: center;
+}
+
+.headerimg img{
+  padding-top: 33px;
+  vertical-align: bottom;
+  max-width: 100%;
+  max-height: 100%; 
+}
+
+.nextdays{
+  padding-top: 2%;
+  text-align: center;
+  color: #eee;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+
+.requestbutton{
+  margin-top: 30px;
+  text-align: center;
+}
+
+.requestbutton a{
+  text-decoration: none;
+  font-size: 250%;
+  font-weight: bold;
+  background: #333;
+  color: white;
+  padding: 2px 20px 2px 20px;
+}
+
+.requestbutton a:hover{
+  background: #777;
+}
+
+/* footer ---------------------------------------------------------------------- */
+
+footer{
+  clear: both;
+  background:#fff;
+  margin: auto;
+}
+
+footer a{
+  text-decoration: none;
+}
+
+footer ul{
+  list-style-type: none;
+}
+
+.footBnr{
+	max-width:980px;
+	margin:0 auto;
+	padding:35px 0;
+	clear:both;
+	overflow:hidden;
+}
+.footBnr li{
+	float:left;
+}
+.footBnr li:first-child{
+	margin-right:40px;
+}
+
+.schoolCont{
+	background:#f2f2f2;
+	clear:both;
+	overflow:hidden;
+  padding:25px 0;
+  margin: auto;
+ 
+}
+
+.schoolCont .inner{
+  max-width: 980px;
+  margin: auto;
+}
+
+.schoolCont .info{
+	width: 49%;
+	display:table-cell;
+  vertical-align:top;
+}
+.schoolCont .school{
+	line-height:1.7;
+	margin-top:-3px;
+}
+.schoolCont .school span{
+	font-size:24px;
+	font-weight:bold;
+	display:block;
+}
+.schoolCont .tel{
+  background:url(../images/footer/icn_tel.png) no-repeat 0 6px;
+  background-position: left top;
+	font-size:25px;
+	padding-left:34px;
+  margin-top:-2px;
+  margin-bottom:0px;
+ }
+.schoolCont .footerLink{
+	margin-top:6px;
+}
+.schoolCont .footerLink li{
+	width:200px;
+	float:left;
+ }
+.schoolCont .footerLink li a{
+	display:inline-block;
+	background:url(../images/footer/icn_footer_arrow.png) no-repeat 0 5px;
+	padding-left:14px;
+	color:#333;
+}
+.schoolCont .footerLink li a:hover{
+	color: #0054a7;
+	opacity:1;
+}
+.schoolCont .outsideLink{
+	width:51%;
+	display:table-cell;
+	border-left: #000 2px dotted;
+	vertical-align:top;
+	padding-left:30px;
+}
+.schoolCont .outsideLink p{
+	font-weight:bold;
+	border-left:3px solid #0054a7;
+	padding-left:10px;
+	margin-top:17px;
+	line-height:1.4;
+	padding-top:1px;
+}
+.schoolCont .outsideLink p:first-child{
+	margin-top:4px;
+}
+.schoolCont .outsideLink p span{
+	font-size:12px;
+	font-weight:normal;
+}
+.schoolCont .outsideLink ul{
+	clear:both;
+	overflow:hidden;
+  margin-top:8px;
+  padding-left: 0;
+}
+.schoolCont .outsideLink li{
+	float:left;
+	margin-left:5px;
+}
+.schoolCont .outsideLink li:first-child{
+	margin-left:0;
+}
+
+
+.mclCont{
+	background:#9da4aa;
+	color:#fff;
+	padding:18px 0 11px;
+}
+.mclCont p{
+	font-size:12px;
+}
+.mclCont p img{
+	vertical-align:-16px;
+}
+.mclCont p span{
+	display:inline-block;
+	margin-left:10px;
+}
+.mclCont ul{
+	overflow:hidden;
+	clear:both;
+	margin-top:10px;
+}
+.mclCont li{
+	float:left;
+  margin-left:12px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.mclCont li:first-child{
+	margin:0;
+}
+.mclCont ul a{
+	font-size:12px;
+	display:inline-block;
+	color:#fff;
+	background:url(../images/footer/icn_footer_mcl_arrow.png) no-repeat 0 3px;
+	padding-left:11px;
+}
+
+/*30-------------------------*/
+.mclCont .inner{
+	overflow:hidden;
+  clear:both;
+  margin: auto;
+  max-width: 980px;
+}
+.footBox{
+	width:720px;
+	float:left;
+}
+.footBox ul:last-child{
+	margin-top:1px;
+}
+.footBox ul li:nth-of-type(1){ width:160px; }
+.footBox ul li:nth-of-type(2){ width:135px; }
+.footBox ul li:nth-of-type(3){ width:205px; }
+.bnrBox{
+	width:248px;
+	float:right;
+	margin-top:4px;
+}
+/*-------------------------*/
+
+address{
+	background:#9da4aa;
+	color:#fff;
+	text-align:right;
+	font-style:normal;
+	font-size:12px;
+	padding:9px 0 8px;
+	border-top:1px solid #bbbfc4;
+}
+
+address .inner{
+  max-width: 980px;
+  margin: auto;
+}
+
+/* 本文 ------------------------------------------------------------------- */
+main{
+  background: url(../images/contents/bg_dot.gif);
+  margin-top: 60px;
+}
+
+main h2{
+  margin: 0 auto 35px auto;
+  padding-top: 50px;
+  text-align: center;
+}
+main h2 img{
+  max-width: 100%;
+}
+
+/* taiken ----------------------------------------------------------------- */
+.taiken{
+  background: url(../images/title/bg_taiken_illust.png) no-repeat no-repeat;
+  background-position: center top;
+  max-width: 980px;
+  margin: auto;
+}
+
+.taikencontents{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  transition:  all .3s;
+}
+
+.taikenmain{
+  transition: all .3s;
+  width:310px;
+  background: #FFF;
+  border-radius: 2%;
+  box-shadow:rgba(28, 69, 87, 0.08) 0px 2px 2px 1px;
+  margin-bottom: 30px;
+}
+
+.taikenmain figure{
+ margin: 10px;
+ text-align: left;
+}
+
+
+.taikenmain h4{
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+.taikenmain p{
+  margin-top:3px;
+}
+
+
+
+/* tokuten ----------------------------------------------------------- */
+
+.tokuten{
+  max-width: 980px;
+  margin: auto;
+}
+
+.tokutencontents{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.tokutenmain{
+  width: 33%;
+  text-align: center;
+  margin-bottom: 30px;
+  border-right: 2px dotted #0054a7;
+}
+
+.tokutenmain:last-child{
+  border-right: 0px;
+}
+
+.tokutenmain figure *{
+  text-align: left;
+  line-height: 1.4em;
+  width: auto;
+}
+
+.tokutenmain figure figcaption{
+  width: auto;
+}
+
+.tokutenmain span{
+  color: #0054a7;
+}
+
+.tokutenmain h2 #tokuinfo{
+  font-size: 0.6em;
+}
+
+/* openscale ------------------------------------------------- */
+
+.openback{
+  width: 100%;
+  background: url(../images/contents/bg_line.gif);
+  padding-bottom: 70px;
+}
+
+.openscale{
+  max-width: 980px;
+  margin: auto;
+
+}
+
+.openscale figure{
+margin-left: 0.1%;
+margin-right: 0.1%;
+  float: left;
+}
+
+.openscale figure figcaption{
+  display: block;
+  margin-left: 1vw;
+  float: right;
+  margin-top: 7px;
+}
+
+.openscale figure figcaption h2{
+  display: inline;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.openscale figure figcaption p{
+  margin-top: 10px;
+  margin-bottom: 2px;
+  font-size: 15px;
+}
+
+/* Q & A -------------------------------------------------- */
+
+.qanda{
+  max-width: 980px;
+  margin: auto;
+}
+
+.qamain{
+  padding-top: 40px;
+  padding-bottom: 10px;
+  background: #fff;
+}
+
+.qamain ul{
+  list-style-type: none;
+}
+
+.qamain ul li{
+  font-size: 145%;
+  font-weight: 600;
+  line-height: 1.6em;
+  font-family: "Rounded Mplus 1c";
+}
+
+.qamain ul li:nth-child(2n + 1){
+  background: url(../images/contents/bg_ques.png) no-repeat no-repeat;
+  background-position: left center;
+  padding-left: 40px;
+  margin-left: 0px;
+}
+
+.qamain ul li:nth-child(2n + 1) p{
+  background: rgba(0, 0, 255, .1);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 7px;
+  margin-right: 20px;
+}
+
+.qamain ul li:nth-child(2n){
+  background: url(../images/contents/icn_answer.png) no-repeat no-repeat;
+  background-position: left center;
+  padding-left: 40px;
+  margin-left: 20px;
+  margin-bottom: 50px;
+}
+
+.qamain ul li:nth-child(2n) p{
+  background: rgba(255, 0, 0, .1);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 7px;
+  margin-right: 20px;
+  font-weight: normal;
+}
+
+.qandaima{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+/* openrequest -------------------------------------- */
+
+.openrequest{
+  max-width: 980px;
+  margin: auto;
+  background: url(../images/title/bg_schedule_illust.png) no-repeat no-repeat;
+  background-position-y: 5%;
+}
+
+.openrequest h2{
+  line-height: 1.5em;
+  font-family: "Rounded Mplus 1c";
+  font-size: 2em;
+}
+.openrequest h2 span{
+  font-size: 1.7em;
+}
+
+.niceform form{
+  max-width: 980px;
+}
+
+.niceform > p{
+  margin-top:70px;
+  margin-bottom: 70px;
+}
+
+.niceform table{
+  border-collapse: collapse;
+}
+
+.niceform table th,.niceform table td{
+  border-bottom: 1px solid #CCC;
+}
+
+.niceform table tr th{
+  background:#EEE;
+  width: 30%;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.niceform table td{
+  width: 70%;
+  background: #fff;
+  padding: 20px 40px 20px 40px;
+}
+
+.niceform table th .required{
+  background: #FF5555;
+  color: white;
+  margin-right: 20px;
+  text-align: right;
+  float: right;
+  padding: 2px 10px 2px 10px;
+}
+
+.niceform table + p{
+  text-align: center;
+  margin-top:30px;
+}
+
+.radioflex{
+  display: flex;
+  justify-content: space-around;
+}
+
+.submitbtn{
+margin: auto;
+text-align: center;
+}
+
+/* ============================================================ */
+/* ここかられすぽんしぶ 800px ------------------------------- */
+/* ============================================================ */
+
+@media screen and (max-width:800px){
+  
+  header nav ul{
+    display: none;
+  }
+
+  header img{
+    max-width: 100%;
+    width: 50%;
+  }
+
+  .resnav{
+    display: inherit;
+    float: right;
+    padding-right: 30px;
+  }
+
+  /* taiken -------- */
+
+  .taikenmain{
+    width: 100%;
+    clear: both;
+  }
+
+  .taikenmain img{
+    float:left;
+    margin-bottom: 10%;
+    width: 35%;
+    margin-left: 2.5%;
+  }
+
+  .taikenmain .pkaigyou{
+    margin-bottom: 2%;
+  }
+
+  .taikenmain .pkaigyou2{
+    margin-bottom: 7%;
+  }
+
+  .taikenmain h4,.taikenmain p{
+    margin-left: 45%;
+  }
+
+  .taikenmain figcaption{
+    float: right;
+  }
+  .taikenmain figure + img{
+    max-width: 50%;
+  }
+
+
+
+  /* tokuten ---------------------------- */
+
+  .tokutenmain{
+    border-right: 0px;
+    width: 97%;
+    border-bottom:2px dotted #0054a7;
+    margin-left: 3%;
+    margin-right: 3%; 
+    text-align: left;
+  }
+
+  .tokutenmain figure{
+    margin-left: 0%;
+    margin-right: 0%;
+  }
+
+
+  .tokutenmain figure img{
+    float: left;
+    width: 20vw;
+    height: 20vw;
+  }
+
+  .tokutenmain figure h2{
+    padding-top: 10px;
+    padding-left:25%;
+    font-size: 3vw;
+  }
+
+  .tokutenmain figure p{
+    padding-left:25%;
+   /* font-size: 2.5vw; */
+  }
+
+  /* schale ------------------------ */
+
+  .openscale figure{
+    text-align: center;
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100%;
+  }
+
+  .openscale figure img{
+    display: block;
+    margin: auto;
+    width: 10vw;
+  }
+
+  .openscale figure figcaption{
+    margin: 0;
+    width: 100%;
+  }
+
+  .openscale figure figcaption h2{
+    display: block;
+    width: 100%;
+    margin-top: 4%;
+    margin-bottom: 2%;
+    font-size: 3vw;
+  }
+
+  .openscale figure figcaption p{
+    margin-left: 0px;
+   /* font-size: 2.6vw; */
+    text-align: left;
+    margin-left: 4%;
+    margin-right: 4%;
+  }
+
+  /* Q and A ------------------ */
+  .qamain ul li{
+    font-size: 2.6vw;
+    font-weight: 600;
+    line-height: 1.6em;
+    font-family: "Rounded Mplus 1c";
+  }
+
+  .qamain ul{
+    padding-left: 1%;
+  }
+  /* request ---------------- */
+    #request1{
+      font-size: 4vw;
+    }
+
+    .niceform table{
+      width: 100%;
+    }
+
+    .niceform table tr th{
+      width: 100%;
+      text-align: center;
+      margin: 0;
+      padding: 2% 0 2% 0;
+    }
+
+    .niceform table th .required{
+      margin-right: 3%;
+    }
+
+    .niceform table th{
+      padding: 5% 0 5% 0;
+    }
+
+    .niceform table td{
+      padding: 5% 0 5% 0;
+    }
+
+    .niceform table tr td{
+      width: 100%;
+    }
+
+    .niceform th, .niceform td {
+      display: block;
+      text-align: left;
+      width: 100%;
+    }
+
+
+
+  /* footer -------------- */
+
+  .footBnr li{
+    clear: both;
+    text-align: center;
+    margin: auto;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .footBnr li img{
+    width: 70%;
+    height: 17vw;
+  }
+
+  .schoolCont .info{
+    display: block;
+    width: 100%;
+  }
+  .schoolCont .outsideLink{
+    display: block;
+    width: 100%;
+    border-left: 0px;
+    border-top:3px dotted;
+    margin-top: 100px;
+    padding-top: 30px;
+  }
+
+  .bnrBox{
+    clear: both;
+    width: 100%;
+    
+    text-align: center;
+  }
+
+
+}
+/* ここまで800px ----------------------------------- */
+
+/* 動画サイズ調節用 -------------- */
+@media screen and (max-width:742px){
+
+#player,#player2{
+  height: 55vw;
+}
+
+.headerimg img{
+  height: 30vw;
+  padding-top: 2.5%;
+}
+
+.requestbutton{
+  margin-top: 4%;
+}
+
+.requestbutton a,.nextdays{
+ font-size: 5vw;
+}
+}
+
+/* =================================================== */
+/* ここかられすぽんしぶ 455px -------------------------- */
+/* =================================================== */
+
+@media screen and (max-width:455px){
+  /* request ---------------------------- */
+  
+  .schoolCont .outsideLink{
+    display: block;
+    width: 100%;
+    border-left: 0px;
+    border-top:3px dotted;
+    margin-top: 200px;
+    padding-top: 30px;
+  }
+
+
+}
