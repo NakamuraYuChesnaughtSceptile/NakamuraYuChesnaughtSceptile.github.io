@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Documentオブジェクトテスト用コード</title>
+<script>
+window.addEventListener("load", function(){
+
+    // 画像インデックス
+    var imageIndex = 0;
+
+    // リスナー登録
+    document.getElementsByTagName("button")[0].addEventListener("click", function(){
+        // 画像イメージをインクリメント
+        if (imageIndex < 3) {
+            imageIndex++;
+        } else {
+            imageIndex = 0;
+        }
+        // 画像srcを変更
+        switch(imageIndex) {
+            case 0:
+                imageSrc = "./images/flower.jpg";
+                break;
+            case 1:
+                imageSrc = "./images/sea.jpg";
+                break;
+            case 2:
+                imageSrc = "./images/fruit.jpg";
+                break;
+            case 3:
+                imageSrc = "./images/house.jpg";
+                break;
+        }
+        document.getElementById("image").src = imageSrc;
+
+    }, false);
+});
+</script>
+</head>
+<body>
+<button>画像を変更</button>
+<p><img id ="image" src="./images/flower.jpg" alt="花" /></p>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>JavaScriptの練習</title>
+</head>
+
+<body>
+  <input type="button" value="1分タイマー開始" onclick="Timebotan1()" />
+  <input type="button" value="3分タイマー開始" onclick="Timebotan3()" />
+  <input type="button" value="5分タイマー開始" onclick="Timebotan5()" />
+  <p>
+    <div id="idm">0</div>：<div id="ids">0</div>
+  </p>
+  <script>
+    function Timebotan3() {  //タイマー開始
+      var count1 = 3;
+      var count2 = 0;
+
+      var countdown1 = function () {
+        document.getElementById("idm").textContent = --count1;
+      }
+      var countdown2 = function () {
+        document.getElementById("ids").textContent = count2--;
+      }
+
+      var id = setInterval(function () {  //秒設定
+       
+
+        if (count2 < 0) {
+          countdown1();
+          count2 = 59;
+         
+         
+        }
+        if (count1 < 0) {
+          clearInterval(id);　
+          window.alert("時間です。");
+          
+        }else{
+          countdown2();
+        }
+        
+
+      }, 1000);
+
+
+    }
+
+  </script>
+
+  </script>
+</body>
+
+</html>

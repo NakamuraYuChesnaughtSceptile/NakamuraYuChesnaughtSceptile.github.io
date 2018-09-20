@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+
+</head>
+
+<body>
+  
+  <form method="post" action="?" name="nameForm">
+    名前：
+    <input id="name" name="name" size="20">
+    <input type="button" id="submitButton" name="submitButton" value="送信">
+  </form>
+  <p id="pname">あなたの名前を教えて下さい。</p>
+  <script>
+      var submitCheck = function () {
+        //名前取得
+        var nameValue = document.nameForm.name.value;
+        document.getElementById("pname").textContent = "あなたの名前は" + nameValue + "ですね？";
+      }
+  
+      //リスナー登録
+      //window.onload = function () {
+        document.getElementById("submitButton").addEventListener("click", submitCheck, false);
+      //}
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Sample5</title>
+<script type="text/javascript">
+    function Sample5(){
+ 
+                var hoge = Sample5_form.drop.value;
+                alert(hoge+"が選択されています");
+    }
+</script>
+</head>
+ 
+<body>
+    <form name="Sample5_form" action="form_sample5.html">
+        <select name="drop" size="3">
+        <option value="リスト1"/>リスト1</option>
+        <option value="リスト2"/>リスト2</option>
+        <option value="リスト3"/>リスト3</option>
+        <input type="button" value="Sample5" onclick="Sample5()">
+        <input type="text" name="textbox"/>
+        <input type="reset" value="Reset"/>
+        <input type="file" name="example1"/>
+        <input type="hidden" name="example" value="sample"/>
+        
+    </form>
+</body>
+</html

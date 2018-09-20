@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<input type="button" id="promptButton" value="確認ダイアログ表示">
+
+  <script>
+  //入力ダイアログ表示関数
+  var showPromptDialog = function(){
+    var inputName = prompt("あなたのお名前を入力してください","山田");
+    alert("あなたのお名前は" + inputName + "ですね");
+   
+  }
+
+  //リスナー登録
+  window.onload = function(){
+    document.getElementById('promptButton').addEventListener("click",showPromptDialog,false);
+  }
+  </script>
+</body>
+</html>

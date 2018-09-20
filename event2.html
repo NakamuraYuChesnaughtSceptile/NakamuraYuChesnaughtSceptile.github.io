@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <form name="Sample2_form" action="form_sample2.html"> <!-- 更新用　-->
+
+    <input type="checkbox" name="check" />チェックボックス　<!-- 文字+チェックボックスを作成　-->
+
+    <input type="button" value="Sample2" onclick="Sample2()">　<!-- チェックボックスを作成　-->
+    <!-- 順番：   アクション　名前関数　クリックした時のfunction()関数名 -->
+
+  </form>
+  <script type="text/javascript">
+    function Sample2() {
+      var hoge = Sample2_form.check.checked;    //チェックの関数を代入
+      if (hoge == true) {     //チェックボックス判定
+        alert("チェックが入っています");
+      } else {
+        alert("チェックが入っていません");
+      }
+    }
+  </script>
+</body>
+
+</html>

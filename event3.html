@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <form name="Sample3_form" action="form_sample3.html">
+      <!-- 実行更新用 -->
+        <input type="radio" name="radio" value="赤"/>赤<br>
+        <input type="radio" name="radio" value="青"/>青<br>
+        <input type="radio" name="radio" value="緑"/>緑<br>
+        <!-- アクション名(ボタン表示)　関数名　文字列　 -->
+        <input type="button" value="Sample3" onclick="Sample3()">
+        <!-- アクション名(ボタン表示)　文字列　実行時のfunction()関数名 -->
+    </form>
+
+    <script type="text/javascript">
+      function Sample3(){
+          for(var i=0;i<Sample3_form.radio.length;i++){
+              if(Sample3_form.radio[i].checked == true){
+                  var hoge = Sample3_form.radio[i].value;
+                  alert(hoge+"が選択されています");
+              }
+          }
+      }
+  </script>
+</body>
+</html>

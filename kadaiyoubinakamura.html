@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+
+</head>
+<body>
+
+    <form name="Sample4_form" action="sample4_form.html">
+        <select name="drop" size="3">
+            <option value="日曜日"/>日曜日</option>
+            <option value="月曜日"/>月曜日</option>
+            <option value="火曜日"/>火曜日</option>
+            <option value="水曜日"/>水曜日</option>
+            <option value="木曜日"/>木曜日</option>
+            <option value="金曜日"/>金曜日</option>
+            <option value="土曜日"/>土曜日</option>
+            <input type="button" value="決定" onclick="Sample4()">
+        </select>
+    </form>
+  <p id="day"></p>
+
+  <script type="text/javascript">
+    function Sample4(){
+ 
+                var hoge = Sample4_form.drop.value;
+                if(hoge == "日曜日"){
+
+                  document.getElementById("day").textContent= hoge + "に　市場に出かけ、"
+                  + "糸と麻（あさ）を　買ってきた"  + "テュリャ　テュリャ　テュリャ テュリャ　テュリャ　テュリャリャテュリャ　テュリャ　テュリャテュリャ　リャ";
+                  
+
+                }else if(hoge == "月曜日"){
+
+                  document.getElementById("day").textContent= hoge + "は お風呂を焚いて";
+
+                }else if(hoge == "火曜日"){
+
+                  document.getElementById("day").textContent= hoge + "に お風呂に入り、"+  "テュリャ　テュリャ　テュリャ テュリャ　テュリャ　テュリャリャテュリャ　テュリャ　テュリャテュリャ　リャ";
+
+                }else if(hoge == "水曜日"){
+
+                  document.getElementById("day").textContent= hoge + "は 友達がきて";
+
+                }else if(hoge == "木曜日"){
+
+                  document.getElementById("day").textContent= hoge + "は 送っていった。"+  "テュリャ　テュリャ　テュリャ テュリャ　テュリャ　テュリャリャテュリャ　テュリャ　テュリャテュリャ　リャ";
+
+                }else if(hoge == "金曜日"){
+
+                  document.getElementById("day").textContent= hoge + "は 糸巻きもせず";
+
+                }else if(hoge == "土曜日"){
+
+                  document.getElementById("day").textContent= hoge + "は おしゃべりばかり、"
+                  + "ともだちよ　これが私の" + "一週間の仕事です。"
+                  +  "テュリャ　テュリャ　テュリャ テュリャ　テュリャ　テュリャリャテュリャ　テュリャ　テュリャテュリャ　リャ";
+
+                }
+                
+    }
+</script>
+</body>
+</html>

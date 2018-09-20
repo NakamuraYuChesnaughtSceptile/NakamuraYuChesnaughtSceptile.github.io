@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+    <form name="form_sample1" action="form_sample1.html">
+      <!-- 検索したら再読み込みが実行される(actionの中のhtmlファイル) -->
+        <input type="text" name="textbox">
+        <input type="button" value="検索" onclick="Sample1()">
+        </form>
+ <p id="search_word"></p>
+  <script type="text/javascript">
+
+    /*タグ取得して通知表示(今回はhtmlタグなので全部のマスに反応)
+  document.querySelector('html').onclick = function(){
+    alert('Ouch! stop poking me!');
+  }
+  */
+
+function Sample1(){
+        var hoge =form_sample1.textbox.value;  //テキストエリアの値を取得
+ 
+        
+        document.getElementById("search_word").textContent = hoge + "を検索中です。。。"
+    }
+   
+  </script>
+</body>
+</html>

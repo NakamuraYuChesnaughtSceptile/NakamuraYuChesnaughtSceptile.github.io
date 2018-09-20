@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    table td {
+      width: 200px;
+      height: 100px;
+      text-align: center;
+
+    }
+  </style>
+</head>
+
+<body>
+  <p>～　ランチメニュー選択　～</p>
+  <table border="1">
+    <form name="Sample3_form" action="kadaievent.html">
+      <tr>
+        <td>
+          <input type="radio" name="radio" value="蒙古タンメン" />蒙古タンメン</td>
+        <td>
+
+          <input type="checkbox" name="check" />大盛</td>
+
+      </tr>
+      <tr>
+        <td>
+          <input type="radio" name="radio" value="一楽ラーメン" />一楽ラーメン</td>
+        <td>
+
+          <input type="checkbox" name="check" />半チャーハン</td>
+
+
+      </tr>
+      <tr>
+        <td>
+          <input type="radio" name="radio" value="節骨ラーメン" />節骨ラーメン</td>
+        <td>
+
+          <input type="checkbox" name="check" />餃子</td>
+
+      </tr>
+
+
+
+    </form>
+
+  </table>
+  <br>
+  <input type="button" value="注文する" onclick="Sample3()">
+
+
+  <script type="text/javascript">
+    function Sample3() {
+      for (var i = 0; i < Sample3_form.radio.length; i++) {
+        if (Sample3_form.radio[i].checked == true) {
+
+          var hoge = Sample3_form.radio[i].value;
+      
+          var hoges1 = Sample3_form.check[0].checked;
+          var hoges2 = Sample3_form.check[1].checked;
+          var hoges3 = Sample3_form.check[2].checked;
+        
+          var text ="";
+          if (hoges1 == true) {
+            text = text + "\n" + '大盛';
+          }
+          if (hoges2 == true) {
+            text = text + "\n" +'半チャーハン';
+          }
+          if (hoges3 == true) {
+            text = text + "\n" +'餃子';
+          }
+          
+          alert("注文は"+ "\n" + hoge  + text + "\n" + "ですね？");
+
+        }
+      }
+    }
+
+  </script>
+
+</body>
+
+</html>

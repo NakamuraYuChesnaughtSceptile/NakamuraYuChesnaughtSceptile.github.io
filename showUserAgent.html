@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Navigatorオブジェクトテスト用コード</title>
+<script>
+// ユーザエージェント書き込み関数
+var writeUserAgent = function() {
+    document.getElementById("userAgent").innerHTML = navigator.userAgent;
+}
+// リスナー登録
+window.addEventListener("load", function(){
+    document.getElementById("showUserAgent").addEventListener("click", writeUserAgent, false);
+});
+</script>
+</head>
+<body>
+アプリケーション名：<span id="appName"></span></br>
+バージョン：<span id="appVersion"></span></br>
+　　<input type="button" id="showUserAgent" value="ユーザエージェント表示"></br>
+    ユーザエージェント名：<p id="userAgent"></p>
+ 
+    <script>
+        document.getElementById("appName").innerHTML = navigator.appName;
+        document.getElementById("appVersion").innerHTML = navigator.appVersion;
+    </script>
+</body>
+</html>

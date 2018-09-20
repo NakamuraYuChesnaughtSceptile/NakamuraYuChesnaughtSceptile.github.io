@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Screenオブジェクトテスト用コード</title>
+<script>
+// サブウィンドウをフルスクリーンにサイズ変更する関数
+var adjustFullScreen = function() {
+    // サブウィンドウ生成
+    subWindow = window.open('','subwin','width=180,height=110');
+    subWindow.document.write("<p>ウィンドウサイズを変更します</p>");
+    // 1秒後にサイズ変更
+    setTimeout(function(){
+        // ウィンドウ位置を左上に合わせる
+        subWindow.moveTo(0, 0);
+        // スクリーンサイズに合わせてウィンドウサイズを変更
+        subWindow.resizeTo(screen.width, screen.height);
+    }, 1000);
+}
+// リスナー登録
+window.addEventListener("load", function(){
+    document.getElementsByTagName("button")[0].addEventListener("click", adjustFullScreen, false);
+});
+</script>
+</head>
+<body>
+    <button>サブウィンドウサイズ調整</button>
+</body>
+</html>

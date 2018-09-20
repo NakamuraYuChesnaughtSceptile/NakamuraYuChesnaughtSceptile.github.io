@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    //1　全部
+  var now = new Date();
+  console.log(now);
+
+
+    //2 1つずつ入力
+  var year = now.getFullYear();
+  console.log(year);
+
+  var month = now.getMonth();
+  console.log(month);
+
+  var day = now.getDay();
+  console.log(day);
+
+  var hour = now.getHours();
+  console.log(hour);
+
+  var minutes = now.getMinutes();
+  console.log(minutes);
+
+  var second = now.getSeconds();
+  console.log(second);
+
+  //3 直入力
+
+  var date1 = new Date();
+  console.log(date1.toString());
+   date1.setFullYear(2020);
+   date1.setMonth(6);
+   date1.setDate(24);
+  //7月24日
+   console.log(date1.toString());
+   //toString()時刻表示
+
+  console.log(date1.getTime());
+  
+  console.log(now.getTime());
+  //getTime()1970年から経った時間
+
+  var diff = date1.getTime() - now.getTime();
+  console.log(diff);
+
+  diff = diff/(1000*60*60*24);
+  diff = Math.floor(diff);  //Math.floorは小数区切り
+  console.log(diff);
+  </script>
+</body>
+</html>

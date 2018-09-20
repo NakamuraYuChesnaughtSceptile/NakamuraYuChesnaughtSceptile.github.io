@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <p>お使いのブラウザは
+    <div id="kekka"></div>でバージョンは
+    <div id="vver"></div>ですね？</p>
+
+  <script>
+    var userAgent = window.navigator.userAgent.toLowerCase();// ブラウザのUAを小文字で取得
+    var how = "";  //ブラウザ名関数
+    var ver = ""; //バージョン関数
+    var cutSt, cutEd;  //バージョン取る最初と最後の関数２つ用意
+
+    if (userAgent.indexOf('msie') != -1 ||
+      userAgent.indexOf('trident') != -1) {
+
+      how = 'Internet Explorer';
+
+    } else if (userAgent.indexOf('edge') != -1) {
+
+      how = 'Edge';
+
+    } else if (userAgent.indexOf('chrome') != -1) {
+
+      how = 'Google Chrome'; //くろーむ、じゃぁバージョン
+      cutSt = userAgent.indexOf("Chrome");
+      cutEd = userAgent.indexOf(" ", cutSt);
+      ver = userAgent.substring(cutSt + 7, cutEd);
+
+    } else if (userAgent.indexOf('safari') != -1) {
+
+      how = 'Safari';
+
+    } else if (userAgent.indexOf('firefox') != -1) {
+
+      how = 'FireFox';  //ふぁいあふぉっくすでばーじょん
+
+    } else if (userAgent.indexOf('opera') != -1) {
+
+      how = 'Opera';    //Operaでした、次はバージョン確認
+      cutSt = userAgent.indexOf("Version");
+      cutEd = userAgent.length;
+      ver = userAgent.substring(cutSt + 8, cutEd);
+
+    } else {
+
+      how = 'What?';
+    }
+    document.getElementById("kekka").textContent = how;
+    document.getElementById("vver").textContent = ver;
+  </script>
+</body>
+
+</html>
