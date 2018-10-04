@@ -1,0 +1,87 @@
+@charset "UTF-8";
+
+body:after{
+  position: fixed;
+  content: "- Special Thanks -";
+  letter-spacing: 10px;
+  padding-top: 1vw;
+  text-align: center;
+  font-size: 4vw;
+  color: aliceblue;
+  font-feature-settings: "liga" 0;
+  font-family: 'Playfair Display', serif;
+  top: 0;
+  width: 100%;
+  height: 150px;
+  z-index: 10;
+  background: linear-gradient(rgba(0,0,0,1),rgba(0,0,0,.7),rgba(0,0,0,0));
+}
+
+.thanksdiv{
+  margin-top: 300px;
+  display: flex;
+  justify-content:space-between;
+  flex-wrap: wrap;
+  transition:.3s all;
+}
+
+.thanksdiv .thanksdiv2{
+  position: relative;
+  width: 25%;
+  margin: 0;
+  transition:.3s all;
+}
+
+.thanksdiv .thanksdiv2 a img{
+  width: 100%;
+  vertical-align: bottom;
+}
+
+.thanksdiv .thanksdiv2 a{
+  position: relative;
+}
+
+.thanksdiv .thanksdiv2 a img:hover{
+  position: relative;
+  z-index: 1;
+  transition:.3s all;
+  overflow: hidden;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 1), 0 0 100px rgba(0, 0, 0, 1);
+}
+
+.thanksdiv .thanksdiv2 a img:after:hover{
+  position: absolute;
+  bottom: 0;
+  display: block;
+  z-index: 2;
+  content: "Nice Text";
+  color: aliceblue;
+  background: wheat;
+  width: 100%;
+  height: 100px;
+}
+
+
+
+
+@media screen and (max-width:1280px){
+  .thanksdiv .thanksdiv2{
+    width: 33.3%;
+    margin: 0;
+    transition:.3s all;
+  }
+}
+
+@media screen and (max-width:750px){
+
+  body:after{
+    padding-top: 1vw;
+    font-size: 6vw;
+  }
+
+  .thanksdiv .thanksdiv2{
+    width: 50%;
+    margin: 0;
+    transition:.3s all;
+  }
+}

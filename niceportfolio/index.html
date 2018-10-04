@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Nice Portfolio</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" />
+</head>
+<body>
+  <header id="header"><h1>Nice<br>
+  Portfolio</h1></header>
+  <main>
+    <section id="section1" class="section1">
+      <h2>Nice Profile</h2>
+      <div class="sec1left">
+      <img src="images/niceicon.jpg">
+      <h3><ruby>中村<rt>なかむら</rt></ruby>　<ruby>裕<rt>ゆう</rt></ruby></h3>
+      <p>23歳、学生です<br>
+      毎日新幹線で通学中<br>
+      </p>
+      </div>
+      <div class="buttonpro2">
+      <a href="profile.html"><div class="buttonpro">more</div></a>
+        </div>
+    </section>
+
+    <section id="section2" class="section2">
+      <h2>Nice Works</h2>
+      <ul class="list">
+        <li class="list-mv07"><a href="http://fukawatari.sakura.ne.jp/" target="_blank"><figure><img src="images/nicebg2.png"><figcaption>魚の番屋サイト作成</figcaption></figure></a></li>
+        <li class="list-mv07"><figure><img src="images/icon1.png"><figcaption>Javaプログラミング検定3級取得</figcaption></figure></li>
+          <li class="list-mv07"><figure><img src="images/icon2.png"><figcaption>Webクリエイター試験エキスパート取得</figcaption></figure></li>
+          <li class="list-mv07"><figure><img src="images/icon2.png"><figcaption>HTMLプロフェッショナル試験Lv1取得</figcaption></figure></li>
+        </ul>
+
+        <div class="buttonpro2">
+          <a href="works.html"><div class="buttonpro">more</div></a>
+            </div>
+    </section>
+
+    <section id="section3" class="section3">
+      <h2>Nice Contact</h2>
+      <form>
+        <table>
+          <tr><th class="msr_text_03">Name</th><td class="msr_text_03"><input type="text" /></td></tr>
+          <tr><th class="msr_textarea_03">Text</th><td class="msr_textarea_03"><textarea></textarea></td></tr>
+        </table>
+            <div class="buttonpro2">
+              <a href="#"><div class="buttonpro">contact !</div></a>
+                </div>
+        </form>
+    </section>
+
+    <ul class="nicelist">
+      <li><a href="#header" class="animsition-link"><div class="niceclass1">Nice </div>Portfolio</a></li>
+      <li><a href="#section1" class="animsition-link"><div class="niceclass1">Nice </div>Profile</a></li>
+      <li><a href="#section2" class="animsition-link"><div class="niceclass1">Nice </div>Works</a></li>
+      <li><a href="spthanks.html" class="animsition-link"><div class="niceclass1">Special </div>Thanks</a></li>
+    </ul>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
+  </script>
+  <script type="text/javascript" src="js/fadeins/jquery.inview.js"></script>
+  <script>
+        //スムーススクロール
+        $(function () {
+    var offsetY = 0;
+    var time = 400;
+    $('a[href^="#"]').click(function () {
+    var target = $(this.hash);
+    if (!target.length) return;
+    var targetY = target.offset().top + offsetY;
+    $('html,body').animate({ scrollTop: targetY }, time, 'swing');
+    window.history.pushState(null, null, this.hash);
+    return false;
+     });
+    });
+
+      // 遅スクロール
+      $(document).scroll(function() {
+  $("header").css({
+    "background-position-y": (-$(this).scrollTop()/10)
+  })
+});
+
+  //フェードイン
+    $('.list-mv07').on('inview', function (event, isInView, visiblePartX, visiblePartY) {
+      console.log(isInView);
+      if (isInView) {
+        $(this).stop().addClass('mv07');
+      }
+      else {
+        $(this).stop().removeClass('mv07');
+      }
+    });
+</script>
+
+</body>
+</html>

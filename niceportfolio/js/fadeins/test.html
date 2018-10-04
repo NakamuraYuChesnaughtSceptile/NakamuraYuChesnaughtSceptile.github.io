@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="jquery.inview.js"></script>
+  <style>
+    	body{
+		background-color: #eee;
+	}
+	.inner{
+		width: 900px;
+		margin: 0 auto;
+	}
+.list{
+	margin: 50px 50px 50px 50px;
+	list-style-type: none;
+	overflow: hidden;
+}
+.list li{
+	margin: 50px 20px 50px 20px;
+	float: left;
+	transition: .8s;
+}
+
+.list-mv07{
+	opacity: 0;
+	transform: translate(0,60px); 
+	-webkit-transform: translate(0,60px); 
+}
+.mv07{
+	opacity: 1.0;
+	transform: translate(0,0); 
+	-webkit-transform: translate(0,0);
+}
+
+.list .list-mv07:nth-of-type(2){
+  -moz-transition-delay: 200ms;
+      -webkit-transition-delay: 200ms;
+      -o-transition-delay: 200ms;
+      -ms-transition-delay: 200ms;
+}
+.list .list-mv07:nth-of-type(3){
+  -moz-transition-delay: 400ms;
+      -webkit-transition-delay: 400ms;
+      -o-transition-delay: 400ms;
+      -ms-transition-delay: 400ms;
+}
+.list .list-mv07:nth-of-type(4){
+  -moz-transition-delay: 600ms;
+      -webkit-transition-delay: 600ms;
+      -o-transition-delay: 600ms;
+      -ms-transition-delay: 600ms;
+}
+img{
+  width: 100px;
+  height: 100px;
+}
+  </style>
+</head>
+<body>
+    <ul class="list">
+        <li class="list-mv07"><img src="../../images/pixivicon.png"></li>
+        <li class="list-mv07"><img src="../../images/pixivicon.png"></li>
+        <li class="list-mv07"><img src="../../images/pixivicon.png"></li>
+        <li class="list-mv07"><img src="../../images/pixivicon.png"></li>
+      </ul>
+      <ul class="list">
+        <li class="list-mv07"><img src="../../images/pixivicon.png"></li>
+        <li class="list-mv07"><img src="../../images/pixivicon.png"></li>
+        <li class="list-mv07"><img src="../../images/pixivicon.png"></li>
+      </ul> <ul class="list">
+        <li class="list-mv07"><img src="../../images/pixivicon.png"></li>
+        <li class="list-mv07"><img src="../../images/pixivicon.png"></li>
+        <li class="list-mv07"><img src="../../images/pixivicon.png"></li>
+      </ul> <ul class="list">
+        <li class="list-mv07"><img src="../../images/pixivicon.png"></li>
+        <li class="list-mv07"><img src="../../images/pixivicon.png"></li>
+        <li class="list-mv07"><img src="../../images/pixivicon.png"></li>
+      </ul> <ul class="list">
+        <li class="list-mv07"><img src="../../images/pixivicon.png"></li>
+        <li class="list-mv07"><img src="../../images/pixivicon.png"></li>
+        <li class="list-mv07"><img src="../../images/pixivicon.png"></li>
+      </ul> <ul class="list">
+        <li class="list-mv07"><img src="../../images/pixivicon.png"></li>
+        <li class="list-mv07"><img src="../../images/pixivicon.png"></li>
+        <li class="list-mv07"><img src="../../images/pixivicon.png"></li>
+      </ul> <ul class="list">
+        <li class="list-mv07"><img src="../../images/pixivicon.png"></li>
+        <li class="list-mv07"><img src="../../images/pixivicon.png"></li>
+        <li class="list-mv07"><img src="../../images/pixivicon.png"></li>
+      </ul>
+      <script>
+   $('.list-mv07').on('inview', function(event, isInView, visiblePartX, visiblePartY) {
+    console.log(isInView);
+    if(isInView){
+      $(this).stop().addClass('mv07');
+    }
+    else{
+      $(this).stop().removeClass('mv07');
+    }
+  });
+  
+      </script>
+</body>
+</html>
