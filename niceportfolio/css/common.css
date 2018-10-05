@@ -125,7 +125,7 @@ main{
 
 .section1{
   width: 100%;
-  height: 700px;
+  height: 800px;
 }
 
 .section1 h2{
@@ -147,7 +147,7 @@ main{
 }
 
 .section1 img{
-  width: 200px;
+  width: 250px;
   border-radius: 50%;
 }
 
@@ -155,6 +155,7 @@ main{
   width: 100%;
   text-align: center;
 }
+
 
 a .buttonpro{
   display:inline-block;
@@ -443,6 +444,13 @@ table tr th{
 
 @media screen and (max-width: 750px){
 
+  body{
+    margin: 0;
+    padding: 0;
+    background: url(../images/bill3res.jpg);
+    background-attachment: fixed;
+    min-width: 320px;
+  }
 
   .section1{
     height: 600px;
