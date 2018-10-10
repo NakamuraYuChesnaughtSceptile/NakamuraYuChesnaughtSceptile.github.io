@@ -1,81 +1,121 @@
 @charset "UTF-8";
 
-.profiles{
-  position: relative;
-  z-index: 5;
-  width: 600px;
-  margin-left: 150px;
-  margin-top: 100px;
+body:after{
+  position: fixed;
+  content: "";
+  letter-spacing: 10px;
+  padding-top: 1vw;
   text-align: center;
+  font-size: 4vw;
+  font-feature-settings: "liga" 0;
+  font-family: 'Playfair Display', serif;
+  top: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 10;
+  background: linear-gradient(rgba(0,0,0,1),rgba(0,0,0,.4),rgba(0,0,0,0));
 }
 
-.profiles h3{
-  color: white;
+h2{
+  color: #e9dcbe;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 70px;
+  letter-spacing: 4px;
+  padding-top: 100px;
+  margin-top: 0px;
+}
+
+.nicepro1{
+  text-align: center;
+  width: 100%;
+  color: #e9dcbe;
+}
+
+.nicepro1 h3{
   font-size: 60px;
   font-family: "Rounded Mplus 1c";
   font-weight: 400;
   margin-bottom: 0;
+  padding-top: 100px;
+  margin-top: 0px;
+}
+
+.profiles{
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin-top: 50px;
 }
 
 .nicerireki{
-  margin-top: 70px;
-  float: right;
   line-height: 2.6em;
   text-align: left;
 }
 
 .nicerireki li{
-  color: white;
   font-size: 21px;
   font-family: "Rounded Mplus 1c";
 }
 
 .nicetext{
-  margin-top: 105px;
   font-size: 24px;
   font-family: "Rounded Mplus 1c";
-  float: left;
-  color: white;
   line-height: 2em;
 }
-@media screen and (min-width: 1500px){
+
+.sec1img{
+  text-align: center;
+  margin: auto;
+}
+
+.sec1img img{
+  width: 250px;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 420px){
+
+}
+
+@media screen and (max-width: 750px){
+  h2{
+    font-size: 8vw;
+  }
+
+  .sec1img img{
+    width: 50%;
+    border-radius: 50%;
+  }
+
+  .nicepro1 h3{
+    font-size: 5vw;
+  }
+
   .profiles{
-    position: relative;
-    z-index: 5;
-    width: 1000px;
-    margin-left: 150px;
-    margin-top: 100px;
-    text-align: center;
+    width: 100%;
+    display: block;
   }
-  
-  .profiles h3{
-    color: white;
-    font-size: 90px;
-    font-family: "Rounded Mplus 1c";
-    font-weight: 400;
-    margin-bottom: 0;
-  }
-  
-  .nicerireki{
-    margin-top: 70px;
-    float: right;
-    line-height: 2.6em;
-    text-align: left;
-  }
-  
-  .nicerireki li{
-    color: white;
-    font-size: 35px;
-    font-family: "Rounded Mplus 1c";
-    line-height: 2em;
-  }
-  
+
   .nicetext{
-    margin-top: 125px;
-    font-size: 35px;
+    font-size: 4vw;
     font-family: "Rounded Mplus 1c";
-    float: left;
-    color: white;
     line-height: 2em;
+  }
+
+  .nicerireki li{
+    font-size: 4vw;
+    font-family: "Rounded Mplus 1c";
   }
 }
+
+@media screen and (max-width: 1280px){
+
+}
+
+@media screen and (min-width: 1500px){
+
+}
+
+
+

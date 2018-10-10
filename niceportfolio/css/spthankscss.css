@@ -107,4 +107,9 @@ main{
   .thanksdiv .thanksdiv2 a:hover:after{
     height:3vw;
   }
+
+  h2{
+    font-size: 8vw;
+  }
+
 }
