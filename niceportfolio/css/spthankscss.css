@@ -3,7 +3,6 @@
 
  body:after{
   position: fixed;
-  content: "- Special Thanks -";
   letter-spacing: 10px;
   padding-top: 1vw;
   text-align: center;
@@ -17,6 +16,17 @@
   z-index: 10;
   background: linear-gradient(rgba(0,0,0,1),rgba(0,0,0,.7),rgba(0,0,0,0));
 } 
+
+h2{
+  color: #e9dcbe;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 70px;
+  letter-spacing: 4px;
+  padding-top: 100px;
+  margin-top: 0px;
+}
+
 
 main{
   max-width: 100%;

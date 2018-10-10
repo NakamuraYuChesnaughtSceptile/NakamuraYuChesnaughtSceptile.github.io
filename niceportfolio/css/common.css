@@ -373,6 +373,7 @@ textarea,input{
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   font-size: 13px;
+  resize: none;
   padding: 10px;
   height: 210px;
   width: 460px;
@@ -523,6 +524,10 @@ table tr th{
     background-color:transparent;
     color: #e9dcbe;
   }
+
+  table tr{
+    width: 100%;
+  }
   
   /*--------------------------------------
   テキスト
@@ -530,7 +535,6 @@ table tr th{
   
   .msr_text_03 {
     padding-bottom: 20px;
-    width: 100%;
     font-size: 20px;
   }
   .msr_text_03 label {
@@ -645,6 +649,17 @@ table tr th{
     width: 100%;
     overflow: hidden;
     z-index: 1;
+  }
+  header:after{
+    position: absolute;
+    background: rgba(0, 0, 0, .5);
+    width: 100%;
+    height: 51vw;
+    content: '';
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
   }
   h1{
     font-size: 100px;
