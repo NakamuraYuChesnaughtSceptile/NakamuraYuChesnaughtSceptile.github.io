@@ -10,6 +10,7 @@ body{
   margin: 0;
   padding: 0;
   background: url(../images/bill3.jpg);
+  font-family: 'Playfair Display', serif;
   background-attachment: fixed;
   min-width: 320px;
 }
