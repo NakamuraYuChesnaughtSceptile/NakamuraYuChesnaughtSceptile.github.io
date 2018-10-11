@@ -691,6 +691,15 @@ table tr th{
 
 @media screen and (max-width: 420px){
 
+  body{
+    margin: 0;
+    padding: 0;
+    background: url(../images/bill3res.jpg);
+    background-attachment: fixed;
+    min-width: 320px;
+  }
+
+
   a .buttonpro{
     display:inline-block;
     border:2px solid #fff;
