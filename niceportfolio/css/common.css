@@ -10,7 +10,6 @@ body{
   margin: 0;
   padding: 0;
   background: url(../images/bill3.jpg);
-  font-family: 'Playfair Display', serif;
   background-attachment: fixed;
   min-width: 320px;
 }
@@ -67,79 +66,6 @@ h1{
 
 }
 
-.scrolls{
-  position: absolute;
-  z-index: 4;
-  bottom: 8vw;
-  left: 75%;
-  right: 25%;
-}
-
-.scrolls a{
-  position: relative;
-  margin: auto;
-  text-decoration: none;
-  z-index: 2;
-  color: #e9dcbe;
-  font-family: 'Playfair Display', serif;
-  font-size: 30px;
-  padding-bottom: 0px;
-  padding-top: 60px;
-  margin-top: 70px;
-  }
-
-a span {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 20px;
-  height: 20px;
-  margin-left: -12px;
-  border-left: 1px solid #e9dcbe;
-  border-bottom: 1px solid #e9dcbe;
-  -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  -webkit-animation: sdb 2s infinite;
-  animation: sdb 2s infinite;
-  opacity: 0;
-  box-sizing: border-box;
-}
-a span:nth-of-type(1) {
-  -webkit-animation-delay: 0s;
-  animation-delay: 0s;
-}
-a span:nth-of-type(2) {
-  top: 16px;
-  -webkit-animation-delay: .15s;
-  animation-delay: .15s;
-}
-a span:nth-of-type(3) {
-  top: 32px;
-  -webkit-animation-delay: .3s;
-  animation-delay: .3s;
-}
-@-webkit-keyframes sdb {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@keyframes sdb {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
 
 .nicelist{
   position: fixed;
@@ -369,24 +295,24 @@ a .buttonpro{
 }
 
 .list .list-mv07:nth-of-type(2) {
-  -moz-transition-delay: 200ms;
-  -webkit-transition-delay: 200ms;
-  -o-transition-delay: 200ms;
-  -ms-transition-delay: 200ms;
+  -moz-transition-delay: 50ms;
+  -webkit-transition-delay: 50ms;
+  -o-transition-delay: 50ms;
+  -ms-transition-delay: 50ms;
 }
 
 .list .list-mv07:nth-of-type(3) {
-  -moz-transition-delay: 400ms;
-  -webkit-transition-delay: 400ms;
-  -o-transition-delay: 400ms;
-  -ms-transition-delay: 400ms;
+  -moz-transition-delay: 100ms;
+  -webkit-transition-delay: 100ms;
+  -o-transition-delay: 100ms;
+  -ms-transition-delay: 100ms;
 }
 
 .list .list-mv07:nth-of-type(4) {
-  -moz-transition-delay: 600ms;
-  -webkit-transition-delay: 600ms;
-  -o-transition-delay: 600ms;
-  -ms-transition-delay: 600ms;
+  -moz-transition-delay: 150ms;
+  -webkit-transition-delay: 150ms;
+  -o-transition-delay: 150ms;
+  -ms-transition-delay: 150ms;
 }
 
 textarea,input{
@@ -409,7 +335,7 @@ textarea,input{
   font-size: 14px;
   padding-bottom: 5px;
 }
-.msr_text_03 input[type=text] {
+.msr_text_03 input[type=name] {
   border: 1px solid #D7D7D7;
   box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
   -o-box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
@@ -426,6 +352,22 @@ textarea,input{
   width: 460px;
 }
 
+.msr_text_03 input[type=email] {
+  border: 1px solid #D7D7D7;
+  box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
+  -o-box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
+  -ms-box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
+  border-radius: 3px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-size: 13px;
+  padding: 10px;
+  height: 40px;
+  width: 460px;
+}
 
 /*--------------------------------------
 テキストエリア
@@ -458,44 +400,23 @@ textarea,input{
   width: 460px;
 }
 
-/*--------------------------------------
-送信ボタン
----------------------------------------*/
-.msr_sendbtn_03{
-  margin:0 0 10px;
-}
-.msr_sendbtn_03 input[type=submit] {
-  background: #1B73BA url(/stylerecipe_img/arrow_white.png) no-repeat;
-  background-position: 20px;
-  border: none;
-  border-radius: 2px;
-  transition: 0.2s ease-in-out;
-  -o-transition: 0.2s ease-in-out;
-  -moz-transition: 0.2s ease-in-out;
-  -webkit-transition: 0.2s ease-in-out;
-  box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
-  -o-box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
-  -ms-box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
-  -moz-box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
-  -webkit-box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
-  color: #fff;
-  cursor: pointer;
-  font-size: 14px;
-  height: 50px;
-  width: 180px;
-}
-.msr_sendbtn_03 input[type=submit]:hover {
-  opacity: 0.6;
-}
-.msr_sendbtn_03 input[disabled=disabled] {
-  background: #B4B4B4 url(/stylerecipe_img/arrow_gray.png) no-repeat;
-  background-position: 20px;
-  color: #7E7E7E;
-  cursor: default;
-}
-.msr_sendbtn_03 input[disabled=disabled]:hover {
-  opacity: 1;
-}
+  /* 送信ボタン */
+  input[type=submit] {
+    margin-top: 20px;
+    width: 300px;
+    border-radius: 10px 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    letter-spacing: 5px;
+  }
+
+  input[type=submit]:hover{
+    border-color: #1B73BA;
+    border-radius: 10px 10px;
+    color: #1B73BA;
+    cursor: pointer;
+  }
+
 
 .section1sub{
   text-align: center;
@@ -538,26 +459,13 @@ table tr th{
 
 @media screen and (max-width: 750px){
 
-  body::before {
-    content:"";
-    display:block;
-    position:fixed;
-    top:0;
-    left:0;
-    z-index:-1;
-    width:100%;
-    height:100vh;
-    background:url(../images/bill3res.jpg) center/cover no-repeat; /*fixedをトル！*/
-    -webkit-background-size:cover;/*Android4*/
-    }
-
-  /* body{
+  body{
     margin: 0;
     padding: 0;
     background: url(../images/bill3res.jpg);
     background-attachment: fixed;
     min-width: 320px;
-  } */
+  }
 
   .sp{
     display: none;
@@ -648,8 +556,24 @@ table tr th{
     font-size: 14px;
     padding-bottom: 5px;
   }
-  .msr_text_03 input[type=text] {
-    background: #fff;
+  .msr_text_03 input[type=name] {
+    border: 1px solid #D7D7D7;
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
+    -o-box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
+    -ms-box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
+    border-radius: 3px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-size: 13px;
+    padding: 10px;
+    height: 40px;
+    width: 100%;
+  }
+
+  .msr_text_03 input[type=email] {
     border: 1px solid #D7D7D7;
     box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
     -o-box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
@@ -697,35 +621,14 @@ table tr th{
     width: 100%;
   }
 
+
   .section3{
-      padding-bottom: 30vw;
+      padding-bottom: 40vw;
   }
   
 }
 
 @media screen and (max-width: 420px){
-
-  body::before {
-    content:"";
-    display:block;
-    position:fixed;
-    top:0;
-    left:0;
-    z-index:-1;
-    width:100%;
-    height:100vh;
-    background:url(../images/bill3res.jpg) center/cover no-repeat; /*fixedをトル！*/
-    -webkit-background-size:cover;/*Android4*/
-    }
-
-  body{
-    /* margin: 0;
-    padding: 0;
-    background: url(../images/bill3res.jpg);
-    background-attachment: fixed; */
-    min-width: 320px;
-  }
-
 
   a .buttonpro{
     display:inline-block;
@@ -766,6 +669,16 @@ table tr th{
   .section3 h2{
     margin-top: 50px;
   }
+
+  .section3{
+    padding-bottom: 50vw;
+}
+
+  /* 送信ボタン */
+  input[type=submit] {
+    width: 50%;
+  }
+
 }
 
 @media screen and (min-width: 1500px){
@@ -791,26 +704,6 @@ table tr th{
     bottom: 0;
     top: 0;
   }
-
-  .scrolls{
-    position: absolute;
-    bottom: 120px;
-    left: 75%;
-    right: 25%;
-  }
-
-  .scrolls a{
-    position: relative;
-    margin: auto;
-    text-decoration: none;
-    z-index: 2;
-    color: #e9dcbe;
-    font-family: 'Playfair Display', serif;
-    font-size: 50px;
-    padding-bottom: 0px;
-    padding-top: 60px;
-    margin-top: 70px;
-    }
 
   h1{
     font-size: 100px;
