@@ -1,1 +1,22 @@
 @charset "UTF-8";
+
+/* PC用 */
+body {
+  background: black;
+}
+
+/* 横幅1023px以下の時 (モバイル　横画面用) */
+
+@media screen and (max-width: 1023px) {
+  body {
+    background: blue;
+  }
+}
+
+/* 横幅500px以下の時 (モバイル　縦画面用) */
+
+@media screen and (max-width: 500px) {
+  body {
+    background: red;
+  }
+}
