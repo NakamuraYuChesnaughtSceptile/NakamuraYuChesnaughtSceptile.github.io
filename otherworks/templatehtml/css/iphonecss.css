@@ -15,7 +15,6 @@ body {
 .row {
   display: flex;
   justify-content: space-around;
-  border: 2px solid red;
   border-spacing: 10px;
   width:100%;
   height: auto;
@@ -119,7 +118,7 @@ body {
 @media screen and (max-width: 500px) {
   body {
     background: black;
-    width:80%;
+    width:100%;
   }
   p{
     font-size: 10px;
@@ -127,15 +126,18 @@ body {
   .row {
     display: flex;
     justify-content: space-around;
-    border: 2px solid red;
     width: 100%;
     height:auto;
   }
   .row input{
     width: 65px;
     height:65px;
-  
   }
+  /* 縦のみ。出力を除いて、√などの演算子枠を全て非表示 (1列目~6列目) */
+  .row tr:nth-child(n +2) td:nth-child(n + 1):not(:nth-child(n + 6)){
+    display: none;
+  }
+
   .output{
     font-size: 50px;
   }
