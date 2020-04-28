@@ -12,12 +12,161 @@
 
 <body>
   <main>
-    <!-- ここから記述お願い！ -->
-
+    <!-- このdiv(クラス名:output)が出力されるタグ設定でお願いします。 -->
+    <div class="output">123,4</div>
+    <!-- ここからmainタグ内で記述お願い！ -->
+    <table class = "row"> 
+      <tr>
+        <td colspan="10"><input type ="text" class = "output" id = "result" maxlength="20" value="0"></td>
+      </tr>
+      <tr>
+        <td><input type="button" class ="none" value="(" onclick=""></td>
+        <td><input type="button" class ="none" value=")" onclick=""></td>
+        <td><input type="button" class ="none" value="mc" onclick=""></td>
+        <td><input type="button" class ="none" value="m＋" onclick=""></td>
+        <td><input type="button" class ="none" value="m－" onclick=""></td>
+        <td><input type="button" class ="none" value="mr" onclick=""></td>
+        <td><input type="button" class ="sub" value="AC" id = "clear" onclick="clearClick()"></td>
+        <td><input type="button" class ="sub" value="+/-" onclick="pmClick()"></td>
+        <td><input type="button" class ="sub" value="%" onclick="percentClick()"></td>
+        <td><input type="button" class ="arithmetic" value="÷" onclick="division()"></td>
+      </tr>
+      <tr>
+        <td><input type="button" class ="none" value="2nd" onclick=""></td>
+        <td><input type="button" class ="none" value="x^2" onclick=""></td>
+        <td><input type="button" class ="none" value="x^3" onclick=""></td>
+        <td><input type="button" class ="none" value="x^y" onclick=""></td>
+        <td><input type="button" class ="none" value="e^x" onclick=""></td>
+        <td><input type="button" class ="none" value="10^x" onclick=""></td>
+        <td><input type="button" class ="num" value="7" onclick="numberClick(this)"></td>
+        <td><input type="button" class ="num" value="8" onclick="numberClick(this)"></td>
+        <td><input type="button" class ="num" value="9" onclick="numberClick(this)"></td>
+        <td><input type="button" class ="arithmetic" value="×" onclick="multiplication()"></td>
+      </tr>
+      <tr>
+        <td><input type="button" class ="none" value="1/x" onclick=""></td>
+        <td><input type="button" class ="none" value="2√x" onclick=""></td>
+        <td><input type="button" class ="none" value="3√x" onclick=""></td>
+        <td><input type="button" class ="none" value="y√x" onclick=""></td>
+        <td><input type="button" class ="none" value="ln" onclick=""></td>
+        <td><input type="button" class ="none" value="log10" onclick=""></td>
+        <td><input type="button" class ="num" value="4" onclick="numberClick(this)"></td>
+        <td><input type="button" class ="num" value="5" onclick="numberClick(this)"></td>
+        <td><input type="button" class ="num" value="6" onclick="numberClick(this)"></td>
+        <td><input type="button" class ="arithmetic" value="－" onclick="subtraction()"></td>
+      </tr>
+      <tr>
+        <td><input type="button" class ="none" value="x!" onclick=""></td>
+        <td><input type="button" class ="none" value="sin" onclick=""></td>
+        <td><input type="button" class ="none" value="cos" onclick=""></td>
+        <td><input type="button" class ="none" value="tan" onclick=""></td>
+        <td><input type="button" class ="none" value="e" onclick=""></td>
+        <td><input type="button" class ="none" value="EE" onclick=""></td>
+        <td><input type="button" class ="num" value="1" onclick="numberClick(this)"></td>
+        <td><input type="button" class ="num" value="2" onclick="numberClick(this)"></td>
+        <td><input type="button" class ="num" value="3" onclick="numberClick(this)"></td>
+        <td><input type="button" class ="arithmetic" value="＋" onclick="addition()"></td>
+      </tr>
+    <tr>
+        <td><input type="button" class ="none" value="Rad" onclick=""></td>
+        <td><input type="button" class ="none" value="sinh" onclick=""></td>
+        <td><input type="button" class ="none" value="cosh" onclick=""></td>
+        <td><input type="button" class ="none" value="tanh" onclick=""></td>
+        <td><input type="button" class ="none" value="π" onclick=""></td>
+        <td><input type="button" class ="none" value="Rand" onclick=""></td>
+        <td colspan="2"><input type="button" class ="num" id = "zero" value="0" onclick="numberClick(this)"></td>
+        <td><input type="button" class ="num" value="." onclick="pointClick()"></td>
+        <td><input type="button" class ="equal" value="＝" onclick="equal()"></td>
+    </tr>
+  </table>
   </main>
   <!-- jQueryプラグイン -->
   <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
-    crossorigin="anonymous"></script>
+crossorigin="anonymous"></script>
+    <script>
+      var answer;
+      function numberClick(num){
+        if(num.value !== "0"){
+        $('#clear').val('C');
+        }
+        if(result.value == "0"||isNaN(math.slice( -1 ))){
+          result .value = num.value;
+          math = math + "0";
+        }else if(result.value =="-0"){
+          result.value = "-" + num.value;
+        }else{
+          answer = (result.value).replace( /,/g , "" ) + num.value;
+          result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
+        }
+      }
+      function clearClick(){
+        result.value = 0;
+      }
+      function pointClick(){
+        if((result.value).indexOf(".") !== -1){
+          result.value = result.value;
+        }else{
+          result.value = result.value+".";
+        }
+      }
+      function percentClick(){
+        answer = (result.value).replace( /,/g , "" )/100;
+        result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
+      }
+      function pmClick(){
+        var resultnum = result.value;
+        if(resultnum.indexOf("-") !== -1){
+          result.value = resultnum.replace( /-/g , "" );
+        }else{
+          result.value = "-" + result.value;
+        }
+      }
+      var math = new String();
+      function addition(){
+        math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"+";
+      }
+      function subtraction(){
+        math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"-";
+      }
+      function multiplication(){
+        math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"*";
+      }
+      function division(){
+        math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"/";
+      }
+      function equal(){
+        answer = eval(math.slice( 0, -1 )+(result.value).replace( /,/g , "" ));
+        result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
+        math = "";
+      }
+      $(function(){
+        $('.arithmetic').on('click', function(event){
+          event.preventDefault();
+          $('.arithmetic').removeClass('active');
+          $(this).toggleClass('active');
+        });
+      });
+      $(function(){
+        $('.num').on('click', function(event){
+          event.preventDefault();
+          $('.arithmetic').removeClass('active');
+        });
+      });
+      $(function(){
+        $('.equal').on('click', function(event){
+          event.preventDefault();
+          $('.arithmetic').removeClass('active');
+        });
+      });
+      $(function(){
+        $('#clear').on('click', function(event){
+          math = "";
+          $('#clear').val('AC');
+          event.preventDefault();
+          $('.arithmetic').removeClass('active');
+        });
+      });
+</script>
 </body>
 
 </html>

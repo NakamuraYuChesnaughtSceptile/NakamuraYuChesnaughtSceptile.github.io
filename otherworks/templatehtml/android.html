@@ -7,17 +7,277 @@
   <meta name="description" content="電卓">
   <title>電卓(Android.ver)</title>
   <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/androidcss.css">
+  <link rel="stylesheet" href="css/ripple.css">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <main>
-    <!-- ここから記述お願い！ -->
+    <div style="text-align:center;margin: auto;" class="sp_tate">
+      <!-- ここから記述お願い！ -->
+      <!-- 計算結果出力場所-->
+      <input type="text" class="result_input_V" id="result">
+      <!-- 数字ボタン-->
+      <table class="number_table_V" style="margin: auto;">
+        <tr>
+          <td>
+            <table>
+              <tr>
+                <td class="number_td_V">
+                  <button class="number_button_V" name="number" value="7" onclick="numberClick(this)">7</button>
+                </td>
+                <td class="number_td_V">
+                  <button class="number_button_V" name="number" value="8" onclick="numberClick(this)">8</button>
+                </td>
+                <td class="number_td_V">
+                  <button class="number_button_V" name="number" value="9" onclick="numberClick(this)">9</button>
+                </td>
+              </tr>
+              <tr>
+                <td class="number_td_V">
+                  <button class="number_button_V" name="number" value="4" onclick="numberClick(this)">4</button>
+                </td>
+                <td class="number_td_V">
+                  <button class="number_button_V" name="number" value="5" onclick="numberClick(this)">5</button>
+                </td>
+                <td class="number_td_V">
+                  <button class="number_button_V" name="number" value="6" onclick="numberClick(this)">6</button>
+                </td>
+              </tr>
+              <tr>
+                <td class="number_td_V">
+                  <button class="number_button_V" name="number" value="1" onclick="numberClick(this)">1</button>
+                </td>
+                <td class="number_td_V">
+                  <button class="number_button_V" name="number" value="2" onclick="numberClick(this)">2</button>
+                </td>
+                <td class="number_td_V">
+                  <button class="number_button_V" name="number" value="3" onclick="numberClick(this)">3</button>
+                </td>
+              </tr>
+              <tr>
+                <td class="number_td_V">
+                  <button class="number_button_V" name="DecimalPoint" value="." onclick="pointClick()">.</button>
+                </td>
+                <td class="number_td_V">
+                  <button class="number_button_V" name="number" value="0" onclick="numberClick(this)">0</button>
+                </td>
+                <td class="number_td_V">
+                  <button class="number_button_V" name="equal" value="=" onclick="equal()">=</button>
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td>
+            <!--　演算子ボタン-->
+            <table class="operator_table_V">
+              <tr>
+                <td class="DELETEorCLEAR_td_V"><button class="DELETEorCLEAR_button_V" name="DELETEorCLEAR" onclick="clearClick()">DEL</button>
+                </td>
+              </tr>
+              <tr>
+                <td class="operator_td_V">
+                  <button class="operator_button_V" name="operator" value="/" onclick="division()">÷</button>
+                </td>
+              </tr>
+              <tr>
+                <td class="operator_td_V">
+                  <button class="operator_button_V" name="operator" value="*" onclick="multiplication()">×</button>
+                </td>
+              </tr>
+              <tr>
+                <td class="operator_td_V">
+                  <button class="operator_button_V" name="operator" value="-" onclick="subtraction()">-</button>
+                </td>
+              </tr>
+              <tr>
+                <td class="operator_td_V">
+                  <button class="operator_button_V" name="operator" value="+" onclick="addition()">+</button>
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td>
+            <table class="bar_table_V">
+              <tr>
+                <td class="bar_td_V" style="background-color: aqua;"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <!-- 横画面-->
+    <div class="sp_yoko">
+      <input type="text" class="result_input_S" style="width: 99%;">
+      <div class="yokoside">
+
+        <!-- 数値、演算子-->
+        <table style="border-collapse:collapse; border-spacing:0px;">
+          <tr>
+            <td>
+              <table class="LeftCenter_table_S">
+                <tr class="LeftCenter_tr_S">
+                  <td class="number_td_S"><button class="number_button_S" name="number" value="7">7</button></td>
+                  <td class="number_td_S"><button class="number_button_S" name="number" value="8">8</button></td>
+                  <td class="number_td_S"><button class="number_button_S" name="number" value="9">9</button></td>
+                  <td class="operator_td_S"><button class="operator_button_S" name="operator" value="/">÷</button></td>
+                  <td class="DELETEorCLEAR_td_S"><button class="DELETEorCLEAR_button_S" name="DELETEorCLEAR"
+                      value="DEL">DEL</button></td>
+                </tr>
+                <tr>
+                  <td class="number_td_S"><button class="number_button_S" name="number" value="4">4</but4on>
+                  </td>
+                  <td class="number_td_S"><button class="number_button_S" name="number" value="5">5</button></td>
+                  <td class="number_td_S"><button class="number_button_S" name="number" value="6">6</button></td>
+                  <td class="operator_td_S"><button class="operator_button_S" name="operator" value="*">×</button></td>
+                  <td class="nonoperator_td_S"><button class="nonoperator_button_S" name="non">
+                      <div class="clearText">a</div>
+                    </button></td>
+                </tr>
+                <tr>
+                  <td class="number_td_S"><button class="number_button_S" name="number" value="1">1</but4on>
+                  </td>
+                  <td class="number_td_S"><button class="number_button_S" name="number" value="2">2</button></td>
+                  <td class="number_td_S"><button class="number_button_S" name="number" value="3">3</button></td>
+                  <td class="operator_td_S"><button class="operator_button_S" name="operator" value="-">-</button></td>
+                  <td class="nonoperator_td_S"><button class="nonoperator_button_S" name="non">
+                      <div class="clearText">a</div>
+                    </button></td>
+                </tr>
+                <tr>
+                  <td class="number_td_S"><button class="number_button_S" name="number" value=".">.</but4on>
+                  </td>
+                  <td class="number_td_S"><button class="number_button_S" name="number" value="0">0</button></td>
+                  <td class="nonnumber_button_S"><button class="nonnumber_button_S" name="number"></button></td>
+                  <td class="operator_td_S"><button class="operator_button_S" name="operator" value="+">+</button></td>
+                  <td class="operator_td_S"><button class="operator_button_S" name="equal" value="=">=</button></td>
+                </tr>
+              </table>
+            </td>
+            <td>
+              <!--　演算子2-->
+              <table class="Right_table_S">
+                <tr>
+                  <td class="operator2_td_S"><button class="operator2_button_S" name="operator2"
+                      value="INV">INV</button>
+                  </td>
+                  <td class="operator2_td_S"><button class="operator2_button_S" name="operator2"
+                      value="RAD">RAD</button>
+                  </td>
+                  <td class="operator2_td_S"><button class="operator2_button_S" name="operator2" value="%">%</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="operator2_td_S"><button class="operator2_button_S" name="operator2"
+                      value="sin">sin</button>
+                  </td>
+                  <td class="operator2_td_S"><button class="operator2_button_S" name="operator2"
+                      value="cos">cos</button>
+                  </td>
+                  <td class="operator2_td_S"><button class="operator2_button_S" name="operator2"
+                      value="tan">tan</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="operator2_td_S"><button class="operator2_button_S" name="operator2" value="in">in</button>
+                  </td>
+                  <td class="operator2_td_S"><button class="operator2_button_S" name="operator2"
+                      value="log">log</button>
+                  </td>
+                  <td class="operator2_td_S"><button class="operator2_button_S" name="operator2" value="!">!</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="operator2_td_S"><button class="operator2_button_S" name="operator2" value="π">π</button>
+                  </td>
+                  <td class="operator2_td_S"><button class="operator2_button_S" name="operator2" value="e">e</button>
+                  </td>
+                  <td class="operator2_td_S"><button class="operator2_button_S" name="operator2" value="^">^</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><button class="operator2_button_S" name="operator2" value="(">(</button></td>
+                  <td><button class="operator2_button_S" name="operator2" value=")">)</button></td>
+                  <td><button class="operator2_button_S" name="operator2" value="√">√</button></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
 
   </main>
   <!-- jQueryプラグイン -->
   <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
     crossorigin="anonymous"></script>
+  <script type="text/javascript" src="JavaScript/ripple.js"></script>
+  <script>
+    var answer;
+    function numberClick(number){
+      if(number.value !== "0"){
+      $('#clear').val('C');
+      }
+      if(result.value == "0"||isNaN(math.slice( -1 ))){
+        result .value = number.value;
+        math = math + "0";
+      }else if(result.value =="-0"){
+        result.value = "-" + number.value;
+      }else{
+        answer = (result.value).replace( /,/g , "" ) + number.value;
+        result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
+      }
+    }
+    function clearClick(){
+      result.value = 0;
+    }
+    function pointClick(){
+      if((result.value).indexOf(".") !== -1){
+        result.value = result.value;
+      }else{
+        result.value = result.value+".";
+      }
+    }
+    var math = new String();
+      function addition(){
+        math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"+";
+      }
+      function subtraction(){
+        math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"-";
+      }
+      function multiplication(){
+        math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"*";
+      }
+      function division(){
+        math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"/";
+      }
+      function equal(){
+        answer = eval(math.slice( 0, -1 )+(result.value).replace( /,/g , "" ));
+        result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
+        math = "";
+      }
+      $(function(){
+        $('.arithmetic').on('click', function(event){
+          event.preventDefault();
+          $('.arithmetic').removeClass('active');
+          $(this).toggleClass('active');
+        });
+      });
+      $(function(){
+        $('.num').on('click', function(event){
+          event.preventDefault();
+          $('.arithmetic').removeClass('active');
+        });
+      });
+      $(function(){
+        $('.equal').on('click', function(event){
+          event.preventDefault();
+          $('.arithmetic').removeClass('active');
+        });
+      });
+    </script>
 </body>
 
 </html>

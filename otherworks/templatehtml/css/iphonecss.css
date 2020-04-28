@@ -2,8 +2,159 @@
 @import url("common.css");
 
 
+/* ここからお願いします */
 
+/* サンプルとして判定内にどのように書くか記述しておいたので 
+    使用する時は背景の色や文字の大きさの削除お願いします。*/
 
-body{
-  background: blue;
+/* PC用 */
+body {
+  background: black;
+  width:730px;
+}
+.row {
+  display: flex;
+  justify-content: space-around;
+  border: 2px solid red;
+  border-spacing: 10px;
+  width:100%;
+  height: auto;
+}
+.row input{
+  width: 60px;
+  height:50px;
+
+}
+.output{
+  background: rgba(0, 0, 0, 0);
+  border:solid rgba(0,0,0,0);
+  color: white;
+  text-align: right;
+  font-size: 50px;
+}
+#result{
+  width:100%;
+}
+.num{
+  background: rgb(30, 30, 30);
+  color:white;
+  border-color: rgba(0,0,0,0);
+  border-radius: 100px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 20px;
+}
+.num:active{
+  background: rgb(80, 80, 80);
+}
+#zero{
+  padding-left:22px;
+  text-align: left;
+  width: 100%;
+}
+.sub{
+  background:gray;
+  color:black;
+  border-color: rgba(0,0,0,0);
+  border-radius: 100px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+}
+.sub:active{
+  background:rgb(178,178,178);
+}
+.arithmetic{
+  background:orange;
+  color:white;
+  border-color: rgba(0,0,0,0);
+  border-radius: 100px; 
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  transition: all 0.5s;
+}
+.arithmetic:active{
+  background:rgb(255, 204, 108);
+}
+.arithmetic.active{
+  background:white;
+  color:orange;
+}
+.equal{
+  background:orange;
+  color:white;
+  border-color: rgba(0,0,0,0);
+  border-radius: 100px; 
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+.equal:active{
+  background:rgb(255, 204, 108);
+}
+.none{
+  background:rgb(20, 20, 20);
+  color:white;
+  border-color: rgba(0,0,0,0);
+  border-radius: 100px; 
+  font-size: 15px;
+}
+.none:active{
+  background:rgb(70, 70, 70);
+}
+
+/* 横幅1023px以下の時 (モバイル　横画面用) */
+@media screen and (max-width: 1023px) {
+  body {
+    background: blue;
+  }
+  p{
+    font-size: 20px;
+  }
+  
+}
+
+/* 横幅500px以下の時 (モバイル　縦画面用) */
+@media screen and (max-width: 500px) {
+  body {
+    background: black;
+    width:80%;
+  }
+  p{
+    font-size: 10px;
+  }
+  .row {
+    display: flex;
+    justify-content: space-around;
+    border: 2px solid red;
+    width: 100%;
+    height:auto;
+  }
+  .row input{
+    width: 65px;
+    height:65px;
+  
+  }
+  .output{
+    font-size: 50px;
+  }
+  #result{
+    width:100%;
+  }
+  .num{
+    font-size: 25px;
+  }
+  #zero{
+    padding: left 22px;
+  }
+  .sub{
+    font-size: 20px;
+  }
+  .arithmetic{
+    font-size: 25px;
+  }
+  .none{
+    display: none;
+  }
 }
