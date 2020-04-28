@@ -95,8 +95,16 @@ crossorigin="anonymous"></script>
         }else if(result.value =="-0"){
           result.value = "-" + num.value;
         }else{
+          if(num.value == "0"){
+            if(math.slice( -1 ) == "."){
+              result.value = result.value + ".0";
+            }else{
+              result.value = result.value + "0";
+            }
+        }else{
           answer = (result.value).replace( /,/g , "" ) + num.value;
           result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
+        }
         }
       }
       function clearClick(){
@@ -122,8 +130,10 @@ crossorigin="anonymous"></script>
         }
       }
       var math = new String();
+      var arith;
       function addition(){
         math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"+";
+        
       }
       function subtraction(){
         math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"-";
