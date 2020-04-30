@@ -10,7 +10,11 @@
 /* PC用 */
 body {
   background: black;
-  width:730px;
+  width:100%;
+}
+main{
+  max-width: 730px;
+  margin: auto;
 }
 .row {
   display: flex;
@@ -106,7 +110,7 @@ body {
 /* 横幅1023px以下の時 (モバイル　横画面用) */
 @media screen and (max-width: 1023px) {
   body {
-    background: blue;
+    background: black;
   }
   p{
     font-size: 20px;
