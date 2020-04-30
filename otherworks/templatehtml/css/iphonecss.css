@@ -33,10 +33,11 @@ main{
   border:solid rgba(0,0,0,0);
   color: white;
   text-align: right;
+  width: 90%;
   font-size: 50px;
 }
 #result{
-  width:100%;
+  width:95%;
 }
 .num{
   background: rgb(30, 30, 30);
