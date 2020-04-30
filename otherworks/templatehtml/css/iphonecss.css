@@ -150,6 +150,7 @@ main{
     position: relative;
     right: 0;
     width:340px;
+    margin: auto!important;
   }
   .num{
     font-size: 25px;
