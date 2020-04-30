@@ -15,7 +15,7 @@
     <!-- ここからmainタグ内で記述お願い！ -->
     <table class = "row"> 
       <tr>
-        <td colspan="10"><input type ="text" class = "output" id = "result" maxlength="20" value="0"></td>
+        <td colspan="10"><input type ="text" class = "output" id = "result" maxlength="20" value="0" readonly></td>
       </tr>
       <tr>
         <td><input type="button" class ="none" value="(" onclick=""></td>
@@ -83,34 +83,122 @@
 crossorigin="anonymous"></script>
     <script>
       var answer;
+      
       function numberClick(num){
         if(num.value !== "0"){
         $('#clear').val('C');
         }
-        if(cnt!==0){
-          result.value = num.value;
-          math = num.value;
-          cnt = 0;
-        }else if(result.value == "0"||isNaN(math.slice( -1 ))||per!==0){
-          result.value = num.value;
-          math = math + "0";
-          cnt = 0;
-          per = 0;
-        }else if(result.value =="-0"){
-          result.value = "-" + num.value;
-        }else{
-          if(num.value == "0"){
-            if(math.slice( -1 ) == "."){
-              result.value = result.value + ".0";
+        if(window.innerHeight > window.innerWidth){
+          var comma = (result.value).replace(/,/g,"");
+          var point = comma.replace(/\./,"");
+          var hyphen = point.replace(/\-/,"");
+          if(hyphen.length < 9){
+          if(cnt !==0 ){
+            result.value = num.value;
+            math = num.value;
+            cnt = 0;
+          }else if(result.value == "0"||isNaN(math.slice( -1 ))||per!==0){
+            if(pm!==0){
+              result.value = "-"+num.value;
             }else{
-              result.value = result.value + "0";
+              result.value = num.value;
+              math = math + "0";
+              cnt = 0;
+              per = 0;
+            }
+          }else if(result.value == "-0"){
+            result.value = "-" + num.value;
+          }else{
+            if(num.value == "0"){
+              if(math.slice( -1 ) == "."){
+                result.value = result.value + ".0";
+              }else{
+                result.value = result.value + "0";
+              }
+            }else{
+              if(pm !== 0){
+                answer = ((result.value).replace( /,/g , "" )).replace(/\-/,"") + num.value;
+                result.value = "-"+Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
+              }else{
+                answer = (result.value).replace( /,/g , "" ) + num.value;
+                result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
+              }
+            }
+          }
+          }else{
+            if(cnt !==0 ){
+              result.value = num.value;
+              math = num.value;
+              cnt = 0;
+            }else if(result.value == "0"||isNaN(math.slice( -1 ))||per!==0){
+              if(pm!==0){
+                result.value = "-"+num.value;
+              }else{
+                result.value = num.value;
+                math = math + "0";
+                cnt = 0;
+                per = 0;
+              }
+            }
+          }
+        }else{
+          var comma = (result.value).replace(/,/g,"");
+          var point = comma.replace(/\./,"");
+          var hyphen = point.replace(/\-/,"");
+          if(hyphen.length < 16){
+            if(cnt !==0 ){
+              result.value = num.value;
+              math = num.value;
+              cnt = 0;
+            }else if(result.value == "0"||isNaN(math.slice( -1 ))||per!==0){
+              if(pm!==0){
+                result.value = "-"+num.value;
+              }else{
+                result.value = num.value;
+                math = math + "0";
+                cnt = 0;
+                per = 0;
+              }
+            }else if(result.value == "-0"){
+              result.value = "-" + num.value;
+            }else{
+              if(num.value == "0"){
+                if(math.slice( -1 ) == "."){
+                  result.value = result.value + ".0";
+                }else{
+                  result.value = result.value + "0";
+                }
+              }else{
+                if(pm !== 0){
+                  answer = ((result.value).replace( /,/g , "" )).replace(/\-/,"") + num.value;
+                  result.value = "-"+Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
+                }else{
+                  answer = (result.value).replace( /,/g , "" ) + num.value;
+                  result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
+                }
+              }
             }
           }else{
-            answer = (result.value).replace( /,/g , "" ) + num.value;
-            result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
+            if(cnt !==0 ){
+              result.value = num.value;
+              math = num.value;
+              cnt = 0;
+            }else if(result.value == "0"||isNaN(math.slice( -1 ))||per!==0){
+              if(pm!==0){
+                result.value = "-"+num.value;
+              }else{
+                result.value = num.value;
+                math = math + "0";
+                cnt = 0;
+                per = 0;
+              }
+            }
+            }
           }
-        }
       }
+          
+        
+      
       function clearClick(){
         result.value = 0;
       }
@@ -121,51 +209,51 @@ crossorigin="anonymous"></script>
           result.value = result.value+".";
         }
       }
-      var per;
+      var per=0;
       function percentClick(){
         per++;
         answer = (result.value).replace( /,/g , "" )/100;
         result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
       }
+      var pm=0;
       function pmClick(){
         var resultnum = result.value;
         if(resultnum.indexOf("-") !== -1){
-          result.value = resultnum.replace( /-/g , "" );
+          result.value = resultnum.replace( /\-/g , "" );
+          pm=0;
         }else{
           result.value = "-" + result.value;
+          pm=1;
         }
       }
       var math = new String();
       var arith;
-      var cnt;
+      var cnt = 0;
       function addition(){
         cnt=0;
-        if(arith=="+"||arith=="-"){
-          answer = eval((math.slice( 0, -1 ))+(result.value).replace( /,/g , "" ));
-          result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
-          math = result.value+"+";
-        }else{
+        pm=0;
           math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"+";
-        }
+          answer = eval(math.slice( 0, -1 ));
+          result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
+          
         arith = "+";
       }
       function subtraction(){
         cnt=0;
-        if(arith=="+"||arith=="-"){
-          answer = eval((math.slice( 0, -1 ))+(result.value).replace( /,/g , "" ));
+        pm=0;
+        math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"-";
+          answer = eval(math.slice( 0, -1 ));
           result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
-          math = result.value+"-";
-        }else{
-          math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"-";
-        }
         arith = "-";
       }
       function multiplication(){
         cnt=0;
+        pm=0;
         if(arith=="*"||arith=="/"){
-          answer = eval((math.slice( 0, -1 ))+(result.value).replace( /,/g , "" ));
+          math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"*";
+          answer = eval(math.slice( 0, -1 ));
           result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
-          math = result.value+"*";
+          
         }else{
           math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"*";
         }
@@ -173,10 +261,12 @@ crossorigin="anonymous"></script>
       }
       function division(){
         cnt=0;
+        pm=0;
         if(arith=="*"||arith=="/"){
-          answer = eval((math.slice( 0, -1 ))+(result.value).replace( /,/g , "" ));
+          math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"/";
+          answer = eval(math.slice( 0, -1 ));
           result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
-          math = result.value+"/";
+          
         }else{
           math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"/";
         }
@@ -184,47 +274,47 @@ crossorigin="anonymous"></script>
       }
       function equal(){
         if(!isNaN((math).replace( /,/g , "" ))&&!arith){
+          console.log("a");
           cnt ++;
         }else if(!isNaN((math).replace( /,/g , "" ))&&cnt==0){
+          console.log("b");
           answer = eval(math+(arith).replace( /,/g , "" ));
           result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
           math = math+(arith).replace( /,/g , "" );
           cnt++;
         }else  if(cnt=="0"&&!isNaN(math.slice(-2))){
-          console.log(math.slice( 0, -2 )+(arith).replace( /,/g , "" ));
+          console.log("c");
           arith = arith + result.value;
           answer = eval(math.slice( 0, -2 )+(arith).replace( /,/g , "" ));
           result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
           math = math.slice( 0, -2 )+(arith).replace( /,/g , "" );
           cnt++;
-          console.log("a"+math);
         }else if(cnt=="0"&&isNaN(math.slice(-1))){
+          console.log("d");
           arith = arith + result.value;
-          answer = eval(math.slice(0,-1)+arith);
+          answer = eval(math.slice(0,-1)+(arith).replace( /,/g , "" ));
           result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
           math = math.slice(0,-1)+(arith).replace( /,/g , "" );
           cnt++;
-          console.log("b"+math);
         }else if(isNaN(math.slice(-1))){
-          answer = eval(math.slice(0,-1)+arith);
+          console.log("e");
+          answer = eval(math.slice(0,-1)+(arith).replace( /,/g , "" ));
           result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
           math = math.slice(0,-1)+(arith).replace( /,/g , "" );
           cnt++;
-          console.log("c"+math);
         }else if(arith.length == 1){
+          console.log("f");
           arith = arith + result.value;
-          answer = eval(math.slice(0,-2)+arith);
+          answer = eval(math.slice(0,-2)+(arith).replace( /,/g , "" ));
           result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
           math = math.slice(0,-2)+(arith).replace( /,/g , "" );
           cnt++;
-          console.log("z"+math);
         }else{
-          console.log("arith"+ arith);
-          answer = eval(math+arith);
+          console.log("g");
+          answer = eval(math+(arith).replace( /,/g , "" ));
           result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
           math = math+(arith).replace( /,/g , "" );
           cnt++;
-          console.log("d"+math);
         }
       }
       $(function(){
@@ -251,6 +341,7 @@ crossorigin="anonymous"></script>
           math = "";
           cnt=0;
           arith = "";
+          pm=0;
           $('#clear').val('AC');
           event.preventDefault();
           $('.arithmetic').removeClass('active');
