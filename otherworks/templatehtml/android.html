@@ -17,7 +17,7 @@
     <div style="text-align:center;margin: auto;" class="sp_tate">
       <!-- ここから記述お願い！ -->
       <!-- 計算結果出力場所-->
-      <input type="text" class="result_input_V" id="result">
+      <input type="text" class="result_input_V" id="result" readonly>
       <!-- 数字ボタン-->
       <table class="number_table_V" style="margin: auto;">
         <tr>
@@ -73,7 +73,7 @@
             <!--　演算子ボタン-->
             <table class="operator_table_V">
               <tr>
-                <td class="DELETEorCLEAR_td_V"><button class="DELETEorCLEAR_button_V" name="DELETEorCLEAR" onclick="clearClick()">DEL</button>
+                <td class="DELETEorCLEAR_td_V"><button class="DELETEorCLEAR_button_V" id="CLEAR" name="DELETEorCLEAR" onclick="DELETEClick()">DEL</button>
                 </td>
               </tr>
               <tr>
@@ -123,8 +123,7 @@
                   <td class="number_td_S"><button class="number_button_S" name="number" value="8">8</button></td>
                   <td class="number_td_S"><button class="number_button_S" name="number" value="9">9</button></td>
                   <td class="operator_td_S"><button class="operator_button_S" name="operator" value="/">÷</button></td>
-                  <td class="DELETEorCLEAR_td_S"><button class="DELETEorCLEAR_button_S" name="DELETEorCLEAR"
-                      value="DEL">DEL</button></td>
+                  <td class="DELETEorCLEAR_td_S"><button class="DELETEorCLEAR_button_S" name="DELETEorCLEAR" value="DEL">DEL</button></td>
                 </tr>
                 <tr>
                   <td class="number_td_S"><button class="number_button_S" name="number" value="4">4</but4on>
@@ -216,23 +215,25 @@
   <script type="text/javascript" src="JavaScript/ripple.js"></script>
   <script>
     var answer;
+    /*数値表示*/
     function numberClick(number){
-      if(number.value !== "0"){
-      $('#clear').val('C');
-      }
-      if(result.value == "0"||isNaN(math.slice( -1 ))){
+      if((result.value == "0" && result.value.slice(0,-1)==null)||isNaN(result.value.slice(-2,-1))){/*初期値0の上書き　記号*/
         result .value = number.value;
         math = math + "0";
+      }else if(result.value.slice(-1)){
+        result.value+=number.value;
       }else if(result.value =="-0"){
         result.value = "-" + number.value;
-      }else{
+      }/*else{/*小数点の時の0
         answer = (result.value).replace( /,/g , "" ) + number.value;
         result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
-      }
+      }*/
     }
-    function clearClick(){
-      result.value = 0;
+    /*1桁消す*/
+    function DELETEClick(){
+      result.value = result.value.slice(0,-1);
     }
+    /*小数点*/
     function pointClick(){
       if((result.value).indexOf(".") !== -1){
         result.value = result.value;
@@ -240,18 +241,43 @@
         result.value = result.value+".";
       }
     }
+    /*演算子*/
     var math = new String();
       function addition(){
-        math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"+";
+        if(isNaN(result.value.slice(-1))){
+          result.value = result.value.slice(0,-1);
+          result.value+="+";
+        }
+        else{
+          result.value+="+"
+        }
       }
       function subtraction(){
+        if(result.value!="0"){
+          
+        }
+
         math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"-";
       }
       function multiplication(){
-        math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"*";
+        if(isNaN(result.value.slice(-1))){
+          result.value = result.value.slice(0,-1);
+          result.value+="×";
+        }
+        else{
+          result.value+="×"
+        }
+        /*math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"*";*/
       }
       function division(){
-        math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"/";
+        if(isNaN(result.value.slice(-1))){
+          result.value = result.value.slice(0,-1);
+          result.value+="/";
+        }
+        else{
+          result.value+="/"
+        }
+        /*math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"/";*/
       }
       function equal(){
         answer = eval(math.slice( 0, -1 )+(result.value).replace( /,/g , "" ));
@@ -277,6 +303,16 @@
           $('.arithmetic').removeClass('active');
         });
       });
+    </script>
+    <!-- 長押しによる全消去-->
+    <script>
+      $("#CLEAR").mouseup(function(){
+		    clearInterval(timer1);
+	      }).mousedown(function(){
+	        timer1 = setTimeout(function(){
+	          $("#result").val(null);
+	          },2000);
+	      });
     </script>
 </body>
 
