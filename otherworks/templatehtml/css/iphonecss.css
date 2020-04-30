@@ -147,7 +147,9 @@ main{
     font-size: 50px;
   }
   #result{
-    width:92.5%;
+    position: relative;
+    right: 0;
+    width:340px;
   }
   .num{
     font-size: 25px;
