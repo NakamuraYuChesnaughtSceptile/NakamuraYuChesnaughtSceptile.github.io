@@ -12,8 +12,6 @@
 
 <body>
   <main>
-    <!-- このdiv(クラス名:output)が出力されるタグ設定でお願いします。 -->
-    <div class="output">123,4</div>
     <!-- ここからmainタグ内で記述お願い！ -->
     <table class = "row"> 
       <tr>
@@ -89,9 +87,15 @@ crossorigin="anonymous"></script>
         if(num.value !== "0"){
         $('#clear').val('C');
         }
-        if(result.value == "0"||isNaN(math.slice( -1 ))){
-          result .value = num.value;
+        if(cnt!==0){
+          result.value = num.value;
+          math = num.value;
+          cnt = 0;
+        }else if(result.value == "0"||isNaN(math.slice( -1 ))||per!==0){
+          result.value = num.value;
           math = math + "0";
+          cnt = 0;
+          per = 0;
         }else if(result.value =="-0"){
           result.value = "-" + num.value;
         }else{
@@ -101,10 +105,10 @@ crossorigin="anonymous"></script>
             }else{
               result.value = result.value + "0";
             }
-        }else{
-          answer = (result.value).replace( /,/g , "" ) + num.value;
-          result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
-        }
+          }else{
+            answer = (result.value).replace( /,/g , "" ) + num.value;
+            result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
+          }
         }
       }
       function clearClick(){
@@ -117,7 +121,9 @@ crossorigin="anonymous"></script>
           result.value = result.value+".";
         }
       }
+      var per;
       function percentClick(){
+        per++;
         answer = (result.value).replace( /,/g , "" )/100;
         result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
       }
@@ -131,23 +137,95 @@ crossorigin="anonymous"></script>
       }
       var math = new String();
       var arith;
+      var cnt;
       function addition(){
-        math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"+";
-        
+        cnt=0;
+        if(arith=="+"||arith=="-"){
+          answer = eval((math.slice( 0, -1 ))+(result.value).replace( /,/g , "" ));
+          result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
+          math = result.value+"+";
+        }else{
+          math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"+";
+        }
+        arith = "+";
       }
       function subtraction(){
-        math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"-";
+        cnt=0;
+        if(arith=="+"||arith=="-"){
+          answer = eval((math.slice( 0, -1 ))+(result.value).replace( /,/g , "" ));
+          result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
+          math = result.value+"-";
+        }else{
+          math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"-";
+        }
+        arith = "-";
       }
       function multiplication(){
-        math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"*";
+        cnt=0;
+        if(arith=="*"||arith=="/"){
+          answer = eval((math.slice( 0, -1 ))+(result.value).replace( /,/g , "" ));
+          result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
+          math = result.value+"*";
+        }else{
+          math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"*";
+        }
+        arith = "*";
       }
       function division(){
-        math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"/";
+        cnt=0;
+        if(arith=="*"||arith=="/"){
+          answer = eval((math.slice( 0, -1 ))+(result.value).replace( /,/g , "" ));
+          result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
+          math = result.value+"/";
+        }else{
+          math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"/";
+        }
+        arith = "/";
       }
       function equal(){
-        answer = eval(math.slice( 0, -1 )+(result.value).replace( /,/g , "" ));
-        result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
-        math = "";
+        if(!isNaN((math).replace( /,/g , "" ))&&!arith){
+          cnt ++;
+        }else if(!isNaN((math).replace( /,/g , "" ))&&cnt==0){
+          answer = eval(math+(arith).replace( /,/g , "" ));
+          result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
+          math = math+(arith).replace( /,/g , "" );
+          cnt++;
+        }else  if(cnt=="0"&&!isNaN(math.slice(-2))){
+          console.log(math.slice( 0, -2 )+(arith).replace( /,/g , "" ));
+          arith = arith + result.value;
+          answer = eval(math.slice( 0, -2 )+(arith).replace( /,/g , "" ));
+          result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
+          math = math.slice( 0, -2 )+(arith).replace( /,/g , "" );
+          cnt++;
+          console.log("a"+math);
+        }else if(cnt=="0"&&isNaN(math.slice(-1))){
+          arith = arith + result.value;
+          answer = eval(math.slice(0,-1)+arith);
+          result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
+          math = math.slice(0,-1)+(arith).replace( /,/g , "" );
+          cnt++;
+          console.log("b"+math);
+        }else if(isNaN(math.slice(-1))){
+          answer = eval(math.slice(0,-1)+arith);
+          result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
+          math = math.slice(0,-1)+(arith).replace( /,/g , "" );
+          cnt++;
+          console.log("c"+math);
+        }else if(arith.length == 1){
+          arith = arith + result.value;
+          answer = eval(math.slice(0,-2)+arith);
+          result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
+          math = math.slice(0,-2)+(arith).replace( /,/g , "" );
+          cnt++;
+          console.log("z"+math);
+        }else{
+          console.log("arith"+ arith);
+          answer = eval(math+arith);
+          result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
+          math = math+(arith).replace( /,/g , "" );
+          cnt++;
+          console.log("d"+math);
+        }
       }
       $(function(){
         $('.arithmetic').on('click', function(event){
@@ -171,6 +249,8 @@ crossorigin="anonymous"></script>
       $(function(){
         $('#clear').on('click', function(event){
           math = "";
+          cnt=0;
+          arith = "";
           $('#clear').val('AC');
           event.preventDefault();
           $('.arithmetic').removeClass('active');
