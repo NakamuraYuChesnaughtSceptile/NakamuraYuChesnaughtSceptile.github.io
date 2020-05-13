@@ -1,79 +1,29 @@
 @charset "UTF-8";
 @import url("common.css");
-/* 横画面用 */
+/* ここからお願いします */
+
+/* サンプルとして判定内にどのように書くか記述しておいたので 
+    使用する時は背景の色や文字の大きさの削除お願いします。*/
+
+/* --------------------------ここからPC用and Android横画面用 */
+
+body {
+  background: #2E2E2E;
+}
+
+/* 縦画面時、非表示 */
 
 .sp_tate {
   display: none;
 }
 
+/* 横画面時、表示 */
+
 .sp_yoko {
   display: block;
 }
 
-/* 縦画面用*/
-
-@media screen and (max-width: 500px) {
-  .sp_tate {
-    display: block;
-  }
-  .sp_yoko {
-    display: none;
-  }
-}
-
-main {
-  background-color: #2E2E2E;
-}
-
-input.result_input_V {
-  margin-top: 20px;
-  margin-bottom: 0px;
-  width: 380px;
-  height: 150px;
-  font-size: 17px;
-  text-align: right;
-}
-
-table.number_table_V {
-  width: 100px;
-  height: 395px;
-  margin: 0px, 0px, 0px, 0px;
-  border: 0px;
-  border-color: #2E2E2E;
-  padding: 0px;
-  border-collapse: collapse;
-  border-spacing: -2px;
-}
-
-table.operator_table_V {
-  width: 75px;
-  height: 395px;
-  margin: 0px, 0px, 0px, 0px;
-  border: 0px;
-  border-color: #2E2E2E;
-  padding: 0px;
-  border-collapse: collapse;
-  border-spacing: 0px;
-}
-
-table.bar_table_V {
-  width: 30px;
-  height: 399px;
-  margin: 0px;
-  padding: 0px;
-  border-collapse: collapse;
-}
-
-.row input {
-  width: 85px;
-  height: 85px;
-}
-
-tr {
-  margin: 0px;
-  border-collapse: collapse;
-  border-spacing: 0px;
-}
+/* tableの枠線を消す用 */
 
 td {
   border-collapse: collapse;
@@ -82,62 +32,7 @@ td {
   border-spacing: 0px;
 }
 
-td.number_td_V {
-  margin-top: -50px;
-  padding: 0px;
-}
-
-td.DELETEorCLEAR_td_V {
-  width: 70px;
-  margin: 0px;
-  height: 75px;
-}
-
-td.operator_td_V {
-  width: 75px;
-  height: 75px;
-  margin: 0px;
-  padding: 0px;
-}
-
-td.bar.td_V {
-  margin: 0px;
-  padding: 0px;
-}
-
-button.number_button_V {
-  width: 90px;
-  height: 80px;
-  background-color: #2E2E2E;
-  color: white;
-  border: 0px;
-  margin: 0px;
-  padding: 0px;
-  font-size: 30px;
-  outline: 0px;
-}
-
-button.DELETEorCLEAR_button_V {
-  width: 75px;
-  height: 87px;
-  background-color: grey;
-  color: white;
-  border: 0px;
-  margin: 0px, 0px, 0px, 0px;
-  padding: 0px;
-  outline: 0px;
-}
-
-button.operator_button_V {
-  background-color: grey;
-  border: 0px;
-  color: white;
-  width: 75px;
-  height: 78px;
-  margin: 0px, 0px, 0px, 0px;
-  padding: 0px;
-  outline: 0px;
-}
+/* 横用の出力先設定(これ消す可能性有) */
 
 input.result_input_S {
   width: 300px;
@@ -148,15 +43,12 @@ input.result_input_S {
   font-size: 17px;
   text-align: right;
 }
-
-table.side_table {
-  width: 100%;
-  margin: auto;
-  padding: 0px;
-  border: 0px;
-  border-collapse: collapse;
-  border-spacing: -2px;
+/* 出力の文字の大きさ */
+#result{
+ font-size: 36px;
 }
+
+/* 四則演算と数字のtable側設定 */
 
 table.LeftCenter_table_S {
   width: 100px;
@@ -168,6 +60,8 @@ table.LeftCenter_table_S {
   border-spacing: -2px;
 }
 
+/* INV、RADなどの演算のtable側設定 */
+
 table.Right_table_S {
   width: 55px;
   height: 70px;
@@ -178,41 +72,7 @@ table.Right_table_S {
   border-spacing: 0px;
 }
 
-tr.LeftCenter_tr_S {
-  width: 100px;
-  height: 60px;
-  border: 0px;
-  margin: 0px;
-  padding: 0px;
-  border-spacing: 0px;
-}
-
-td.number_td_S {
-  width: 70px;
-  height: 40px;
-  margin: 0px, 0px, 0px, 0px;
-  padding: 0px, 0px, 0px, 0px;
-  padding-left: 0px;
-  border-collapse: collapse;
-}
-
-td.operator_td_S {
-  width: 70px;
-  height: 60px;
-  margin: 0px;
-  padding: 0px;
-  padding-left: 0px;
-  border-collapse: collapse;
-}
-
-td.operator2_td_S {
-  width: 45px;
-  height: 40px;
-  margin: 0px;
-  padding: 0px;
-  padding-left: 0px;
-  border-collapse: collapse;
-}
+/* 数字ボタン設定 */
 
 button.number_button_S {
   background-color: #2E2E2E;
@@ -237,6 +97,8 @@ button.nonnumber_button_S {
   font-size: 14px;
 }
 
+/* 四則演算ボタン設定 */
+
 button.operator_button_S {
   background-color: grey;
   border: 0px;
@@ -260,6 +122,8 @@ button.nonoperator_button_S {
   outline: 0px;
 }
 
+/* Deleteボタン用設定 */
+
 button.DELETEorCLEAR_button_S {
   background-color: grey;
   border: 0px;
@@ -272,6 +136,8 @@ button.DELETEorCLEAR_button_S {
   font-size: 12px;
 }
 
+/* INV、RADなどの演算ボタン設定 */
+
 button.operator2_button_S {
   background-color: #00FFFF;
   border: 0px;
@@ -283,6 +149,7 @@ button.operator2_button_S {
   outline: 0px;
   font-size: 12px;
 }
+
 
 .clearText {
   text-indent: 100%;
@@ -306,3 +173,98 @@ div.cluc_S {
   display: flex;
   justify-content: space-around;
 }
+
+/* --------------------------ここまでPC用and Android横画面用 */
+
+/* --------------------------ここからAndroid縦画面用 */
+
+@media screen and (max-width: 500px) {
+  /* Android縦画面は全体を下に詰める */
+  body{
+    width: 100%;
+    bottom: 0;
+  }
+  /* 縦画面時、表示 */
+  .sp_tate {
+    display: block;
+  }
+  /* 横画面時、非表示 */
+  .sp_yoko {
+    display: none;
+  }
+  /* 出力先 */
+  input.result_input_V {
+    margin-top: 20px;
+    margin-bottom: 0px;
+    width: 380px;
+    height: 150px;
+    font-size: 17px;
+    text-align: right;
+  }
+  /* 縦画面時の入力ボタン */
+  table.number_table_V {
+    width: 100px;
+    height: 395px;
+    margin: 0px, 0px, 0px, 0px;
+    border: 0px;
+    border-color: #2E2E2E;
+    padding: 0px;
+    border-collapse: collapse;
+    border-spacing: -2px;
+  }
+  /* 演算子用テーブル */
+  table.operator_table_V {
+    width: 75px;
+    height: 395px;
+    margin: 0px, 0px, 0px, 0px;
+    border: 0px;
+    border-color: #2E2E2E;
+    padding: 0px;
+    border-collapse: collapse;
+    border-spacing: 0px;
+  }
+  /* 縦画面時の横にある水色の縦棒 */
+  table.bar_table_V {
+    width: 30px;
+    height: 399px;
+    margin: 0px;
+    padding: 0px;
+    border-collapse: collapse;
+  }
+  /* 数字ボタン0~9の設定 */
+  button.number_button_V {
+    width: 90px;
+    height: 80px;
+    background-color: #2E2E2E;
+    color: white;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+    font-size: 30px;
+    outline: 0px;
+  }
+  /*Deleteボタン設定 */
+  button.DELETEorCLEAR_button_V {
+    width: 75px;
+    height: 87px;
+    background-color: grey;
+    color: white;
+    border: 0px;
+    margin: 0px, 0px, 0px, 0px;
+    padding: 0px;
+    outline: 0px;
+  }
+  /* 四則演算ボタン設定 */
+  button.operator_button_V {
+    background-color: grey;
+    border: 0px;
+    color: white;
+    width: 75px;
+    height: 78px;
+    margin: 0px, 0px, 0px, 0px;
+    padding: 0px;
+    outline: 0px;
+  }
+}
+
+/* --------------------------ここまでAndroid縦画面用 */

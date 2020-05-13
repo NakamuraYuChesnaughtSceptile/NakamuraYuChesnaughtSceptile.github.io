@@ -1,171 +1,234 @@
 @charset "UTF-8";
 @import url("common.css");
-
-
 /* ここからお願いします */
 
 /* サンプルとして判定内にどのように書くか記述しておいたので 
     使用する時は背景の色や文字の大きさの削除お願いします。*/
 
-/* PC用 */
+/* --------------------------ここからPC用and iPhone横画面用 */
+
 body {
   background: black;
-  width:100%;
+  width: 100%;
 }
-main{
+
+main {
   max-width: 730px;
   margin: auto;
 }
+
+/* ボタン1ヶ所設定 */
+
 .row {
   display: flex;
   justify-content: space-around;
   border-spacing: 10px;
-  width:100%;
+  width: 100%;
   height: auto;
 }
-.row input{
-  width: 60px;
-  height:50px;
 
+/* ここから出力先設定 */
+
+.row input {
+  width: 60px;
+  height: 50px;
 }
-.output{
+
+.output {
   background: rgba(0, 0, 0, 0);
-  border:solid rgba(0,0,0,0);
+  border: solid rgba(0, 0, 0, 0);
   color: white;
   text-align: right;
   width: 90%;
   font-size: 50px;
 }
-#result{
-  width:97.5%;
+
+#result {
+  width: 97.5%;
 }
-.num{
+
+/* ここまで出力先設定 */
+
+/* 数字1~9のボタン */
+
+.num {
   background: rgb(30, 30, 30);
-  color:white;
-  border-color: rgba(0,0,0,0);
+  color: white;
+  border-color: rgba(0, 0, 0, 0);
   border-radius: 100px;
   text-align: center;
   vertical-align: middle;
   font-size: 20px;
 }
-.num:active{
+
+/* 数字ボタンクリック時 */
+
+.num:active {
   background: rgb(80, 80, 80);
 }
-#zero{
-  padding-left:22px;
+
+/* 数字0は長丸 */
+
+#zero {
+  padding-left: 22px;
   text-align: left;
   width: 100%;
 }
-.sub{
-  background:gray;
-  color:black;
-  border-color: rgba(0,0,0,0);
+
+/* AC、+/-、%ボタン用 */
+
+.sub {
+  background: gray;
+  color: black;
+  border-color: rgba(0, 0, 0, 0);
   border-radius: 100px;
   text-align: center;
   font-weight: bold;
   font-size: 15px;
 }
-.sub:active{
-  background:rgb(178,178,178);
+
+/* AC、+/-、%ボタンクリック時 */
+
+.sub:active {
+  background: rgb(178, 178, 178);
 }
-.arithmetic{
-  background:orange;
-  color:white;
-  border-color: rgba(0,0,0,0);
-  border-radius: 100px; 
+
+/* 四則演算ボタン */
+
+.arithmetic {
+  background: orange;
+  color: white;
+  border-color: rgba(0, 0, 0, 0);
+  border-radius: 100px;
   text-align: center;
   font-weight: bold;
   font-size: 20px;
   transition: all 0.5s;
 }
-.arithmetic:active{
-  background:rgb(255, 204, 108);
+
+/* 四則演算ボタンクリック時 */
+
+.arithmetic:active {
+  background: rgb(255, 204, 108);
 }
-.arithmetic.active{
-  background:white;
-  color:orange;
+
+/* 四則演算ボタンクリック時、jsによってこのクラスが追加され、
+　　ボタンが徐々に白くなる */
+
+.arithmetic.active {
+  background: white;
+  color: orange;
 }
-.equal{
-  background:orange;
-  color:white;
-  border-color: rgba(0,0,0,0);
-  border-radius: 100px; 
+
+/* ＝ボタン */
+
+.equal {
+  background: orange;
+  color: white;
+  border-color: rgba(0, 0, 0, 0);
+  border-radius: 100px;
   text-align: center;
   font-weight: bold;
   font-size: 20px;
 }
-.equal:active{
-  background:rgb(255, 204, 108);
+
+/* ＝ボタンクリック時 */
+
+.equal:active {
+  background: rgb(255, 204, 108);
 }
-.none{
-  background:rgb(20, 20, 20);
-  color:white;
-  border-color: rgba(0,0,0,0);
-  border-radius: 100px; 
+
+/* mcボタン、√ボタンなどの設定
+縦画面時は非表示にするクラス */
+
+.none {
+  background: rgb(20, 20, 20);
+  color: white;
+  border-color: rgba(0, 0, 0, 0);
+  border-radius: 100px;
   font-size: 15px;
 }
-.none:active{
-  background:rgb(70, 70, 70);
+
+/* mcボタン、√ボタンなどのクリック時
+縦画面時は非表示にするクラス */
+
+.none:active {
+  background: rgb(70, 70, 70);
 }
 
-/* 横幅1023px以下の時 (モバイル　横画面用) */
-@media screen and (max-width: 1023px) {
-  body {
-    background: black;
-  }
-  p{
-    font-size: 20px;
-  }
-  
-}
+/* --------------------------ここまでPC用and iPhone横画面用 */
 
-/* 横幅500px以下の時 (モバイル　縦画面用) */
+/* ---------------ここから横幅500px以下の時 (iPhone　縦画面用) */
+
 @media screen and (max-width: 500px) {
   body {
     background: black;
-    width:100%;
+    width: 100%;
   }
-  p{
-    font-size: 10px;
-  }
+  /* 縦画面4列調節用 */
   .row {
     display: flex;
     justify-content: space-around;
     width: 100%;
-    height:auto;
+    height: auto;
   }
-  .row tbody{
+  /* 縦画面ボタンの中のテキスト調節用 */
+  .row tbody {
     margin: auto;
     text-align: center;
   }
-  .row input{
+  /* 縦画面、ボタンの大きさ */
+  .row input {
     width: 65px;
-    height:65px;
+    height: 65px;
   }
-  /* 縦のみ。出力を除いて、√などの演算子枠を全て非表示 (1列目~6列目) */
-  .row tr:nth-child(n +2) td:nth-child(n + 1):not(:nth-child(n + 6)){
+  /* 出力を除いて、mc,√などの演算子ボタンを全て非表示 (1列目~6列目) */
+  .row tr:nth-child(n+2) td:nth-child(n+1):not(:nth-child(n + 6)) {
     display: none;
   }
-
-  .output{
+  /* ここから縦画面の出力時 */
+  .output {
+    font-size: 70px;
+    font-weight: 100;
+  }
+  #result {
+    width: 350px!important;
+  }
+  /* 縦画面時、桁数7~9以上出力文字小さくなる */
+  .resultText1{
+    transition: all .4s;
+    font-size: 60px;
+  }
+  .resultText2{
+    transition: all .4s;
     font-size: 50px;
   }
-  #result{
-    width:350px!important;
+  .resultText3{
+    transition: all .4s;
+    font-size: 40px;
   }
-  .num{
+  /* ここまで縦画面の出力時 */
+  
+  /* 数字1~9ボタンの文字大きさ */
+  .num {
     font-size: 25px;
   }
-  #zero{
+  /* 0ボタン用 */
+  #zero {
     padding: left 22px;
   }
-  .sub{
+  /* AC、+/-、%ボタン用 */
+  .sub {
     font-size: 20px;
   }
-  .arithmetic{
+  /* 四則演算ボタン用 */
+  .arithmetic {
     font-size: 25px;
   }
-  .none{
+  /* mc、√などの演算ボタン用、縦画面時なので非表示 */
+  .none {
     display: none;
   }
 }
+
+/* ---------------ここまで横幅500px以下の時 (モバイル　縦画面用) */

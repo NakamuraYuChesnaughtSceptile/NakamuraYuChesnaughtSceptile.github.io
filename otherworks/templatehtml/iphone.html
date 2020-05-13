@@ -27,7 +27,7 @@
         <td><input type="button" class ="sub" value="AC" id = "clear" onclick="clearClick()"></td>
         <td><input type="button" class ="sub" value="+/-" onclick="pmClick()"></td>
         <td><input type="button" class ="sub" value="%" onclick="percentClick()"></td>
-        <td><input type="button" class ="arithmetic" value="÷" onclick="division()"></td>
+        <td><input type="button" class ="arithmetic" name="/" value="÷" onclick="arithClick(this)"></td>
       </tr>
       <tr>
         <td><input type="button" class ="none" value="2nd" onclick=""></td>
@@ -39,7 +39,7 @@
         <td><input type="button" class ="num" value="7" onclick="numberClick(this)"></td>
         <td><input type="button" class ="num" value="8" onclick="numberClick(this)"></td>
         <td><input type="button" class ="num" value="9" onclick="numberClick(this)"></td>
-        <td><input type="button" class ="arithmetic" value="×" onclick="multiplication()"></td>
+        <td><input type="button" class ="arithmetic" name="*" value="×" onclick="arithClick(this)"></td>
       </tr>
       <tr>
         <td><input type="button" class ="none" value="1/x" onclick=""></td>
@@ -51,7 +51,7 @@
         <td><input type="button" class ="num" value="4" onclick="numberClick(this)"></td>
         <td><input type="button" class ="num" value="5" onclick="numberClick(this)"></td>
         <td><input type="button" class ="num" value="6" onclick="numberClick(this)"></td>
-        <td><input type="button" class ="arithmetic" value="－" onclick="subtraction()"></td>
+        <td><input type="button" class ="arithmetic" name="-" value="－" onclick="arithClick(this)"></td>
       </tr>
       <tr>
         <td><input type="button" class ="none" value="x!" onclick=""></td>
@@ -63,7 +63,7 @@
         <td><input type="button" class ="num" value="1" onclick="numberClick(this)"></td>
         <td><input type="button" class ="num" value="2" onclick="numberClick(this)"></td>
         <td><input type="button" class ="num" value="3" onclick="numberClick(this)"></td>
-        <td><input type="button" class ="arithmetic" value="＋" onclick="addition()"></td>
+        <td><input type="button" class ="arithmetic" name="+" value="＋" onclick="arithClick(this)"></td>
       </tr>
     <tr>
         <td><input type="button" class ="none" value="Rad" onclick=""></td>
@@ -73,280 +73,15 @@
         <td><input type="button" class ="none" value="π" onclick=""></td>
         <td><input type="button" class ="none" value="Rand" onclick=""></td>
         <td colspan="2"><input type="button" class ="num" id = "zero" value="0" onclick="numberClick(this)"></td>
-        <td><input type="button" class ="num" value="." onclick="pointClick()"></td>
-        <td><input type="button" class ="equal" value="＝" onclick="equal()"></td>
+        <td><input type="button" class ="num" value="." onclick="numberClick(this)"></td>
+        <td><input type="button" class ="equal" value="＝" onclick="equalClick()"></td>
     </tr>
   </table>
   </main>
   <!-- jQueryプラグイン -->
   <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
 crossorigin="anonymous"></script>
-    <script>
-      var answer;
-      
-      function numberClick(num){
-        if(num.value !== "0"){
-        $('#clear').val('C');
-        }
-        if(window.innerHeight > window.innerWidth){
-          var comma = (result.value).replace(/,/g,"");
-          var point = comma.replace(/\./,"");
-          var hyphen = point.replace(/\-/,"");
-          if(hyphen.length < 9){
-          if(cnt !==0 ){
-            result.value = num.value;
-            math = num.value;
-            cnt = 0;
-          }else if(result.value == "0"||isNaN(math.slice( -1 ))||per!==0){
-            if(pm!==0){
-              result.value = "-"+num.value;
-            }else{
-              result.value = num.value;
-              math = math + "0";
-              cnt = 0;
-              per = 0;
-            }
-          }else if(result.value == "-0"){
-            result.value = "-" + num.value;
-          }else{
-            if(num.value == "0"){
-              if(math.slice( -1 ) == "."){
-                result.value = result.value + ".0";
-              }else{
-                result.value = result.value + "0";
-              }
-            }else{
-              if(pm !== 0){
-                answer = ((result.value).replace( /,/g , "" )).replace(/\-/,"") + num.value;
-                result.value = "-"+Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
-              }else{
-                answer = (result.value).replace( /,/g , "" ) + num.value;
-                result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
-              }
-            }
-          }
-          }else{
-            if(cnt !==0 ){
-              result.value = num.value;
-              math = num.value;
-              cnt = 0;
-            }else if(result.value == "0"||isNaN(math.slice( -1 ))||per!==0){
-              if(pm!==0){
-                result.value = "-"+num.value;
-              }else{
-                result.value = num.value;
-                math = math + "0";
-                cnt = 0;
-                per = 0;
-              }
-            }
-          }
-        }else{
-          var comma = (result.value).replace(/,/g,"");
-          var point = comma.replace(/\./,"");
-          var hyphen = point.replace(/\-/,"");
-          if(hyphen.length < 16){
-            if(cnt !==0 ){
-              result.value = num.value;
-              math = num.value;
-              cnt = 0;
-            }else if(result.value == "0"||isNaN(math.slice( -1 ))||per!==0){
-              if(pm!==0){
-                result.value = "-"+num.value;
-              }else{
-                result.value = num.value;
-                math = math + "0";
-                cnt = 0;
-                per = 0;
-              }
-            }else if(result.value == "-0"){
-              result.value = "-" + num.value;
-            }else{
-              if(num.value == "0"){
-                if(math.slice( -1 ) == "."){
-                  result.value = result.value + ".0";
-                }else{
-                  result.value = result.value + "0";
-                }
-              }else{
-                if(pm !== 0){
-                  answer = ((result.value).replace( /,/g , "" )).replace(/\-/,"") + num.value;
-                  result.value = "-"+Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
-                }else{
-                  answer = (result.value).replace( /,/g , "" ) + num.value;
-                  result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
-                }
-              }
-            }
-          }else{
-            if(cnt !==0 ){
-              result.value = num.value;
-              math = num.value;
-              cnt = 0;
-            }else if(result.value == "0"||isNaN(math.slice( -1 ))||per!==0){
-              if(pm!==0){
-                result.value = "-"+num.value;
-              }else{
-                result.value = num.value;
-                math = math + "0";
-                cnt = 0;
-                per = 0;
-              }
-            }
-            }
-          }
-      }
-          
-        
-      
-      function clearClick(){
-        result.value = 0;
-      }
-      function pointClick(){
-        if((result.value).indexOf(".") !== -1){
-          result.value = result.value;
-        }else{
-          result.value = result.value+".";
-        }
-      }
-      var per=0;
-      function percentClick(){
-        per++;
-        answer = (result.value).replace( /,/g , "" )/100;
-        result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
-      }
-      var pm=0;
-      function pmClick(){
-        var resultnum = result.value;
-        if(resultnum.indexOf("-") !== -1){
-          result.value = resultnum.replace( /\-/g , "" );
-          pm=0;
-        }else{
-          result.value = "-" + result.value;
-          pm=1;
-        }
-      }
-      var math = new String();
-      var arith;
-      var cnt = 0;
-      function addition(){
-        cnt=0;
-        pm=0;
-          math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"+";
-          answer = eval(math.slice( 0, -1 ));
-          result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
-          
-        arith = "+";
-      }
-      function subtraction(){
-        cnt=0;
-        pm=0;
-        math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"-";
-          answer = eval(math.slice( 0, -1 ));
-          result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
-        arith = "-";
-      }
-      function multiplication(){
-        cnt=0;
-        pm=0;
-        if(arith=="*"||arith=="/"){
-          math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"*";
-          answer = eval(math.slice( 0, -1 ));
-          result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
-          
-        }else{
-          math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"*";
-        }
-        arith = "*";
-      }
-      function division(){
-        cnt=0;
-        pm=0;
-        if(arith=="*"||arith=="/"){
-          math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"/";
-          answer = eval(math.slice( 0, -1 ));
-          result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
-          
-        }else{
-          math = (math.slice( 0, -1 ))+(result.value).replace( /,/g , "" )+"/";
-        }
-        arith = "/";
-      }
-      function equal(){
-        if(!isNaN((math).replace( /,/g , "" ))&&!arith){
-          console.log("a");
-          cnt ++;
-        }else if(!isNaN((math).replace( /,/g , "" ))&&cnt==0){
-          console.log("b");
-          answer = eval(math+(arith).replace( /,/g , "" ));
-          result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
-          math = math+(arith).replace( /,/g , "" );
-          cnt++;
-        }else  if(cnt=="0"&&!isNaN(math.slice(-2))){
-          console.log("c");
-          arith = arith + result.value;
-          answer = eval(math.slice( 0, -2 )+(arith).replace( /,/g , "" ));
-          result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
-          math = math.slice( 0, -2 )+(arith).replace( /,/g , "" );
-          cnt++;
-        }else if(cnt=="0"&&isNaN(math.slice(-1))){
-          console.log("d");
-          arith = arith + result.value;
-          answer = eval(math.slice(0,-1)+(arith).replace( /,/g , "" ));
-          result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
-          math = math.slice(0,-1)+(arith).replace( /,/g , "" );
-          cnt++;
-        }else if(isNaN(math.slice(-1))){
-          console.log("e");
-          answer = eval(math.slice(0,-1)+(arith).replace( /,/g , "" ));
-          result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
-          math = math.slice(0,-1)+(arith).replace( /,/g , "" );
-          cnt++;
-        }else if(arith.length == 1){
-          console.log("f");
-          arith = arith + result.value;
-          answer = eval(math.slice(0,-2)+(arith).replace( /,/g , "" ));
-          result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
-          math = math.slice(0,-2)+(arith).replace( /,/g , "" );
-          cnt++;
-        }else{
-          console.log("g");
-          answer = eval(math+(arith).replace( /,/g , "" ));
-          result.value = Number(answer).toLocaleString(undefined, { maximumFractionDigits: 20 });
-          math = math+(arith).replace( /,/g , "" );
-          cnt++;
-        }
-      }
-      $(function(){
-        $('.arithmetic').on('click', function(event){
-          event.preventDefault();
-          $('.arithmetic').removeClass('active');
-          $(this).toggleClass('active');
-        });
-      });
-      $(function(){
-        $('.num').on('click', function(event){
-          event.preventDefault();
-          $('.arithmetic').removeClass('active');
-        });
-      });
-      $(function(){
-        $('.equal').on('click', function(event){
-          event.preventDefault();
-          $('.arithmetic').removeClass('active');
-        });
-      });
-      $(function(){
-        $('#clear').on('click', function(event){
-          math = "";
-          cnt=0;
-          arith = "";
-          pm=0;
-          $('#clear').val('AC');
-          event.preventDefault();
-          $('.arithmetic').removeClass('active');
-        });
-      });
+<script type="text/javascript" src ="JavaScript/iPhone.js">
 </script>
 </body>
 
