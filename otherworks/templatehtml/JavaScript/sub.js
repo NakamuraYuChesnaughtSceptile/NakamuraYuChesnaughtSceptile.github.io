@@ -1,4 +1,4 @@
-document.write("表示する文字列clear6");
+document.write("表示する文字列clear7");
 var previousButton; //前に押下したボタンを保存するグローバル変数
 var numArray = [];  //計算に使う数字の配列
 var arithArray = [];//計算に使う演算子の配列
@@ -189,6 +189,31 @@ class Digit{
                     case 9: $('.result').toggleClass('resultText3');
                             break;
                 }
+    }
+}
+
+//±キー処理
+class PlusMinus{
+    plusMinusProcess(){
+        var window = new displayWindow();
+        var result = window.getResult();
+
+        if(result.indexOf("-") !== -1){
+            window.setResult(result.replace("-",""));
+        }else{
+            window.setResult(`-${result}`);
+        }
+    }
+}
+
+//%キー処理
+class Percent{
+    PercentProcess(){
+        var window = new displayWindow();
+        var result = window.getResult();
+
+        var percentNum = result/100;
+        window.setResult(percentNum);
     }
 }
 
