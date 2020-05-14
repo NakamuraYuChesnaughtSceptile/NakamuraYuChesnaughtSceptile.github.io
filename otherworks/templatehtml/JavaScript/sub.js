@@ -64,3 +64,81 @@ function equalClick(){
     previousButton　= "equal";
 }
 //  ↑呼び出す処理ここまで↑
+
+//全体の処理,格納
+class Main{
+    //配列に数字を追加
+    setNumber(num){
+        numArray.push(num);
+    }
+    
+    //配列に演算子を追加
+    setArithmetic(arith){
+        arithArray.push(arith);
+    }
+
+    //数字の配列の最後尾を取得
+    getNumberLast(){
+        return numArray[numArray.length - 1];
+    }
+
+    //演算子の配列の最後尾を取得
+    getArithmeticLast(){
+        return arithArray[arithArray.length - 1];
+    }
+
+    //数字の配列の長さを返す
+    getNumberLength(){
+        return numArray.length;
+    }
+    //演算子の配列の長さを返す
+    getArithmeticLength(){
+        return arithArray.length;
+    }
+
+    //配列の初期化
+    resetArray(){
+        numArray = [];
+        arithArray = [];
+    }
+}
+
+//数字キー処理
+class NumberKey{
+    constructor(keynum){
+        this.keyNumber = keynum.value;
+    }
+    NumberProcess(){
+        var window = new displayWindow();
+        var result = window.getResult();
+        var clear = new Clear();
+
+        //押下されたのが0以外の数字か判定
+        if(this.keyNumber!=="0"){
+            clear.setC();
+        }
+
+        if(this.keyNumber == "."){
+            var pointNum = this.pointProcess(result);
+            window.setResult(pointNum);
+        }else if(result == "-0"){
+            window.setResult(`-${this.keyNumber}`);
+        //↓表示されているのが0または、前に押されたのが演算子か=か％かを判定↓
+        }else if(result == "0"　||previousButton == "percent"||previousButton=="equal"||previousButton=="arithmetic"){
+            window.setResult(this.keyNumber);
+        }else{
+            window.setResult(result+this.keyNumber);
+        }
+    }
+
+    //小数点が連続で打たれない、%,=,演算子を押した後に小数点を押すと0.にする処理
+    pointProcess(result){
+        var pointNum = result;
+        if(result.indexOf(".") == -1){
+            pointNum = result+".";
+        }else if(previousButton == "percent"||previousButton=="equal"||previousButton=="arithmetic"){
+            pointNum = "0.";
+        }
+        return pointNum;
+    }
+}
