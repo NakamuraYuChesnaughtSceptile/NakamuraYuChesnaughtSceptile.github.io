@@ -10,7 +10,10 @@
 body {
   background: black;
   width: 100%;
-  cursor: pointer;
+}
+
+input[type="button"]{
+  cursor: pointer!important;
 }
 
 main {
