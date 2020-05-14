@@ -1,4 +1,4 @@
-document.write("表示する文字列clear4");
+document.write("表示する文字列clear5");
 var previousButton; //前に押下したボタンを保存するグローバル変数
 var numArray = [];  //計算に使う数字の配列
 var arithArray = [];//計算に使う演算子の配列
@@ -191,6 +191,80 @@ class Digit{
                 }
     }
 }
+
+//AC・Cキー処理
+class Clear{
+    constructor(namae){
+        // var clearData = document.getElementById( "clear" );
+        this.clear = namae;
+    }
+    ClearProcess(){
+        var main = new Main();
+        //ボタンの字の判定
+        if(this.clear == "AC"){
+            $('.arithmetic').removeClass('active');
+            //ACの時のみ演算子の色をもとに戻す
+            main.resetArray();
+            result.value = 0;//表示窓の初期化
+        }else{
+            result.value = 0;
+            this.setAC();
+        }
+    }
+    //文字をCに変更
+    setC(){
+        $('#clear').val('C');
+    }
+    //文字をACに変更
+    setAC(){
+        $('#clear').val('AC');
+    }
+}
+
+//計算処理
+class Calculation{
+    formula = "";
+    answer = "";
+    calculationProcess(){
+        var main = new Main();
+        var window = new displayWindow();
+        var lastNum = window.getResult();
+
+        if(main.getNumberLength() <= 0){
+            //何もしない
+        }else if(previousButton == "equal"){
+            var arrayNumLast = main.getNumberLast();
+            var arrayArithLast = main.getArithmeticLast();
+
+            main.resetArray();
+            main.setNumber(lastNum);
+
+            main.setNumber(arrayNumLast);
+            main.setArithmetic(arrayArithLast);
+
+            this.caluculationRoop();
+
+            this.answer = eval(this.formula+main.getNumberLast());
+            window.setResult(this.answer);
+        }else{
+
+            this.caluculationRoop();
+            
+            this.formula = this.formula + lastNum;
+            main.setNumber(lastNum);
+            this.answer = eval(this.formula);
+            window.setResult(this.answer);
+        }
+    }
+    //計算式を作るループ処理
+    caluculationRoop(){
+        for(var i=0;i < arithArray.length;i++){
+            this.formula = this.formula + numArray[i] + arithArray[i];
+        }
+    }
+}
+
+
 
 //表示窓の値取得
 class displayWindow{
