@@ -1,4 +1,4 @@
-document.write("表示する文字列clear7");
+document.write("表示する文字列clear8");
 var previousButton; //前に押下したボタンを保存するグローバル変数
 var numArray = [];  //計算に使う数字の配列
 var arithArray = [];//計算に使う演算子の配列
@@ -189,6 +189,37 @@ class Digit{
                     case 9: $('.result').toggleClass('resultText3');
                             break;
                 }
+    }
+}
+
+//演算子キー処理
+class Arithmetic{
+    constructor(keyArith){
+        this.keyArithmetic = keyArith;
+    }
+    arithmeticProcess(){
+        var window = new displayWindow();
+        var main = new Main();
+        var calculation = new Calculation();
+
+        var result = window.getResult();
+        var lastArith = main.getArithmeticLast();
+
+        main.setNumber(result);
+        if(previousButton == "arithmetic"){
+            arithArray.pop();
+            main.setArithmetic(this.keyArithmetic);
+        }else{ 
+            if(this.keyArithmetic == "*" || this.keyArithmetic == "/"){
+                if(lastArith == "*" || lastArith == "/"){
+                    calculation.calculationProcess();
+                }
+            }else if(main.getArithmeticLength() >= 2 && previousButton !== "equal"){
+                calculation.calculationProcess();
+            }
+        //配列にセット
+            main.setArithmetic(this.keyArithmetic);
+        }
     }
 }
 
