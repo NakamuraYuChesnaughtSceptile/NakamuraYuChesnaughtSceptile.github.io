@@ -21,8 +21,8 @@ function numberClick(num){
 }
 
 //AC,Cキー
-function clearClick(){
-    var clear = new Clear();
+function clearClick(namae){
+    var clear = new Clear(name.value);
     clear.ClearProcess();
 
     previousButton　= "clear";
@@ -249,9 +249,9 @@ class Percent{
 
 //AC・Cキー処理
 class Clear{
-    constructor(){
-        var clearData = document.getElementById( "clear" );
-        this.clear = clearData.value;
+    constructor(namae){
+        // var clearData = document.getElementById( "clear" );
+        this.clear = namae;
     }
     ClearProcess(){
         var main = new Main();
