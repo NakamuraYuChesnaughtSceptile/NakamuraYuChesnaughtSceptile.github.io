@@ -1,4 +1,4 @@
-document.write("表示する文字列clear3");
+document.write("表示する文字列clear4");
 var previousButton; //前に押下したボタンを保存するグローバル変数
 var numArray = [];  //計算に使う数字の配列
 var arithArray = [];//計算に使う演算子の配列
@@ -192,3 +192,18 @@ class Digit{
     }
 }
 
+//表示窓の値取得
+class displayWindow{
+    constructor(){
+        this.displayResult = result.value;
+    }
+    //表示されている値を返す
+    getResult(){
+        return this.displayResult;
+    }
+
+    //値を設定
+    setResult(num){
+        result.value = num;
+    }
+}
