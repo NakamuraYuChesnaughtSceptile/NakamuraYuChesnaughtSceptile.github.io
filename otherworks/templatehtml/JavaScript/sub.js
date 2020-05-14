@@ -279,12 +279,13 @@ class Clear{
 
 //計算処理
 class Calculation{
-    formula = "";
-    answer = "";
+    
     calculationProcess(){
         var main = new Main();
         var window = new displayWindow();
         var lastNum = window.getResult();
+        var formula = "";
+        var answer = "";
 
         if(main.getNumberLength() <= 0){
             //何もしない
@@ -298,25 +299,26 @@ class Calculation{
             main.setNumber(arrayNumLast);
             main.setArithmetic(arrayArithLast);
 
-            this.caluculationRoop();
+            formula = this.caluculationRoop(formula);
 
-            this.answer = eval(this.formula+main.getNumberLast());
-            window.setResult(this.answer);
+            answer = eval(formula+main.getNumberLast());
+            window.setResult(answer);
         }else{
 
-            this.caluculationRoop();
+            formula = this.caluculationRoop(formula);
             
-            this.formula = this.formula + lastNum;
+            formula = formula + lastNum;
             main.setNumber(lastNum);
-            this.answer = eval(this.formula);
-            window.setResult(this.answer);
+            answer = eval(formula);
+            window.setResult(answer);
         }
     }
     //計算式を作るループ処理
-    caluculationRoop(){
+    caluculationRoop(formula){
         for(var i=0;i < arithArray.length;i++){
-            this.formula = this.formula + numArray[i] + arithArray[i];
+            formula = formula + numArray[i] + arithArray[i];
         }
+        return formula;
     }
 }
 
