@@ -1,4 +1,4 @@
-document.write("表示する文字列clear");
+document.write("表示する文字列clear3");
 var previousButton; //前に押下したボタンを保存するグローバル変数
 var numArray = [];  //計算に使う数字の配列
 var arithArray = [];//計算に使う演算子の配列
@@ -142,3 +142,53 @@ class NumberKey{
         return pointNum;
     }
 }
+
+//桁数判定処理
+class Digit{
+    constructor(){
+        this.windowHeight = window.innerHeight;//画面の縦を取得
+        this.windowWidth = window.innerWidth;//画面の横を取得
+    }
+    DigitProcess(){
+        var window = new displayWindow();
+        var result = window.getResult();
+        var resultMolding = result.replace(/[^0-9]/g, '');//－や小数点を排除し、数字のみに置き換える
+        
+
+        //画面サイズの判定
+        if(this.windowHeight > this.windowWidth){
+            //縦画面時の桁数判定
+            if(resultMolding.length < 9){
+                this.fontSizeProcess(resultMolding.length);
+                return true;
+            }else{
+                return false;
+            }
+            
+        }else{
+            //横画面時の桁数判定
+            if(resultMolding.length < 16){
+                return true;
+            }else{
+                return false;
+            }
+            
+        }
+    }
+
+    //文字数が増えたときにフォントサイズを変える処理
+    fontSizeProcess(length){
+                $('.result').removeClass('resultText1');
+                $('.result').removeClass('resultText2');
+                $('.result').removeClass('resultText3');
+                switch (length){
+                    case 7: $('.result').toggleClass('resultText1');
+                            break;
+                    case 8: $('.result').toggleClass('resultText2');
+                            break;
+                    case 9: $('.result').toggleClass('resultText3');
+                            break;
+                }
+    }
+}
+
