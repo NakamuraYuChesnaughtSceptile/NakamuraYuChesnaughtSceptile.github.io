@@ -1,4 +1,4 @@
-document.write("表示する文字列");
+// document.write("表示する文字列clear");
 var previousButton; //前に押下したボタンを保存するグローバル変数
 var numArray = [];  //計算に使う数字の配列
 var arithArray = [];//計算に使う演算子の配列
@@ -7,7 +7,8 @@ var arithArray = [];//計算に使う演算子の配列
 
 //数字キー
 function numberClick(num){
-    $('.arithmetic').removeClass('active');//押された後演算子ボタンの色を戻す
+    // $('.arithmetic').removeClass('active');
+    //押された後演算子ボタンの色を戻す
 
     var number = new NumberKey(num);
     var digit = new Digit();
@@ -21,8 +22,8 @@ function numberClick(num){
 }
 
 //AC,Cキー
-function clearClick(){
-    var clear = new Clear();
+function clearClick(namae){
+    var clear = new Clear(name.value);
     clear.ClearProcess();
 
     previousButton　= "clear";
@@ -46,8 +47,9 @@ function percentClick(){
 
 //演算子キー
 function arithClick(arith){
-    $('.arithmetic').removeClass('active');
-    $(arith).toggleClass('active');//演算子が押された後色を変える
+    // $('.arithmetic').removeClass('active');
+    // $(arith).toggleClass('active');
+    //演算子が押された後色を変える
 
     var arithmetic = new Arithmetic(arith.name);
     arithmetic.arithmeticProcess();
@@ -56,7 +58,7 @@ function arithClick(arith){
 
 //=キー
 function equalClick(){
-    $('.arithmetic').removeClass('active');
+    // $('.arithmetic').removeClass('active');
     var equal = new Calculation();
     equal.calculationProcess();
 
@@ -177,17 +179,17 @@ class Digit{
 
     //文字数が増えたときにフォントサイズを変える処理
     fontSizeProcess(length){
-                $('.result').removeClass('resultText1');
-                $('.result').removeClass('resultText2');
-                $('.result').removeClass('resultText3');
-                switch (length){
-                    case 7: $('.result').toggleClass('resultText1');
-                            break;
-                    case 8: $('.result').toggleClass('resultText2');
-                            break;
-                    case 9: $('.result').toggleClass('resultText3');
-                            break;
-                }
+                // $('.result').removeClass('resultText1');
+                // $('.result').removeClass('resultText2');
+                // $('.result').removeClass('resultText3');
+                // switch (length){
+                //     case 7: $('.result').toggleClass('resultText1');
+                //             break;
+                //     case 8: $('.result').toggleClass('resultText2');
+                //             break;
+                //     case 9: $('.result').toggleClass('resultText3');
+                //             break;
+                // }
     }
 }
 
@@ -249,15 +251,16 @@ class Percent{
 
 //AC・Cキー処理
 class Clear{
-    constructor(){
-        var clearData = document.getElementById( "clear" );
-        this.clear = clearData.value;
+    constructor(namae){
+        // var clearData = document.getElementById( "clear" );
+        this.clear = namae;
     }
     ClearProcess(){
         var main = new Main();
         //ボタンの字の判定
         if(this.clear == "AC"){
-            $('.arithmetic').removeClass('active');//ACの時のみ演算子の色をもとに戻す
+            // $('.arithmetic').removeClass('active');
+            //ACの時のみ演算子の色をもとに戻す
             main.resetArray();
             result.value = 0;//表示窓の初期化
         }else{
@@ -267,11 +270,11 @@ class Clear{
     }
     //文字をCに変更
     setC(){
-        $('#clear').val('C');
+        // $('#clear').val('C');
     }
     //文字をACに変更
     setAC(){
-        $('#clear').val('AC');
+        // $('#clear').val('AC');
     }
 }
 
