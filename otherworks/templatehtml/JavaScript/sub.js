@@ -1,4 +1,4 @@
-document.write("表示する文字列clear5");
+document.write("表示する文字列clear6");
 var previousButton; //前に押下したボタンを保存するグローバル変数
 var numArray = [];  //計算に使う数字の配列
 var arithArray = [];//計算に使う演算子の配列
@@ -220,50 +220,6 @@ class Clear{
         $('#clear').val('AC');
     }
 }
-
-//計算処理
-class Calculation{
-    formula = "";
-    answer = "";
-    calculationProcess(){
-        var main = new Main();
-        var window = new displayWindow();
-        var lastNum = window.getResult();
-
-        if(main.getNumberLength() <= 0){
-            //何もしない
-        }else if(previousButton == "equal"){
-            var arrayNumLast = main.getNumberLast();
-            var arrayArithLast = main.getArithmeticLast();
-
-            main.resetArray();
-            main.setNumber(lastNum);
-
-            main.setNumber(arrayNumLast);
-            main.setArithmetic(arrayArithLast);
-
-            this.caluculationRoop();
-
-            this.answer = eval(this.formula+main.getNumberLast());
-            window.setResult(this.answer);
-        }else{
-
-            this.caluculationRoop();
-            
-            this.formula = this.formula + lastNum;
-            main.setNumber(lastNum);
-            this.answer = eval(this.formula);
-            window.setResult(this.answer);
-        }
-    }
-    //計算式を作るループ処理
-    caluculationRoop(){
-        for(var i=0;i < arithArray.length;i++){
-            this.formula = this.formula + numArray[i] + arithArray[i];
-        }
-    }
-}
-
 
 
 //表示窓の値取得
