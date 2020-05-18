@@ -1,4 +1,3 @@
-// document.write("表示する文字列clear");
 var previousButton; //前に押下したボタンを保存するグローバル変数
 var numArray = [];  //計算に使う数字の配列
 var arithArray = [];//計算に使う演算子の配列
@@ -7,24 +6,25 @@ var arithArray = [];//計算に使う演算子の配列
 
 //数字キー
 function numberClick(num){
-    // $('.arithmetic').removeClass('active');
-    //押された後演算子ボタンの色を戻す
+    $('.arithmetic').removeClass('active');//押された後演算子ボタンの色を戻す
 
     var number = new NumberKey(num);
     var digit = new Digit();
 
     //画面に対応した桁数は超えていないか
-    if(digit.DigitProcess()){
-        number.NumberProcess();
+    if(digit.digitProcess()){
+        number.number_Pushpush();
+    }else if(previousButton=="arithmetic"||previousButton=="equal"){
+        number.number_Pushpush();
     }
     
     previousButton　= "number";
 }
 
 //AC,Cキー
-function clearClick(namae){
-    var clear = new Clear(name.value);
-    clear.ClearProcess();
+function clearClick(){
+    var clear = new Clear();
+    clear.clearProcess();
 
     previousButton　= "clear";
 }
@@ -40,16 +40,15 @@ function pmClick(){
 //%キー
 function percentClick(){
     var percent = new Percent();    
-    percent.PercentProcess();
+    percent.percentProcess();
 
     previousButton　= "percent";
 }
 
 //演算子キー
 function arithClick(arith){
-    // $('.arithmetic').removeClass('active');
-    // $(arith).toggleClass('active');
-    //演算子が押された後色を変える
+    $('.arithmetic').removeClass('active');
+    $(arith).toggleClass('active');//演算子が押された後色を変える
 
     var arithmetic = new Arithmetic(arith.name);
     arithmetic.arithmeticProcess();
@@ -58,7 +57,7 @@ function arithClick(arith){
 
 //=キー
 function equalClick(){
-    // $('.arithmetic').removeClass('active');
+    $('.arithmetic').removeClass('active');
     var equal = new Calculation();
     equal.calculationProcess();
 
@@ -70,7 +69,7 @@ function equalClick(){
 class Main{
     //配列に数字を追加
     setNumber(num){
-        numArray.push(num);
+        numArray.push(num.replace(/[^-0-9.]/g, ''));
     }
     
     //配列に演算子を追加
@@ -102,6 +101,11 @@ class Main{
         numArray = [];
         arithArray = [];
     }
+
+    //コンマ区切り
+    commaSeparated(result){
+        return Number(result).toLocaleString(undefined, { maximumFractionDigits: 20 });
+    }
 }
 
 //数字キー処理
@@ -109,16 +113,19 @@ class NumberKey{
     constructor(keynum){
         this.keyNumber = keynum.value;
     }
-    NumberProcess(){
+    number_Pushpush(){
         var window = new displayWindow();
-        var result = window.getResult();
         var clear = new Clear();
+        var main = new Main();
+        
+        var result = window.getResult();
 
         //押下されたのが0以外の数字か判定
         if(this.keyNumber!=="0"){
             clear.setC();
         }
 
+        //押されたキーが小数点の時の処理
         if(this.keyNumber == "."){
             var pointNum = this.pointProcess(result);
             window.setResult(pointNum);
@@ -128,17 +135,19 @@ class NumberKey{
         }else if(result == "0"　||previousButton == "percent"||previousButton=="equal"||previousButton=="arithmetic"){
             window.setResult(this.keyNumber);
         }else{
-            window.setResult(result+this.keyNumber);
+            var resultMolding = result.replace(/[^0-9.]/g, '');
+            result = main.commaSeparated(resultMolding+this.keyNumber);
+            window.setResult(result);
         }
     }
 
     //小数点が連続で打たれない、%,=,演算子を押した後に小数点を押すと0.にする処理
     pointProcess(result){
         var pointNum = result;
-        if(result.indexOf(".") == -1){
-            pointNum = result+".";
-        }else if(previousButton == "percent"||previousButton=="equal"||previousButton=="arithmetic"){
+        if(previousButton == "percent"||previousButton=="equal"||previousButton=="arithmetic"){
             pointNum = "0.";
+        }else if(result.indexOf(".") == -1){
+            pointNum = result+".";
         }
         return pointNum;
     }
@@ -150,7 +159,7 @@ class Digit{
         this.windowHeight = window.innerHeight;//画面の縦を取得
         this.windowWidth = window.innerWidth;//画面の横を取得
     }
-    DigitProcess(){
+    digitProcess(){
         var window = new displayWindow();
         var result = window.getResult();
         var resultMolding = result.replace(/[^0-9]/g, '');//－や小数点を排除し、数字のみに置き換える
@@ -179,17 +188,17 @@ class Digit{
 
     //文字数が増えたときにフォントサイズを変える処理
     fontSizeProcess(length){
-                // $('.result').removeClass('resultText1');
-                // $('.result').removeClass('resultText2');
-                // $('.result').removeClass('resultText3');
-                // switch (length){
-                //     case 7: $('.result').toggleClass('resultText1');
-                //             break;
-                //     case 8: $('.result').toggleClass('resultText2');
-                //             break;
-                //     case 9: $('.result').toggleClass('resultText3');
-                //             break;
-                // }
+                $('.output').removeClass('resultText1');
+                $('.output').removeClass('resultText2');
+                $('.output').removeClass('resultText3');
+                switch (length){
+                    case 6: $('.output').toggleClass('resultText1');
+                            break;
+                    case 7: $('.output').toggleClass('resultText2');
+                            break;
+                    case 8: $('.output').toggleClass('resultText3');
+                            break;
+                }
     }
 }
 
@@ -230,7 +239,9 @@ class PlusMinus{
         var window = new displayWindow();
         var result = window.getResult();
 
-        if(result.indexOf("-") !== -1){
+        if(previousButton == "arithmetic"){
+            window.setResult("-0");
+        }else if(result.indexOf("-") !== -1){
             window.setResult(result.replace("-",""));
         }else{
             window.setResult(`-${result}`);
@@ -240,7 +251,7 @@ class PlusMinus{
 
 //%キー処理
 class Percent{
-    PercentProcess(){
+    percentProcess(){
         var window = new displayWindow();
         var result = window.getResult();
 
@@ -251,16 +262,15 @@ class Percent{
 
 //AC・Cキー処理
 class Clear{
-    constructor(namae){
-        // var clearData = document.getElementById( "clear" );
-        this.clear = namae;
+    constructor(){
+        var clearData = document.getElementById( "clear" );
+        this.clear = clearData.value;
     }
-    ClearProcess(){
+    clearProcess(){
         var main = new Main();
         //ボタンの字の判定
         if(this.clear == "AC"){
-            // $('.arithmetic').removeClass('active');
-            //ACの時のみ演算子の色をもとに戻す
+            $('.arithmetic').removeClass('active');//ACの時のみ演算子の色をもとに戻す
             main.resetArray();
             result.value = 0;//表示窓の初期化
         }else{
@@ -270,22 +280,23 @@ class Clear{
     }
     //文字をCに変更
     setC(){
-        // $('#clear').val('C');
+        $('#clear').val('C');
     }
     //文字をACに変更
     setAC(){
-        // $('#clear').val('AC');
+        $('#clear').val('AC');
     }
 }
 
 //計算処理
 class Calculation{
-    formula = "";
-    answer = "";
+    
     calculationProcess(){
         var main = new Main();
         var window = new displayWindow();
         var lastNum = window.getResult();
+        var formula = "";
+        var answer = "";
 
         if(main.getNumberLength() <= 0){
             //何もしない
@@ -299,25 +310,25 @@ class Calculation{
             main.setNumber(arrayNumLast);
             main.setArithmetic(arrayArithLast);
 
-            this.caluculationRoop();
+            formula = this.caluculationRoop(formula);
 
-            this.answer = eval(this.formula+main.getNumberLast());
-            window.setResult(this.answer);
+            answer = eval(formula+main.getNumberLast());
+            answer = main.commaSeparated(answer);
+            window.setResult(answer);
         }else{
-
-            this.caluculationRoop();
-            
-            this.formula = this.formula + lastNum;
             main.setNumber(lastNum);
-            this.answer = eval(this.formula);
-            window.setResult(this.answer);
+            formula = this.caluculationRoop(formula);
+            answer = eval(formula+main.getNumberLast());
+            answer = main.commaSeparated(answer);
+            window.setResult(answer);
         }
     }
     //計算式を作るループ処理
-    caluculationRoop(){
+    caluculationRoop(formula){
         for(var i=0;i < arithArray.length;i++){
-            this.formula = this.formula + numArray[i] + arithArray[i];
+            formula = formula + numArray[i] + arithArray[i];
         }
+        return formula;
     }
 }
 
