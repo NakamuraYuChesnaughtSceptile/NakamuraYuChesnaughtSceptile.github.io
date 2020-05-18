@@ -12,10 +12,6 @@ body {
   width: 100%;
 }
 
-input[type="button"]{
-  cursor: pointer!important;
-}
-
 main {
   max-width: 730px;
   margin: auto;
@@ -200,16 +196,15 @@ main {
   }
   /* 縦画面時、桁数7~9以上出力文字小さくなる */
   .resultText1{
-    transition: all .4s;
     font-size: 60px;
   }
   .resultText2{
     transition: all .4s;
-    font-size: 50px;
+    font-size: 55px;
   }
   .resultText3{
     transition: all .4s;
-    font-size: 40px;
+    font-size: 50px;
   }
   /* ここまで縦画面の出力時 */
   
