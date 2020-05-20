@@ -182,6 +182,7 @@ div.cluc_S {
   /* Android縦画面は全体を下に詰める */
   body{
     width: 100%;
+    height:100vh;
     bottom: 0;
   }
   main{
