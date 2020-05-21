@@ -173,6 +173,10 @@ div.cluc_S {
   display: flex;
   justify-content: space-around;
 }
+/* 横の出力結果 */
+#Input_Result_S{
+  font-size: 28px;
+}
 
 /* --------------------------ここまでPC用and Android横画面用 */
 
@@ -182,7 +186,6 @@ div.cluc_S {
   /* Android縦画面は全体を下に詰める */
   body{
     width: 100%;
-    height:100vh;
     bottom: 0;
   }
   main{

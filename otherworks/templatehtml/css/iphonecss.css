@@ -192,7 +192,7 @@ main {
     font-weight: 100;
   }
   #result {
-    width: 300px!important;
+    width: 350px!important;
   }
   /* 縦画面時、桁数7~9以上出力文字小さくなる */
   .resultText1{
