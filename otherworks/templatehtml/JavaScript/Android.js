@@ -1,4 +1,3 @@
-var Result_Out;
 
 //Button押下処理
 class Button_Push{
@@ -11,13 +10,13 @@ class Button_Push{
     //TextBox内値読み込み
     TextBox_Value_Read(){
         var TextBox_Value;
-        TextBox_Value = document.getElementById("TextBox_Value");
+        TextBox_Value = Input_Result.value;
         return TextBox_Value;
     }
     //TextBoxがnullか
     TextBox_Null_Check(){
         var Null_TF;
-        if(this.TextBox_Value_Read() != "undefined" || this.TextBox_Value_Read() != null){
+        if(this.TextBox_Value_Read() != undefined || this.TextBox_Value_Read() != null){
             Null_TF = true;
         }
         else{
@@ -39,20 +38,20 @@ class Button_Push{
         var Last_Type;
         //小数点
         if(this.TextBox_Slice() == "."){
-            Last_type = Dec;
+            Last_type = "Dec";
         //数値
         }else if(isNaN(this.TextBox_Slice()) == false){
             Last_Type = "Num";
         //演算子
         }else if(isNaN(this.TextBox_Slice())){
-            Last_Type = "Str";
+            Last_Type = "Ope";
         }
         return Last_Type;
     }
     //TextBox内の値が0のみか
     TextBox_Zero_Check(){
         var Zero_TF;
-        if(this.TextBox_Value_Read() == 0){
+        if(this.TextBox_Value_Read() == "0"){
             Zero_TF = true;
         }
         else{
@@ -65,7 +64,7 @@ class Button_Push{
     DecimalPoint_Fix(){
         if(this.TextBox_Value_Read() == "."){
             this.TextBox_Value = "0.";
-            Result_Out = "0."; 
+            Hidden_Result.value = "0."; 
             return this.TextBox_Value;
         }
     }
@@ -79,10 +78,10 @@ class Number_Click extends Button_Push{
     }
     Num_Push(){
         this.TextBox_Value_Read();
-        if(this.TextBox_Null_Check() == true){
+        if(this.TextBox_Null_Check() == false){
             //nullなので入力数値追加
-            this.TextBox_Value = Number.value;
-            Result_Out = Number.value;
+            this.TextBox_Value = this.key;
+            Hidden_Result.value = this.key;
             return this.key;
         }else{
             switch(this.TextBox_Last_Check()){
@@ -100,31 +99,32 @@ class Number_Click extends Button_Push{
         }
     }
     Switch_Number_Push_N(){
-        if(this.TextBox_Zero_Check() == true){
-                this.TextBox_Value = Number.value;
-                Result_Out = Number.value;
+        if(this.TextBox_Zero_Check()){
+                this.TextBox_Value = this.key;
+                Hidden_Result.value = this.key;
         }else{
-                this.TextBox_Value = this.TextBox_Value_Read() + Number.value;
-                Result_Out += Number.value;
+                this.TextBox_Value = this.TextBox_Value_Read() + this.key;
+                Hidden_Result.value = this.key;
         }
     }
     Switch_Number_Push_O(){
-        this.TextBox_Value = this.TextBox_Value_Read() + Number.value;
-        Result_Out += Number.value;
+        this.TextBox_Value = this.TextBox_Value_Read() + this.key;
+        Hidden_Result.value.value += this.key;
     }
     Switch_Number_Push_D(){
         this.DecimalPoint_Fix();
-        this.TextBox_Value = this.TextBox_Value_Read() + Number.value;
-        Result_Out += Number.value;
+        this.TextBox_Value = this.TextBox_Value_Read() + this.key;
+        Hidden_Result.value += this.key;
     }
 }
 function Number_Function(number){
     var result = number;
     var Num = new Number_Click(result.value);
-    Input_Result.value += Num.Num_Push();
+    Input_Result.value = Num.Num_Push();
+    Hidden_Result.value += String(Input_Result.value).slice(-1);
     console.log(Input_Result.value);
+    console.log(Hidden_Result.value);
     this.Result_Value = Input_Result.value;
-    console.log(this.Result_Value);
 }
 
 //演算子を入力した場合の処理
@@ -147,6 +147,7 @@ class Operator_Push extends Button_Push{
                 case 'Ope' : this.Switch_Operator_Push_O();
                 break;
             }
+            console.log(this.TextBox_Last_Check());
             return this.TextBox_Value;
         }else{
             this.TextBox_Value = null;
@@ -159,7 +160,7 @@ class Operator_Push extends Button_Push{
         var operator = con[0].key;
         if(operator == "－" && this.TextBox_Null_Check() == true){
             this.TextBox_Value = "－";
-            Result_Out = "-";
+            Hidden_Result.value = "-";
         }
     }
     Switch_Operator_Push_N(){
@@ -167,25 +168,25 @@ class Operator_Push extends Button_Push{
         var operator = con[0].key;
         switch(operator){
             case '+' : this.TextBox_Value = operator;
-                Result_Out += "+";
+                Hidden_Result.value = "+";
                 console.log(this.TextBox_Value);
-                console.log(Result_Out);
+                console.log(Hidden_Result.value);
                 
                 break;
             case '-' : this.TextBox_Value = operator;
-                Result_Out += "-";
+                Hidden_Result.value += "-";
                 console.log(this.TextBox_Value);
-                console.log(Result_Out);
+                console.log(Hidden_Result.value);
                 break;
-            case '*' : this.TextBox_Value =  operator;
-                Result_Out += "*";
+            case '*' : this.TextBox_Value =  "×";//operatorに変えれば演算できる
+                Hidden_Result.value += "*";
                 console.log(this.TextBox_Value);
-                console.log(Result_Out);
+                console.log(Hidden_Result.value);
                 break;
-            case '/' : this.TextBox_Value = operator;
-                Result_Out += "/";
+            case '/' : this.TextBox_Value = "÷";
+                Hidden_Result.value += "/";
                 console.log(this.TextBox_Value);
-                console.log(Result_Out);
+                console.log(Hidden_Result.value);
                 break;
         }
 
@@ -197,26 +198,26 @@ class Operator_Push extends Button_Push{
             switch(operator){
                 case '+' : 
                     this.TextBox_Value = String(this.TextBox_Value).slice(0,-1) + operator;
-                    Result_Out += "+";
+                    Hidden_Result.value = String(Hidden_Result.value).slice(0,-1) + "+";
                     break;
                 case '-' : 
                     this.TextBox_Value = String(this.TextBox_Value).slice(0,-1) + operator;
-                    Result_Out += "-";
+                    Hidden_Result.value = String(Hidden_Result.value).slice(0,-1) + "-";
                     break;
                 case '*' : 
-                    this.TextBox_Value = String(this.TextBox_Value).slice(0,-1) + operator;
-                    Result_Out += "*";
+                    this.TextBox_Value = String(this.TextBox_Value).slice(0,-1) + "×";
+                    Hidden_Result.value = String(Hidden_Result.value).slice(0,-1) + "*";
                     break;
                 case '/' : 
-                    this.TextBox_Value = String(this.TextBox_Value).slice(0,-1) + operator;
-                    Result_Out += "/";
-            }
+                    this.TextBox_Value = String(this.TextBox_Value).slice(0,-1) + "÷";
+                    Hidden_Result.value = String(Hidden_Result.value).slice(0,-1) + "/";
+                    break;
+                }
         }
     }
     Switch_Operator_Push_D(){
         this.DecimalPoint_Fix();
         this.TextBox_Value = "不正な式です";
-
     }
     
 }
@@ -243,9 +244,10 @@ class Calculation extends Button_Push{
                 case 'Num':
                     console.log("11");
                     console.log(Result_Value);
+                    console.log(Hidden_Result.value);
                     this.Text_Value = eval(Result_Value);
                     console.log(this.Text_Value);
-                    Result_Out = this.Text_Value;
+                    Hidden_Result.value = this.Text_Value;
                     break;
                 //TextBox最後尾が小数点の場合
                 case 'Dec' :
@@ -256,8 +258,8 @@ class Calculation extends Button_Push{
                     console.log("33");
                     break;
             }
-            console.log(this.Result_Value);
-            return Result_Out;
+            console.log(Hidden_Result.value);
+            return Hidden_Result.value;
         }
     }
 }
@@ -269,14 +271,14 @@ class Ex_Button extends Button_Push{
     DecimalPoint_Click(){
         if(this.TextBox_Last_Check() != "Dec"){
             this.TextBox_Value += ".";
-            Result_Out += ".";
+            Hidden_Result.value += ".";
         }
         return this.TextBox_Value;
     }
     Delete_Click(){
         if(this.TextBox_Null_Check != true){
             this.TextBox_Value = Input_Result.value.slice(0,-1);
-            Result_Out = String(Result_Out).slice(0,-1);
+            Hidden_Result.value = String(Hidden_Result.value).slice(0,-1);
         }
         return this.TextBox_Value;
     }
