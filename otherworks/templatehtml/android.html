@@ -11,12 +11,15 @@
   <link rel="stylesheet" href="css/ripple.css">
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap" rel="stylesheet">
 </head>
+
+  <script type="text/javascript" src="javaScript/Android.js"></script>
 <body>
   <main>
     <div style="text-align:center;margin: auto;" class="sp_tate">
       <!-- ここから記述お願い！ -->
       <!-- 計算結果出力場所-->
-      <input type="text" class="result_input_V" id="Input_Result" readonly>
+      <input type="text" class="result_input_V" id="Input_Result" value="0" readonly>
+      <input type="text" id="Hidden_Result" value="0" hidden>
       <!-- 数字ボタン-->
       <table class="number_table_V" style="margin: auto;">
         <tr>
@@ -24,35 +27,35 @@
             <table>
               <tr>
                 <td class="number_td_V">
-                  <button class="number_button_V" name="number" value="7" onclick="Number_Function(this)">7</button>
+                  <button class="number_button_V" name="Number" id="Number_Button" value="7" onclick="Number_Function(this)">7</button>
                 </td>
                 <td class="number_td_V">
-                  <button class="number_button_V" name="number" value="8" onclick="Number_Function(this)">8</button>
+                  <button class="number_button_V" name="Number" id="Number_Button" value="8" onclick="Number_Function(this)">8</button>
                 </td>
                 <td class="number_td_V">
-                  <button class="number_button_V" name="number" value="9" onclick="Number_Function(this)">9</button>
-                </td>
-              </tr>
-              <tr>
-                <td class="number_td_V">
-                  <button class="number_button_V" name="number" value="4" onclick="Number_Function(this)">4</button>
-                </td>
-                <td class="number_td_V">
-                  <button class="number_button_V" name="number" value="5" onclick="Number_Function(this)">5</button>
-                </td>
-                <td class="number_td_V">
-                  <button class="number_button_V" name="number" value="6" onclick="Number_Function(this)">6</button>
+                  <button class="number_button_V" name="Number" id="Number_Button" value="9" onclick="Number_Function(this)">9</button>
                 </td>
               </tr>
               <tr>
                 <td class="number_td_V">
-                  <button class="number_button_V" name="number" value="1" onclick="Number_Function(this)">1</button>
+                  <button class="number_button_V" name="Number" id="Number_Button" value="4" onclick="Number_Function(this)">4</button>
                 </td>
                 <td class="number_td_V">
-                  <button class="number_button_V" name="number" value="2" onclick="Number_Function(this)">2</button>
+                  <button class="number_button_V" name="Number" id="Number_Button" value="5" onclick="Number_Function(this)">5</button>
                 </td>
                 <td class="number_td_V">
-                  <button class="number_button_V" name="number" value="3" onclick="Number_Function(this)">3</button>
+                  <button class="number_button_V" name="Number" id="Number_Button" value="6" onclick="Number_Function(this)">6</button>
+                </td>
+              </tr>
+              <tr>
+                <td class="number_td_V">
+                  <button class="number_button_V" name="Number" id="Number_Button" value="1" onclick="Number_Function(this)">1</button>
+                </td>
+                <td class="number_td_V">
+                  <button class="number_button_V" name="Number" id="Number_Button" value="2" onclick="Number_Function(this)">2</button>
+                </td>
+                <td class="number_td_V">
+                  <button class="number_button_V" name="Number" id="Number_Button" value="3" onclick="Number_Function(this)">3</button>
                 </td>
               </tr>
               <tr>
@@ -110,7 +113,8 @@
     </div>
     <!-- 横画面-->
     <div class="sp_yoko">
-      <input type="text" class="result_input_S" style="width: 99%;">
+      <!-- <input type="text" class="result_input_S" style="width: 99%;"> -->
+      <input type="text" class="result_input_S" id="Input_Result_S" style="width:99%;" readonly>
       <div class="yokoside">
 
         <!-- 数値、演算子-->
@@ -226,16 +230,22 @@
   <!-- jQueryプラグイン -->
   <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc="
     crossorigin="anonymous"></script>
-  <script src="JavaScript/Android.js"></script>
     <!-- 長押しによる全消去-->
     <script>
       $("#CLEAR").mouseup(function(){
 		    clearInterval(timer1);
 	      }).mousedown(function(){
 	        timer1 = setTimeout(function(){
-	          $("#result").val(null);
+            $("#Input_Result").val(null);
+            $("#Hidden_Result").val(null);
 	          },2000);
-	      });
+        });
+        
+        // ボタン押毎時、縦画面のテキストボックスの中身を取得し、横のテキストボックスに貼り付け
+        $('button').click(function(){
+          var goo = document.getElementById("Input_Result").value;
+          document.getElementById("Input_Result_S").value = goo;
+        });
     </script>
 </body>
 
